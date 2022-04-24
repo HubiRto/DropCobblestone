@@ -26,13 +26,13 @@ public class Cobblestone {
         cobblestone_meta.setDisplayName(ChatColor.GREEN + "Wypadanie bruku");
         ArrayList<String> lore = new ArrayList<String>();
 
-        lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
-            lore.add(ChatColor.WHITE + "Aktywny: " + ChatColor.GREEN + "Tak");
+            lore.add(ChatColor.GRAY + "Aktualnie aktywny: " + ChatColor.GREEN + "Tak");
         }else {
-            lore.add(ChatColor.WHITE + "Aktywny: " + ChatColor.RED + "Nie");
+            lore.add(ChatColor.GRAY + "Aktualnie aktywny: " + ChatColor.RED + "Nie");
         }
         lore.add(" ");
+        lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         cobblestone_meta.setLore(lore);
         cobblestone.setItemMeta(cobblestone_meta);

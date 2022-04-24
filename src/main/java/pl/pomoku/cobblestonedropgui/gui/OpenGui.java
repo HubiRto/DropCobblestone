@@ -16,6 +16,7 @@ public class OpenGui {
         ItemStack emerald = Emerald.emerald(p);
         ItemStack hopper = Hopper.hopper(p);
         ItemStack cobblestone = Cobblestone.cobblestone(p);
+        ItemStack limestainedglasspane = Limestainedglasspane.limestainedglasspane(p);
 
         i.setItem(11, iron);
         i.setItem(12, gold);
@@ -23,6 +24,7 @@ public class OpenGui {
         i.setItem(14, emerald);
         i.setItem(0, hopper);
         i.setItem(1, cobblestone);
+        i.setItem(3, limestainedglasspane);
 
         p.openInventory(i);
     }

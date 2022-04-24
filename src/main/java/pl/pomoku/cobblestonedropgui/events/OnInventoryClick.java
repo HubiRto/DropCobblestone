@@ -44,6 +44,16 @@ public class OnInventoryClick implements Listener {
                 p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
+            case LIME_STAINED_GLASS_PANE:
+                plugin.getConfig().set(uuid + ".cobblestone", "true");
+                plugin.getConfig().set(uuid + ".iron", "true");
+                plugin.getConfig().set(uuid + ".gold", "true");
+                plugin.getConfig().set(uuid + ".obsidian", "true");
+                plugin.getConfig().set(uuid + ".emerald", "true");
+                plugin.saveConfig();
+                p.closeInventory();
+                OpenGui.OpenGui(p);
+                break;
             case IRON_INGOT:
                 if(plugin.getConfig().getString(uuid + ".iron") == "true") {
                     plugin.getConfig().set(uuid + ".iron", "false");
