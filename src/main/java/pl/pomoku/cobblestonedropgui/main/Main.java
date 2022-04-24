@@ -36,6 +36,7 @@ public final class Main extends JavaPlugin {
         new DropCmds(this);
         new Cobblestone(this);
         new Limestainedglasspane(this);
+        new Blackstainedglasspane(this);
 
 
         getServer().getPluginManager().registerEvents(new OnBreak(this), this);
