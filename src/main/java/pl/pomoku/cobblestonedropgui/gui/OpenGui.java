@@ -18,6 +18,7 @@ public class OpenGui {
         ItemStack cobblestone = Cobblestone.cobblestone(p);
         ItemStack limestainedglasspane = Limestainedglasspane.limestainedglasspane(p);
         ItemStack blackstainedglasspane = Blackstainedglasspane.blackstainedglasspane(p);
+        ItemStack redstainedglasspane = Redstainedglasspane.redstainedglasspane(p);
 
         i.setItem(22, iron);
         i.setItem(23, gold);
@@ -26,6 +27,7 @@ public class OpenGui {
         i.setItem(0, hopper);
         i.setItem(1, cobblestone);
         i.setItem(3, limestainedglasspane);
+        i.setItem(5, redstainedglasspane);
         i.setItem(2, blackstainedglasspane);
         i.setItem(6, blackstainedglasspane);
         i.setItem(9, blackstainedglasspane);

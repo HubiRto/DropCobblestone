@@ -23,13 +23,9 @@ public class Blackstainedglasspane {
         ItemStack blackstainedglasspane = new ItemStack(Material.BLACK_STAINED_GLASS_PANE);
         ItemMeta blackstainedglasspane_meta = blackstainedglasspane.getItemMeta();
 
-        blackstainedglasspane_meta.setDisplayName(ChatColor.GREEN + "Wlacz wszystkie dropy");
+        blackstainedglasspane_meta.setDisplayName(ChatColor.GREEN + " ");
         ArrayList<String> lore = new ArrayList<String>();
-
-        lore.add(ChatColor.GRAY + "Po kliknieciu kazdy przedmiot z");
-        lore.add(ChatColor.GRAY + "dropu bedzie wypadac po wykopaniu.");
         lore.add(" ");
-        lore.add(ChatColor.YELLOW + "Kliknij, aby wlaczyc!");
 
         blackstainedglasspane_meta.setLore(lore);
         blackstainedglasspane.setItemMeta(blackstainedglasspane_meta);
