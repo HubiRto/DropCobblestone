@@ -29,9 +29,22 @@ public class OnBreak implements Listener {
         ItemStack gold = new ItemStack(Material.GOLD_INGOT);
         ItemStack obsidian = new ItemStack(Material.OBSIDIAN);
         ItemStack emerald = new ItemStack(Material.EMERALD);
+        ItemStack cobblestone = new ItemStack(Material.COBBLESTONE);
 
         if(b.getType() == Material.STONE) {
             int rand = Random.getRandom();
+
+            if(plugin.getConfig().getString(uuid + ".eq") == "true") {
+                if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                    p.getLocation().getWorld().dropItemNaturally(p.getLocation(), cobblestone);
+                    //p.sendMessage("i1");
+                }
+            }else {
+                if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                    p.getInventory().addItem(new ItemStack(Material.COBBLESTONE));
+                    //p.sendMessage("i2");
+                }
+            }
 
             if(rand <= 4) { //40%
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {

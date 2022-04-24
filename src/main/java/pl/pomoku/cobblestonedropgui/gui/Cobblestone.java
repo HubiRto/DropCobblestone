@@ -27,15 +27,14 @@ public class Cobblestone {
         ArrayList<String> lore = new ArrayList<String>();
 
         lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".iron") == "true") {
-            lore.add(ChatColor.GRAY + "Aktualnie aktywne: " + ChatColor.GREEN + "Tak");
+        if(plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+            lore.add(ChatColor.WHITE + "Aktywny: " + ChatColor.GREEN + "Tak");
         }else {
-            lore.add(ChatColor.GRAY + "Aktualnie aktywne: " + ChatColor.RED + "Nie");
+            lore.add(ChatColor.WHITE + "Aktywny: " + ChatColor.RED + "Nie");
         }
         lore.add(" ");
-        lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
-        cobblestone.setLore(lore);
+        cobblestone_meta.setLore(lore);
         cobblestone.setItemMeta(cobblestone_meta);
 
         return cobblestone;

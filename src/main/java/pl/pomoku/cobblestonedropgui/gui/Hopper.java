@@ -23,16 +23,16 @@ public class Hopper {
         ItemStack hopper = new ItemStack(Material.HOPPER);
         ItemMeta hopper_meta = hopper.getItemMeta();
 
-        hopper_meta.setDisplayName(ChatColor.DARK_GRAY + "Dropdoeq");
+        hopper_meta.setDisplayName(ChatColor.GREEN + "Drop, gdy EQ pelne");
         ArrayList<String> lore = new ArrayList<String>();
 
-        lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".eq") == "true") {
-            lore.add(ChatColor.WHITE + "Aktywny: " + ChatColor.RED + "Nie");
+            lore.add(ChatColor.GRAY + "Aktualnie aktywny: " + ChatColor.RED + "Nie");
         }else {
-            lore.add(ChatColor.WHITE + "Aktywny: " + ChatColor.GREEN + "Tak");
+            lore.add(ChatColor.GRAY + "Aktualnie aktywny: " + ChatColor.GREEN + "Tak");
         }
         lore.add(" ");
+        lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         hopper_meta.setLore(lore);
         hopper.setItemMeta(hopper_meta);

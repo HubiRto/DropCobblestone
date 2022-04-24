@@ -33,6 +33,17 @@ public class OnInventoryClick implements Listener {
         }
 
         switch(e.getCurrentItem().getType()) {
+            case COBBLESTONE:
+                if(plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                    plugin.getConfig().set(uuid + ".cobblestone", "false");
+                    plugin.saveConfig();
+                }else {
+                    plugin.getConfig().set(uuid + ".cobblestone", "true");
+                    plugin.saveConfig();
+                }
+                p.closeInventory();
+                OpenGui.OpenGui(p);
+                break;
             case IRON_INGOT:
                 if(plugin.getConfig().getString(uuid + ".iron") == "true") {
                     plugin.getConfig().set(uuid + ".iron", "false");

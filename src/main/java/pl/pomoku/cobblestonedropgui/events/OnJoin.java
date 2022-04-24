@@ -24,6 +24,7 @@ public class OnJoin implements Listener {
             UUID uuid = p.getUniqueId();
 
             plugin.getConfig().set(uuid + ".eq", true);
+            plugin.getConfig().set(uuid + ".cobblestone", true);
             plugin.getConfig().set(uuid + ".iron", true);
             plugin.getConfig().set(uuid + ".gold", true);
             plugin.getConfig().set(uuid + ".obsidian", true);

@@ -34,6 +34,7 @@ public final class Main extends JavaPlugin {
         new Obsidian(this);
         new Hopper(this);
         new DropCmds(this);
+        new Cobblestone(this);
 
 
         getServer().getPluginManager().registerEvents(new OnBreak(this), this);
