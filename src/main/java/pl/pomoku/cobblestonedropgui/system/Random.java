@@ -2,7 +2,7 @@ package pl.pomoku.cobblestonedropgui.system;
 
 public class Random {
     public static int getRandom() {
-        int max = 10;
+        int max = 10000;
         int min = 1;
         int range = max - min + 1;
 
