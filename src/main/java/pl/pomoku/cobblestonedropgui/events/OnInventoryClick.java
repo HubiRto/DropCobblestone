@@ -171,6 +171,12 @@ public class OnInventoryClick implements Listener {
                 plugin.getConfig().set(uuid + ".gold", "true");
                 plugin.getConfig().set(uuid + ".obsidian", "true");
                 plugin.getConfig().set(uuid + ".emerald", "true");
+                plugin.getConfig().set(uuid + ".diamond", "true");
+                plugin.getConfig().set(uuid + ".redstone", "true");
+                plugin.getConfig().set(uuid + ".netherite", "true");
+                plugin.getConfig().set(uuid + ".slimeball", "true");
+                plugin.getConfig().set(uuid + ".bookshelf", "true");
+
                 plugin.saveConfig();
                 p.closeInventory();
                 OpenGui.OpenGui(p);

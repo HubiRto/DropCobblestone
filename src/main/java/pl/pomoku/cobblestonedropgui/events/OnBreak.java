@@ -9,11 +9,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import pl.pomoku.cobblestonedropgui.main.Main;
-import pl.pomoku.cobblestonedropgui.system.Random;
-import pl.pomoku.cobblestonedropgui.system.Random_2;
-import pl.pomoku.cobblestonedropgui.system.Random_3;
+import pl.pomoku.cobblestonedropgui.system.*;
 
 import java.util.UUID;
+
+import static pl.pomoku.cobblestonedropgui.system.Random.itemAmoundRandom;
+import static pl.pomoku.cobblestonedropgui.system.Random.percentChance;
 
 public class OnBreak implements Listener {
     Main plugin;
@@ -21,6 +22,7 @@ public class OnBreak implements Listener {
     public OnBreak(Main m) {
         plugin = m;
     }
+
 
     @EventHandler
     public void OnBreak (BlockBreakEvent e) {
@@ -48,9 +50,6 @@ public class OnBreak implements Listener {
         ItemStack cobblestone = new ItemStack(Material.COBBLESTONE);
 
         if(b.getType() == Material.STONE) {
-            int rand = Random.getRandom();
-            int rand_2 = Random_2.getRandom();
-            int rand_3 = Random_3.getRandom();
 
             if(plugin.getConfig().getString(uuid + ".eq") == "true") {
                 if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
@@ -65,65 +64,68 @@ public class OnBreak implements Listener {
             }
 
 
-            if(rand <= 1300) { //40%
+            if(percentChance(0.25)) {
                 if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".diamond") == "true") {
-                        diamond.setAmount(diamond.getAmount() * rand_2);
+                        diamond.setAmount(diamond.getAmount() * itemAmoundRandom(1,3));
                         p.getLocation().getWorld().dropItemNaturally(blockLocation, diamond);
                         //p.sendMessage("i1");
                     }
                 } else {
                     if (plugin.getConfig().getString(uuid + ".diamond") == "true") {
-                        p.getInventory().addItem(new ItemStack(Material.DIAMOND, rand_2));
+                        p.getInventory().addItem(new ItemStack(Material.DIAMOND, itemAmoundRandom(1,3)));
                         //p.sendMessage("i2");
                     }
                 }
-            }if(rand <= 1100) { //40%
+            }else if(percentChance(0.11)) {
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".emerald") == "true") {
-                        emerald.setAmount(emerald.getAmount() * rand_3);
+                        emerald.setAmount(emerald.getAmount() * itemAmoundRandom(1,2));
                         p.getLocation().getWorld().dropItemNaturally(blockLocation, emerald);
                         //p.sendMessage("i1");
                     }
                 }else {
                     if (plugin.getConfig().getString(uuid + ".emerald") == "true") {
-                        p.getInventory().addItem(new ItemStack(Material.EMERALD, rand_3));
+                        p.getInventory().addItem(new ItemStack(Material.EMERALD, itemAmoundRandom(1,2)));
                         //p.sendMessage("i2");
                     }
                 }
-            }else if (rand > 4 && rand <= 7) { //30%
+            }else if (percentChance(0.18)) {
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
-                    if (plugin.getConfig().getString(uuid + ".gold") == "true") {
-                        p.getLocation().getWorld().dropItemNaturally(p.getLocation(), gold);
+                    if (plugin.getConfig().getString(uuid + ".iron") == "true") {
+                        iron.setAmount(iron.getAmount() * itemAmoundRandom(2,4));
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, iron);
                         //p.sendMessage("g");
                     }
                 }else {
-                    if (plugin.getConfig().getString(uuid + ".gold") == "true") {
-                        p.getInventory().addItem(new ItemStack(Material.GOLD_INGOT));
+                    if (plugin.getConfig().getString(uuid + ".iron") == "true") {
+                        p.getInventory().addItem(new ItemStack(Material.IRON_INGOT, itemAmoundRandom(2,4)));
                         //p.sendMessage("g");
                     }
                 }
-            }else if (rand > 7 && rand <= 9) { //20%
+            }else if (percentChance(0.11)) { //20%
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
-                    if (plugin.getConfig().getString(uuid + ".obsidian") == "true") {
-                        p.getLocation().getWorld().dropItemNaturally(p.getLocation(), obsidian);
+                    if (plugin.getConfig().getString(uuid + ".gold") == "true") {
+                        gold.setAmount(gold.getAmount() * itemAmoundRandom(2,3));
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, gold);
                         //p.sendMessage("g");
                     }
                 }else {
-                    if (plugin.getConfig().getString(uuid + ".obsidian") == "true") {
-                        p.getInventory().addItem(new ItemStack(Material.OBSIDIAN));
+                    if (plugin.getConfig().getString(uuid + ".gold") == "true") {
+                        p.getInventory().addItem(new ItemStack(Material.GOLD_INGOT, itemAmoundRandom(2,3)));
                         //p.sendMessage("g");
                     }
                 }
-            }else if (rand == 10) { //10%
+            }else if (percentChance(0.09)) { //10%
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
-                    if (plugin.getConfig().getString(uuid + ".emerald") == "true") {
-                        p.getLocation().getWorld().dropItemNaturally(p.getLocation(), emerald);
+                    if (plugin.getConfig().getString(uuid + ".obsidian") == "true") {
+                        obsidian.setAmount(obsidian.getAmount() * itemAmoundRandom(1,4));
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, obsidian);
                         //p.sendMessage("g");
                     }
                 }else {
-                    if (plugin.getConfig().getString(uuid + ".emerald") == "true") {
-                        p.getInventory().addItem(new ItemStack(Material.EMERALD));
+                    if (plugin.getConfig().getString(uuid + ".obsidian") == "true") {
+                        p.getInventory().addItem(new ItemStack(Material.OBSIDIAN, itemAmoundRandom(1,4)));
                         //p.sendMessage("g");
                     }
                 }
