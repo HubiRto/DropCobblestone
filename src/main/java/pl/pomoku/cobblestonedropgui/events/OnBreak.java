@@ -9,6 +9,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import pl.pomoku.cobblestonedropgui.main.Main;
 import pl.pomoku.cobblestonedropgui.system.Random;
+import pl.pomoku.cobblestonedropgui.system.Random_2;
 
 import java.util.UUID;
 
@@ -33,6 +34,7 @@ public class OnBreak implements Listener {
 
         if(b.getType() == Material.STONE) {
             int rand = Random.getRandom();
+            int rand_2 = Random_2.getRandom();
 
             if(plugin.getConfig().getString(uuid + ".eq") == "true") {
                 if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
@@ -46,15 +48,28 @@ public class OnBreak implements Listener {
                 }
             }
 
-            if(rand <= 4) { //40%
+
+            if(rand <= 1300) { //40%
+                if (plugin.getConfig().getString(uuid + ".eq") == "true") {
+                    if (plugin.getConfig().getString(uuid + ".diamond") == "true") {
+                        p.getLocation().getWorld().dropItemNaturally(p.getLocation(), iron);
+                        //p.sendMessage("i1");
+                    }
+                } else {
+                    if (plugin.getConfig().getString(uuid + ".diamond") == "true") {
+                        p.getInventory().addItem(new ItemStack(Material.DIAMOND, rand_2));
+                        //p.sendMessage("i2");
+                    }
+                }
+            }if(rand <= 1100) { //40%
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
-                    if (plugin.getConfig().getString(uuid + ".iron") == "true") {
+                    if (plugin.getConfig().getString(uuid + ".emerald") == "true") {
                         p.getLocation().getWorld().dropItemNaturally(p.getLocation(), iron);
                         //p.sendMessage("i1");
                     }
                 }else {
-                    if (plugin.getConfig().getString(uuid + ".iron") == "true") {
-                        p.getInventory().addItem(new ItemStack(Material.IRON_INGOT));
+                    if (plugin.getConfig().getString(uuid + ".emerald") == "true") {
+                        p.getInventory().addItem(new ItemStack(Material.EMERALD));
                         //p.sendMessage("i2");
                     }
                 }
