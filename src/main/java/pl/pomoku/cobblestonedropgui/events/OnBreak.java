@@ -49,6 +49,11 @@ public class OnBreak implements Listener {
         ItemStack emerald = new ItemStack(Material.EMERALD);
         ItemStack cobblestone = new ItemStack(Material.COBBLESTONE);
 
+        if(b.getType().toString().contains("_ORE")) {
+            e.setDropItems(false);
+            e.setExpToDrop(0);
+        }
+
         if(b.getType() == Material.STONE) {
 
             if(plugin.getConfig().getString(uuid + ".eq") == "true") {
