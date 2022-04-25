@@ -10,35 +10,35 @@ import pl.pomoku.cobblestonedropgui.main.Main;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Obsidian {
+public class Tnt {
 
     static Main plugin;
-    public Obsidian(Main m) {
+    public Tnt(Main m) {
         plugin = m;
     }
 
-    public static ItemStack obsidian(Player p) {
+    public static ItemStack tnt(Player p) {
         UUID uuid = p.getUniqueId();
 
-        ItemStack obsidian = new ItemStack(Material.OBSIDIAN);
-        ItemMeta obsidian_meta = obsidian.getItemMeta();
+        ItemStack tnt = new ItemStack(Material.TNT);
+        ItemMeta tnt_meta = tnt.getItemMeta();
 
-        obsidian_meta.setDisplayName(ChatColor.DARK_GRAY + "Obsydian");
+        tnt_meta.setDisplayName(ChatColor.RED + "T" + ChatColor.WHITE + "N" + ChatColor.RED + "T");
         ArrayList<String> lore = new ArrayList<String>();
 
-        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "9.0%");
-        lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-4" + ChatColor.GRAY + " szt.");
+        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.3%");
+        lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-3" + ChatColor.GRAY + " szt.");
         lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".obsidian") == "true") {
+        if(plugin.getConfig().getString(uuid + ".tnt") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
-        obsidian_meta.setLore(lore);
-        obsidian.setItemMeta(obsidian_meta);
+        tnt_meta.setLore(lore);
+        tnt.setItemMeta(tnt_meta);
 
-        return obsidian;
+        return tnt;
     }
 }

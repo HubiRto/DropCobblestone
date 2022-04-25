@@ -29,6 +29,17 @@ public class OnJoin implements Listener {
             plugin.getConfig().set(uuid + ".gold", true);
             plugin.getConfig().set(uuid + ".obsidian", true);
             plugin.getConfig().set(uuid + ".emerald", true);
+            plugin.getConfig().set(uuid + ".diamond", true);
+            plugin.getConfig().set(uuid + ".apple", true);
+            plugin.getConfig().set(uuid + ".enderpearl", true);
+            plugin.getConfig().set(uuid + ".arrow", true);
+            plugin.getConfig().set(uuid + ".oaklog", true);
+            plugin.getConfig().set(uuid + ".redstone", true);
+            plugin.getConfig().set(uuid + ".slimeball", true);
+            plugin.getConfig().set(uuid + ".tnt", true);
+            plugin.getConfig().set(uuid + ".coal", true);
+            plugin.getConfig().set(uuid + ".bookshelf", true);
+            plugin.getConfig().set(uuid + ".netherite", true);
             plugin.saveConfig();
         }
     }

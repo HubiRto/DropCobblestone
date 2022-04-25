@@ -23,17 +23,19 @@ public class Emerald {
         ItemStack emerald = new ItemStack(Material.EMERALD);
         ItemMeta emerald_meta = emerald.getItemMeta();
 
-        emerald_meta.setDisplayName(ChatColor.DARK_GRAY + "Emerald");
+        emerald_meta.setDisplayName(ChatColor.DARK_GRAY + "Szmaragd");
         ArrayList<String> lore = new ArrayList<String>();
 
+        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "11.0%");
+        lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-2" + ChatColor.GRAY + " szt.");
         lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".emerald") == "true") {
-            lore.add(ChatColor.WHITE + "Aktywny: " + ChatColor.GREEN + "Tak");
+        if(plugin.getConfig().getString(uuid + ".diamond") == "true") {
+            lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
         }else {
-            lore.add(ChatColor.WHITE + "Aktywny: " + ChatColor.RED + "Nie");
+            lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
-        lore.add(" ");
-        
+        lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
+
         emerald_meta.setLore(lore);
         emerald.setItemMeta(emerald_meta);
 

@@ -23,16 +23,18 @@ public class Iron {
         ItemStack iron = new ItemStack(Material.IRON_INGOT);
         ItemMeta iron_meta = iron.getItemMeta();
 
-        iron_meta.setDisplayName(ChatColor.DARK_GRAY + "Sztabka zelaza");
+        iron_meta.setDisplayName(ChatColor.DARK_GRAY + "Zelazo");
         ArrayList<String> lore = new ArrayList<String>();
 
+        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "18.0%");
+        lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "2-4" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".iron") == "true") {
-            lore.add(ChatColor.WHITE + "Aktywny: " + ChatColor.GREEN + "Tak");
+            lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
         }else {
-            lore.add(ChatColor.WHITE + "Aktywny: " + ChatColor.RED + "Nie");
+            lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
-        lore.add(" ");
+        lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         iron_meta.setLore(lore);
         iron.setItemMeta(iron_meta);

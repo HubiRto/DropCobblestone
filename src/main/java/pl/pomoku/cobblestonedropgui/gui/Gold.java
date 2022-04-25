@@ -23,16 +23,18 @@ public class Gold {
         ItemStack gold = new ItemStack(Material.GOLD_INGOT);
         ItemMeta gold_meta = gold.getItemMeta();
 
-        gold_meta.setDisplayName(ChatColor.DARK_GRAY + "Sztabka zlota");
+        gold_meta.setDisplayName(ChatColor.DARK_GRAY + "Zelazo");
         ArrayList<String> lore = new ArrayList<String>();
 
+        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "10.0%");
+        lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "2-3" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".gold") == "true") {
-            lore.add(ChatColor.WHITE + "Aktywny: " + ChatColor.GREEN + "Tak");
+            lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
         }else {
-            lore.add(ChatColor.WHITE + "Aktywny: " + ChatColor.RED + "Nie");
+            lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
-        lore.add(" ");
+        lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         gold_meta.setLore(lore);
         gold.setItemMeta(gold_meta);

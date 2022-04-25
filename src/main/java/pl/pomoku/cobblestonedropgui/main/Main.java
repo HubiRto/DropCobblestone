@@ -38,6 +38,20 @@ public final class Main extends JavaPlugin {
         new Limestainedglasspane(this);
         new Blackstainedglasspane(this);
         new Redstainedglasspane(this);
+        new Diamond(this);
+        new Redstone(this);
+        new Tnt(this);
+        new Slimeball(this);
+        new Oaklog(this);
+        new Netherite(this);
+        new GlowTnt(this);
+        new Enderpearl(this);
+        new Enderchest(this);
+        new Coal(this);
+        new Chest(this);
+        new Bookshelf(this);
+        new Arrow(this);
+        new Apple(this);
 
 
         getServer().getPluginManager().registerEvents(new OnBreak(this), this);

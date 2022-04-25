@@ -15,22 +15,57 @@ public class OpenGui {
         ItemStack obsidian = Obsidian.obsidian(p);
         ItemStack emerald = Emerald.emerald(p);
         ItemStack hopper = Hopper.hopper(p);
+        ItemStack coal = Coal.coal(p);
+        ItemStack apple = Apple.apple(p);
+        ItemStack tnt = Tnt.tnt(p);
+        ItemStack slimeball = Slimeball.slimeball(p);
+        ItemStack redstone = Redstone.redstone(p);
+        ItemStack oaklog = Oaklog.oaklog(p);
+        ItemStack netherite = Netherite.netherite(p);
+        ItemStack glowtnt = GlowTnt.glowtnt(p);
+        ItemStack enderpearl = Enderpearl.enderpearl(p);
+        ItemStack enderchest = Enderchest.enderchest(p);
+        ItemStack chest = Chest.chest(p);
+        ItemStack bookshelf = Bookshelf.bookshelf(p);
+        ItemStack arrow = Arrow.arrow(p);
+        ItemStack diamond = Diamond.diamond(p);
         ItemStack cobblestone = Cobblestone.cobblestone(p);
         ItemStack limestainedglasspane = Limestainedglasspane.limestainedglasspane(p);
         ItemStack blackstainedglasspane = Blackstainedglasspane.blackstainedglasspane(p);
         ItemStack redstainedglasspane = Redstainedglasspane.redstainedglasspane(p);
 
+        i.setItem(20, diamond);
+        i.setItem(21, emerald);
         i.setItem(22, iron);
         i.setItem(23, gold);
         i.setItem(24, obsidian);
-        i.setItem(21, emerald);
+
+        i.setItem(27, chest);
+        i.setItem(29, redstone);
+        i.setItem(30, netherite);
+        i.setItem(31, slimeball);
+        i.setItem(32, bookshelf);
+        i.setItem(33, enderpearl);
+        i.setItem(35, enderchest);
+
+        i.setItem(38, tnt);
+        i.setItem(39, apple);
+        i.setItem(40, coal);
+        i.setItem(41, oaklog);
+        i.setItem(42, arrow);
+
         i.setItem(0, hopper);
         i.setItem(1, cobblestone);
+
         i.setItem(3, limestainedglasspane);
+
         i.setItem(5, redstainedglasspane);
+        i.setItem(8, glowtnt);
+
         i.setItem(2, blackstainedglasspane);
         i.setItem(6, blackstainedglasspane);
         i.setItem(9, blackstainedglasspane);
+
         i.setItem(10, blackstainedglasspane);
         i.setItem(11, blackstainedglasspane);
         i.setItem(12, blackstainedglasspane);
