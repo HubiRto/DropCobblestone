@@ -8,7 +8,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class Blackstainedglasspane {
 
@@ -17,17 +16,13 @@ public class Blackstainedglasspane {
         plugin = m;
     }
 
-    public static ItemStack blackstainedglasspane(Player p) {
-        UUID uuid = p.getUniqueId();
+    public static ItemStack blackstainedglasspane() {
 
         ItemStack blackstainedglasspane = new ItemStack(Material.BLACK_STAINED_GLASS_PANE);
         ItemMeta blackstainedglasspane_meta = blackstainedglasspane.getItemMeta();
 
-        blackstainedglasspane_meta.setDisplayName(ChatColor.GREEN + " ");
-        ArrayList<String> lore = new ArrayList<String>();
-        lore.add(" ");
+        blackstainedglasspane_meta.setDisplayName(" ");
 
-        blackstainedglasspane_meta.setLore(lore);
         blackstainedglasspane.setItemMeta(blackstainedglasspane_meta);
 
         return blackstainedglasspane;

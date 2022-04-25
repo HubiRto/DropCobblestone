@@ -31,7 +31,7 @@ public class OpenGui {
         ItemStack diamond = Diamond.diamond(p);
         ItemStack cobblestone = Cobblestone.cobblestone(p);
         ItemStack limestainedglasspane = Limestainedglasspane.limestainedglasspane(p);
-        ItemStack blackstainedglasspane = Blackstainedglasspane.blackstainedglasspane(p);
+        ItemStack blackstainedglasspane = Blackstainedglasspane.blackstainedglasspane();
         ItemStack redstainedglasspane = Redstainedglasspane.redstainedglasspane(p);
 
         i.setItem(20, diamond);
