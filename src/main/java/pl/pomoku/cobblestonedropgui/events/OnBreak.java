@@ -1,5 +1,6 @@
 package pl.pomoku.cobblestonedropgui.events;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -10,6 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import pl.pomoku.cobblestonedropgui.main.Main;
 import pl.pomoku.cobblestonedropgui.system.Random;
 import pl.pomoku.cobblestonedropgui.system.Random_2;
+import pl.pomoku.cobblestonedropgui.system.Random_3;
 
 import java.util.UUID;
 
@@ -26,6 +28,19 @@ public class OnBreak implements Listener {
         UUID uuid = p.getUniqueId();
         Block b = e.getBlock();
 
+        Location blockLocation = e.getBlock().getLocation();
+
+        ItemStack diamond = new ItemStack(Material.DIAMOND);
+        ItemStack redstone = new ItemStack(Material.REDSTONE);
+        ItemStack netherite = new ItemStack(Material.NETHERITE_INGOT);
+        ItemStack slimeball = new ItemStack(Material.SLIME_BALL);
+        ItemStack bookshelf = new ItemStack(Material.BOOKSHELF);
+        ItemStack enderpearl = new ItemStack(Material.ENDER_PEARL);
+        ItemStack tnt = new ItemStack(Material.TNT);
+        ItemStack apple = new ItemStack(Material.APPLE);
+        ItemStack coal = new ItemStack(Material.COAL);
+        ItemStack oaklog = new ItemStack(Material.OAK_LOG);
+        ItemStack arrow = new ItemStack(Material.ARROW);
         ItemStack iron = new ItemStack(Material.IRON_INGOT);
         ItemStack gold = new ItemStack(Material.GOLD_INGOT);
         ItemStack obsidian = new ItemStack(Material.OBSIDIAN);
@@ -35,10 +50,11 @@ public class OnBreak implements Listener {
         if(b.getType() == Material.STONE) {
             int rand = Random.getRandom();
             int rand_2 = Random_2.getRandom();
+            int rand_3 = Random_3.getRandom();
 
             if(plugin.getConfig().getString(uuid + ".eq") == "true") {
                 if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
-                    p.getLocation().getWorld().dropItemNaturally(p.getLocation(), cobblestone);
+                    p.getLocation().getWorld().dropItemNaturally(blockLocation, cobblestone);
                     //p.sendMessage("i1");
                 }
             }else {
@@ -52,7 +68,8 @@ public class OnBreak implements Listener {
             if(rand <= 1300) { //40%
                 if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".diamond") == "true") {
-                        p.getLocation().getWorld().dropItemNaturally(p.getLocation(), iron);
+                        diamond.setAmount(diamond.getAmount() * rand_2);
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, diamond);
                         //p.sendMessage("i1");
                     }
                 } else {
@@ -64,12 +81,13 @@ public class OnBreak implements Listener {
             }if(rand <= 1100) { //40%
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".emerald") == "true") {
-                        p.getLocation().getWorld().dropItemNaturally(p.getLocation(), iron);
+                        emerald.setAmount(emerald.getAmount() * rand_3);
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, emerald);
                         //p.sendMessage("i1");
                     }
                 }else {
                     if (plugin.getConfig().getString(uuid + ".emerald") == "true") {
-                        p.getInventory().addItem(new ItemStack(Material.EMERALD));
+                        p.getInventory().addItem(new ItemStack(Material.EMERALD, rand_3));
                         //p.sendMessage("i2");
                     }
                 }
