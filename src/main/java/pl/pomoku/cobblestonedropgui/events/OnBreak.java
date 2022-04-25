@@ -60,11 +60,17 @@ public class OnBreak implements Listener {
 
             if(plugin.getConfig().getString(uuid + ".eq") == "true") {
                 if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                    e.setDropItems(false);
                     p.getLocation().getWorld().dropItemNaturally(blockLocation, cobblestone);
+                }else {
+                    e.setDropItems(false);
                 }
             }else {
                 if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                    e.setDropItems(false);
                     p.getInventory().addItem(new ItemStack(Material.COBBLESTONE));
+                }else {
+                    e.setDropItems(false);
                 }
             }
 
