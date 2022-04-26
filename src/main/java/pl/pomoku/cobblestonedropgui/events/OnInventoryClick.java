@@ -176,6 +176,12 @@ public class OnInventoryClick implements Listener {
                 plugin.getConfig().set(uuid + ".netherite", "true");
                 plugin.getConfig().set(uuid + ".slimeball", "true");
                 plugin.getConfig().set(uuid + ".bookshelf", "true");
+                plugin.getConfig().set(uuid + ".enderpearl", "true");
+                plugin.getConfig().set(uuid + ".tnt", "true");
+                plugin.getConfig().set(uuid + ".apple", "true");
+                plugin.getConfig().set(uuid + ".coal", "true");
+                plugin.getConfig().set(uuid + ".oaklog", "true");
+                plugin.getConfig().set(uuid + ".arrow", "true");
 
                 plugin.saveConfig();
                 p.closeInventory();
@@ -187,6 +193,17 @@ public class OnInventoryClick implements Listener {
                 plugin.getConfig().set(uuid + ".gold", "false");
                 plugin.getConfig().set(uuid + ".obsidian", "false");
                 plugin.getConfig().set(uuid + ".emerald", "false");
+                plugin.getConfig().set(uuid + ".diamond", "false");
+                plugin.getConfig().set(uuid + ".redstone", "false");
+                plugin.getConfig().set(uuid + ".netherite", "false");
+                plugin.getConfig().set(uuid + ".slimeball", "false");
+                plugin.getConfig().set(uuid + ".bookshelf", "false");
+                plugin.getConfig().set(uuid + ".enderpearl", "false");
+                plugin.getConfig().set(uuid + ".tnt", "false");
+                plugin.getConfig().set(uuid + ".apple", "false");
+                plugin.getConfig().set(uuid + ".coal", "false");
+                plugin.getConfig().set(uuid + ".oaklog", "false");
+                plugin.getConfig().set(uuid + ".arrow", "false");
                 plugin.saveConfig();
                 p.closeInventory();
                 OpenGui.OpenGui(p);
