@@ -2,7 +2,9 @@ package pl.pomoku.cobblestonedropgui.gui;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import pl.pomoku.cobblestonedropgui.main.Main;
@@ -37,6 +39,8 @@ public class Netherite {
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         netherite_meta.setLore(lore);
+        netherite_meta.addEnchant(Enchantment.LUCK, 1, false);
+        netherite_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         netherite.setItemMeta(netherite_meta);
 
         return netherite;
