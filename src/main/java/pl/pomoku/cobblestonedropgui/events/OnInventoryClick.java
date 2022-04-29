@@ -41,7 +41,10 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".cobblestone", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
+                //p.updateInventory(); ---> Nie dziala
+                //Wyrzucialem zamykanie sie inventory i kusor sie nie przemieszcza
+                //p.closeInventory();
+                //Moga wystapic bledy z optymalizacja
                 OpenGui.OpenGui(p);
                 break;
             case DIAMOND:
@@ -52,7 +55,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".diamond", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case REDSTONE:
@@ -63,7 +65,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".redstone", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case NETHERITE_INGOT:
@@ -74,7 +75,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".netherite", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case SLIME_BALL:
@@ -85,7 +85,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".slimeball", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case BOOKSHELF:
@@ -96,7 +95,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".bookshelf", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case ENDER_PEARL:
@@ -107,7 +105,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".enderpearl", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case TNT:
@@ -118,7 +115,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".tnt", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case APPLE:
@@ -129,7 +125,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".apple", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case COAL:
@@ -140,7 +135,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".coal", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case OAK_LOG:
@@ -151,7 +145,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".oaklog", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case ARROW:
@@ -162,7 +155,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".arrow", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case LIME_STAINED_GLASS_PANE:
@@ -184,7 +176,6 @@ public class OnInventoryClick implements Listener {
                 plugin.getConfig().set(uuid + ".arrow", "true");
 
                 plugin.saveConfig();
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case RED_STAINED_GLASS_PANE:
@@ -205,7 +196,6 @@ public class OnInventoryClick implements Listener {
                 plugin.getConfig().set(uuid + ".oaklog", "false");
                 plugin.getConfig().set(uuid + ".arrow", "false");
                 plugin.saveConfig();
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case IRON_INGOT:
@@ -216,7 +206,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".iron", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case GOLD_INGOT:
@@ -227,7 +216,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".gold", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case OBSIDIAN:
@@ -238,7 +226,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".obsidian", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case EMERALD:
@@ -249,7 +236,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".emerald", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             case HOPPER:
@@ -260,7 +246,6 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".eq", "true");
                     plugin.saveConfig();
                 }
-                p.closeInventory();
                 OpenGui.OpenGui(p);
                 break;
             default:
