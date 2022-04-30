@@ -1,5 +1,7 @@
 package pl.pomoku.cobblestonedropgui.events;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -16,6 +18,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import pl.pomoku.cobblestonedropgui.main.Main;
 import pl.pomoku.cobblestonedropgui.system.*;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -25,8 +28,6 @@ import static pl.pomoku.cobblestonedropgui.system.Random.percentChance;
 
 public class OnBreak implements Listener {
     Main plugin;
-
-
 
     public OnBreak(Main m) {
         plugin = m;
@@ -39,7 +40,7 @@ public class OnBreak implements Listener {
         UUID uuid = p.getUniqueId();
         Block b = e.getBlock();
 
-//        Inventory inventory = p.getInventory();
+
 
         Location blockLocation = e.getBlock().getLocation();
 
@@ -96,7 +97,10 @@ public class OnBreak implements Listener {
                         p.getInventory().addItem(new ItemStack(Material.COBBLESTONE));
                     }else {
                         e.setDropItems(false);
-                        p.sendMessage(ChatColor.YELLOW + "Tryb zostal zmieniony");
+                        //p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.RED + "Nie masz miejsca w EQ!"));
+                        p.sendMessage(" ");
+                        p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                        p.sendMessage(" ");
                         plugin.getConfig().set(uuid + ".eq", "true");
                         plugin.saveConfig();
                     }
@@ -114,6 +118,7 @@ public class OnBreak implements Listener {
                     }
                 } else {
                     if (plugin.getConfig().getString(uuid + ".diamond") == "true") {
+                        //if(isInventoryFull(p, Material.DIAMOND, 64))
                         p.getInventory().addItem(new ItemStack(Material.DIAMOND, itemAmoundRandom(1,3)));
                     }
                 }
@@ -291,15 +296,17 @@ public class OnBreak implements Listener {
     private boolean isInventoryFull(Player p, Material mat, int MaxV) {
         boolean inventoryFull = true;
         if (p.getInventory().getContents() != null) {
-            for (ItemStack is : p.getInventory().getContents()) {
-                if (is != null) {
+            for (ItemStack is : p.getInventory().getStorageContents()) {
+                if(is != null) {
                     if (is.getType() == mat) {
                         if (is.getAmount() < MaxV) {
                             inventoryFull = false;
                         }
                     }
-                    //System.out.println(is.getType().toString() + " " + is.getAmount() + " "  + inventoryFull);
+                }else {
+                    inventoryFull = false;
                 }
+                //System.out.println(is.getType().toString() + " " + is.getAmount() + " "  + inventoryFull);
             }
         }
         return inventoryFull;
