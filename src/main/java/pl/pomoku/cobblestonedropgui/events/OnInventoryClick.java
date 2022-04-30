@@ -6,9 +6,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import pl.pomoku.cobblestonedropgui.gui.OpenGui;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class OnInventoryClick implements Listener {
@@ -18,6 +22,7 @@ public class OnInventoryClick implements Listener {
     public OnInventoryClick(Main m) {
         plugin = m;
     }
+
 
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent e) {
@@ -108,14 +113,25 @@ public class OnInventoryClick implements Listener {
                 OpenGui.OpenGui(p);
                 break;
             case TNT:
-                if(plugin.getConfig().getString(uuid + ".tnt") == "true") {
-                    plugin.getConfig().set(uuid + ".tnt", "false");
-                    plugin.saveConfig();
+                if(e.getCurrentItem().getItemMeta().getDisplayName().contains("Rzucane TNT")) {
+                    if (plugin.getConfig().getString(uuid + ".throwtnt") == "true") {
+                        plugin.getConfig().set(uuid + ".throwtnt", "false");
+                        plugin.saveConfig();
+                    } else {
+                        plugin.getConfig().set(uuid + ".throwtnt", "true");
+                        plugin.saveConfig();
+                    }
+                    OpenGui.OpenGui(p);
                 }else {
-                    plugin.getConfig().set(uuid + ".tnt", "true");
-                    plugin.saveConfig();
+                    if (plugin.getConfig().getString(uuid + ".tnt") == "true") {
+                        plugin.getConfig().set(uuid + ".tnt", "false");
+                        plugin.saveConfig();
+                    } else {
+                        plugin.getConfig().set(uuid + ".tnt", "true");
+                        plugin.saveConfig();
+                    }
+                    OpenGui.OpenGui(p);
                 }
-                OpenGui.OpenGui(p);
                 break;
             case APPLE:
                 if(plugin.getConfig().getString(uuid + ".apple") == "true") {

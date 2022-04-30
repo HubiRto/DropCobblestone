@@ -29,7 +29,7 @@ public class GlowTnt {
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.2%");
         lore.add(ChatColor.GRAY + "Rangi Premium: " + ChatColor.LIGHT_PURPLE + "+0.005%");
         lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".glowtnt") == "true") {
+        if(plugin.getConfig().getString(uuid + ".throwtnt") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");

@@ -1,16 +1,23 @@
 package pl.pomoku.cobblestonedropgui.events;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import pl.pomoku.cobblestonedropgui.main.Main;
 import pl.pomoku.cobblestonedropgui.system.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import static pl.pomoku.cobblestonedropgui.system.Random.itemAmoundRandom;
@@ -18,6 +25,8 @@ import static pl.pomoku.cobblestonedropgui.system.Random.percentChance;
 
 public class OnBreak implements Listener {
     Main plugin;
+
+
 
     public OnBreak(Main m) {
         plugin = m;
@@ -29,6 +38,8 @@ public class OnBreak implements Listener {
         Player p = e.getPlayer();
         UUID uuid = p.getUniqueId();
         Block b = e.getBlock();
+
+//        Inventory inventory = p.getInventory();
 
         Location blockLocation = e.getBlock().getLocation();
 
@@ -49,6 +60,18 @@ public class OnBreak implements Listener {
         ItemStack emerald = new ItemStack(Material.EMERALD);
         ItemStack cobblestone = new ItemStack(Material.COBBLESTONE);
 
+        ItemStack throwtnt = new ItemStack(Material.TNT);
+        ItemMeta throwtnt_meta = throwtnt.getItemMeta();
+        throwtnt_meta.setDisplayName(ChatColor.RED + "Rzucane TNT");
+        List<String> throwtnt_lore = new ArrayList<>();
+        throwtnt_lore.add(ChatColor.YELLOW + "Przytrzymaj PPM, aby rzucic");
+        throwtnt_lore.add(ChatColor.YELLOW + "lub pozostaw na ziemi.");
+        throwtnt_meta.setLore(throwtnt_lore);
+        throwtnt_meta.addEnchant(Enchantment.LUCK, 1, false);
+        throwtnt_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        throwtnt.setItemMeta(throwtnt_meta);
+
+
         if(b.getType().toString().contains("_ORE")) {
             e.setDropItems(false); //Zablokowanie wypadania itemow z rud
             //e.getBlock().setType(Material.AIR);
@@ -68,9 +91,16 @@ public class OnBreak implements Listener {
                 }
             }else {
                 if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
-                    e.setDropItems(false);
-                    p.getInventory().addItem(new ItemStack(Material.COBBLESTONE));
-                }else {
+                    if(isInventoryFull(p, Material.COBBLESTONE, 64) == false) {
+                        e.setDropItems(false);
+                        p.getInventory().addItem(new ItemStack(Material.COBBLESTONE));
+                    }else {
+                        e.setDropItems(false);
+                        p.sendMessage(ChatColor.YELLOW + "Tryb zostal zmieniony");
+                        plugin.getConfig().set(uuid + ".eq", "true");
+                        plugin.saveConfig();
+                    }
+                } else {
                     e.setDropItems(false);
                 }
             }
@@ -98,6 +128,18 @@ public class OnBreak implements Listener {
                         p.getInventory().addItem(new ItemStack(Material.EMERALD, itemAmoundRandom(1,2)));
                     }
                 }
+            }else if(percentChance(0.4)) { //11%
+                if(plugin.getConfig().getString(uuid + ".eq") == "true") {
+                    if (plugin.getConfig().getString(uuid + ".throwtnt") == "true") {
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, throwtnt);
+                    }
+                }else {
+                    if (plugin.getConfig().getString(uuid + ".throwtnt") == "true") {
+                        p.getInventory().addItem(throwtnt);
+                    }
+                }
+
+
             }else if (percentChance(0.18)) { //18%
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".iron") == "true") {
@@ -243,6 +285,24 @@ public class OnBreak implements Listener {
                 }
             }
         }
+
+    }
+
+    private boolean isInventoryFull(Player p, Material mat, int MaxV) {
+        boolean inventoryFull = true;
+        if (p.getInventory().getContents() != null) {
+            for (ItemStack is : p.getInventory().getContents()) {
+                if (is != null) {
+                    if (is.getType() == mat) {
+                        if (is.getAmount() < MaxV) {
+                            inventoryFull = false;
+                        }
+                    }
+                    //System.out.println(is.getType().toString() + " " + is.getAmount() + " "  + inventoryFull);
+                }
+            }
+        }
+        return inventoryFull;
     }
 
 }

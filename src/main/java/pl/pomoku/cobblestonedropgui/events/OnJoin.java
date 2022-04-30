@@ -40,6 +40,7 @@ public class OnJoin implements Listener {
             plugin.getConfig().set(uuid + ".coal", true);
             plugin.getConfig().set(uuid + ".bookshelf", true);
             plugin.getConfig().set(uuid + ".netherite", true);
+            plugin.getConfig().set(uuid + ".throwtnt", true);
             plugin.saveConfig();
         }
     }

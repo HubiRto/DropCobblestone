@@ -8,6 +8,7 @@ import pl.pomoku.cobblestonedropgui.events.OnBreak;
 import pl.pomoku.cobblestonedropgui.events.OnInventoryClick;
 import pl.pomoku.cobblestonedropgui.events.OnJoin;
 import pl.pomoku.cobblestonedropgui.gui.*;
+import pl.pomoku.cobblestonedropgui.system.TntSystem;
 
 import java.lang.reflect.Field;
 
@@ -54,9 +55,12 @@ public final class Main extends JavaPlugin {
         new Apple(this);
 
 
+
+
         getServer().getPluginManager().registerEvents(new OnBreak(this), this);
         getServer().getPluginManager().registerEvents(new OnJoin(this), this);
         getServer().getPluginManager().registerEvents(new OnInventoryClick(this), this);
+        getServer().getPluginManager().registerEvents(new TntSystem(), this);
 
 
     }
