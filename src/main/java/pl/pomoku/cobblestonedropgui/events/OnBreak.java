@@ -80,10 +80,9 @@ public class OnBreak implements Listener {
             e.setExpToDrop(0); //Zablokowanie wypadania exp'a
         }
 
-        if(b.getType() == Material.STONE) { //Zawsze
-
+        if(b.getType() == Material.STONE) {
+            //BRUK
             if(plugin.getConfig().getString(uuid + ".eq") == "true") {
-
                 if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
                     e.setDropItems(false);
                     p.getLocation().getWorld().dropItemNaturally(blockLocation, cobblestone);
@@ -108,8 +107,7 @@ public class OnBreak implements Listener {
                     e.setDropItems(false);
                 }
             }
-
-
+            //DIAMENTY
             if(percentChance(0.13)) { //13%
                 if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".diamond") == "true") {
@@ -129,6 +127,7 @@ public class OnBreak implements Listener {
                         }
                     }
                 }
+            //EMERALDY
             }else if(percentChance(0.11)) { //11%
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".emerald") == "true") {
@@ -148,6 +147,7 @@ public class OnBreak implements Listener {
                         }
                     }
                 }
+            //RZUCANE TNT
             }else if(percentChance(0.002)) { //0.2%
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".throwtnt") == "true") {
@@ -166,8 +166,7 @@ public class OnBreak implements Listener {
                         }
                     }
                 }
-
-
+            //IRON
             }else if (percentChance(0.18)) { //18%
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".iron") == "true") {
@@ -176,7 +175,15 @@ public class OnBreak implements Listener {
                     }
                 }else {
                     if (plugin.getConfig().getString(uuid + ".iron") == "true") {
-                        p.getInventory().addItem(new ItemStack(Material.IRON_INGOT, itemAmoundRandom(2,4)));
+                        if(isInventoryFull(p, Material.IRON_INGOT, 64) == false) {
+                            p.getInventory().addItem(new ItemStack(Material.IRON_INGOT, itemAmoundRandom(2, 4)));
+                        }else {
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
                     }
                 }
             }else if (percentChance(0.10)) { //10%
