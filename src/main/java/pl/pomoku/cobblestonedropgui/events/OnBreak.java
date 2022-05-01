@@ -148,14 +148,22 @@ public class OnBreak implements Listener {
                         }
                     }
                 }
-            }else if(percentChance(0.4)) { //11%
+            }else if(percentChance(0.002)) { //0.2%
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".throwtnt") == "true") {
                         p.getLocation().getWorld().dropItemNaturally(blockLocation, throwtnt);
                     }
                 }else {
                     if (plugin.getConfig().getString(uuid + ".throwtnt") == "true") {
-                        p.getInventory().addItem(throwtnt);
+                        if(isInventoryFull(p, Material.TNT, 64) == false) {
+                            p.getInventory().addItem(throwtnt);
+                        }else {
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
                     }
                 }
 
