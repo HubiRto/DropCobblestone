@@ -287,8 +287,96 @@ public class OnBreak implements Listener {
                     }
                 }
             }
+            //DEEPSLATE
+        }else if (b.getType() == DEEPSLATE) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
+                if (plugin.getConfig().getString(uuid + ".eq") == "true") {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        e.setDropItems(false);
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, deepslate);
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }else {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        if (isInventoryFull(p, DEEPSLATE, 64) == false) {
+                            e.setDropItems(false);
+                            p.getInventory().addItem(new ItemStack(DEEPSLATE));
+                        } else {
+                            e.setDropItems(false);
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }
+            }
+            //POLISHED_DEEPSLATE
+        }else if (b.getType() == POLISHED_DEEPSLATE) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
+                if (plugin.getConfig().getString(uuid + ".eq") == "true") {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        e.setDropItems(false);
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, polished_deepslate);
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }else {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        if (isInventoryFull(p, POLISHED_DEEPSLATE, 64) == false) {
+                            e.setDropItems(false);
+                            p.getInventory().addItem(new ItemStack(POLISHED_DEEPSLATE));
+                        } else {
+                            e.setDropItems(false);
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }
+            }
+            //TUFF
+        }else if (b.getType() == TUFF) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
+                if (plugin.getConfig().getString(uuid + ".eq") == "true") {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        e.setDropItems(false);
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, tuff);
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }else {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        if (isInventoryFull(p, TUFF, 64) == false) {
+                            e.setDropItems(false);
+                            p.getInventory().addItem(new ItemStack(TUFF));
+                        } else {
+                            e.setDropItems(false);
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }
+            }
         }
-        //DROP SUROWCÓW
+
+        //  -------------
+        //  DROP SUROWCÓW
+        //  -------------
+
         if (b.getType() == Material.STONE || b.getType() == Material.ANDESITE || b.getType() == POLISHED_ANDESITE || b.getType() == DIORITE || b.getType() == POLISHED_DIORITE || b.getType() == Material.GRANITE || b.getType() == Material.POLISHED_GRANITE || b.getType() == Material.DEEPSLATE || b.getType() == Material.POLISHED_DEEPSLATE || b.getType() == Material.TUFF) {
             if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                 //DIAMENTY
@@ -371,7 +459,7 @@ public class OnBreak implements Listener {
                         }
                     }
                     //ZLOTO
-                } else if (percentChance(0.10)) { //10%
+                } else if (percentChance(0.1)) { //10%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                         if (plugin.getConfig().getString(uuid + ".gold") == "true") {
                             gold.setAmount(gold.getAmount() * itemAmoundRandom(2, 3));
