@@ -11,14 +11,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import pl.pomoku.cobblestonedropgui.main.Main;
-import pl.pomoku.cobblestonedropgui.system.*;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -80,7 +77,7 @@ public class OnBreak implements Listener {
             e.setExpToDrop(0); //Zablokowanie wypadania exp'a
         }
 
-        if(b.getType() == Material.STONE) {
+        if(b.getType() == Material.STONE || b.getType() == Material.ANDESITE) {
             if(e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                 //BRUK
                 if (plugin.getConfig().getString(uuid + ".eq") == "true") {
