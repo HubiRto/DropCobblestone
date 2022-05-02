@@ -32,11 +32,10 @@ public class OnBreak implements Listener {
 
 
     @EventHandler
-    public void OnBreak (BlockBreakEvent e) {
+    public void OnBreak(BlockBreakEvent e) {
         Player p = e.getPlayer();
         UUID uuid = p.getUniqueId();
         Block b = e.getBlock();
-
 
 
         Location blockLocation = e.getBlock().getLocation();
@@ -57,6 +56,7 @@ public class OnBreak implements Listener {
         ItemStack obsidian = new ItemStack(Material.OBSIDIAN);
         ItemStack emerald = new ItemStack(Material.EMERALD);
         ItemStack cobblestone = new ItemStack(Material.COBBLESTONE);
+        ItemStack andesite = new ItemStack(Material.ANDESITE);
 
         ItemStack throwtnt = new ItemStack(Material.TNT);
         ItemMeta throwtnt_meta = throwtnt.getItemMeta();
@@ -69,17 +69,21 @@ public class OnBreak implements Listener {
         throwtnt_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         throwtnt.setItemMeta(throwtnt_meta);
 
-
-        if(b.getType().toString().contains("_ORE")) {
+        //BLOKOWANIE RUD
+        if (b.getType().toString().contains("_ORE")) {
             e.setDropItems(false); //Zablokowanie wypadania itemow z rud
             //e.getBlock().setType(Material.AIR);
             //Inna opcja usuwania
             e.setExpToDrop(0); //Zablokowanie wypadania exp'a
         }
 
-        if(b.getType() == Material.STONE || b.getType() == Material.ANDESITE) {
-            if(e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                //BRUK
+        //   ------------
+        //   DROP KAMIENI
+        //   ------------
+
+        //BRUK
+        if (b.getType() == Material.STONE) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                 if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
                         e.setDropItems(false);
@@ -105,6 +109,40 @@ public class OnBreak implements Listener {
                         e.setDropItems(false);
                     }
                 }
+            }
+            //ANDEZYT
+        } else if (b.getType() == Material.ANDESITE) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
+                if (plugin.getConfig().getString(uuid + ".eq") == "true") {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        e.setDropItems(false);
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, andesite);
+                    } else {
+                        e.setDropItems(false);
+                    }
+                } else {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        if (isInventoryFull(p, Material.ANDESITE, 64) == false) {
+                            e.setDropItems(false);
+                            p.getInventory().addItem(new ItemStack(Material.ANDESITE));
+                        } else {
+                            e.setDropItems(false);
+                            //p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.RED + "Nie masz miejsca w EQ!"));
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
+                    } else {
+                        e.setDropItems(false);
+                    }
+                }
+            }
+        }
+        //DROP SUROWCÓW
+        if (b.getType() == Material.STONE || b.getType() == Material.ANDESITE) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                 //DIAMENTY
                 if (percentChance(0.13)) { //13%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
@@ -184,6 +222,7 @@ public class OnBreak implements Listener {
                             }
                         }
                     }
+                    //ZLOTO
                 } else if (percentChance(0.10)) { //10%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                         if (plugin.getConfig().getString(uuid + ".gold") == "true") {
@@ -203,6 +242,7 @@ public class OnBreak implements Listener {
                             }
                         }
                     }
+                    //OBSYDIAN
                 } else if (percentChance(0.09)) { //9%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                         if (plugin.getConfig().getString(uuid + ".obsidian") == "true") {
@@ -222,6 +262,7 @@ public class OnBreak implements Listener {
                             }
                         }
                     }
+                    //REDSTONE
                 } else if (percentChance(0.11)) { //11%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                         if (plugin.getConfig().getString(uuid + ".redstone") == "true") {
@@ -241,6 +282,7 @@ public class OnBreak implements Listener {
                             }
                         }
                     }
+                    //NETHERITE
                 } else if (percentChance(0.001)) { //0.1%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                         if (plugin.getConfig().getString(uuid + ".netherite") == "true") {
@@ -260,6 +302,7 @@ public class OnBreak implements Listener {
                             }
                         }
                     }
+                    //SLIME BALL
                 } else if (percentChance(0.1)) { //10%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                         if (plugin.getConfig().getString(uuid + ".slimeball") == "true") {
@@ -279,6 +322,7 @@ public class OnBreak implements Listener {
                             }
                         }
                     }
+                    //BOOKSHELF
                 } else if (percentChance(0.04)) { //4%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                         if (plugin.getConfig().getString(uuid + ".bookshelf") == "true") {
@@ -298,6 +342,7 @@ public class OnBreak implements Listener {
                             }
                         }
                     }
+                    //ENDER PEARL
                 } else if (percentChance(0.002)) { //0.2%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                         if (plugin.getConfig().getString(uuid + ".enderpearl") == "true") {
@@ -317,6 +362,7 @@ public class OnBreak implements Listener {
                             }
                         }
                     }
+                    //TNT
                 } else if (percentChance(0.003)) { //0.3%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                         if (plugin.getConfig().getString(uuid + ".tnt") == "true") {
@@ -336,6 +382,7 @@ public class OnBreak implements Listener {
                             }
                         }
                     }
+                    //APPLE
                 } else if (percentChance(0.08)) { //8%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                         if (plugin.getConfig().getString(uuid + ".apple") == "true") {
@@ -355,6 +402,7 @@ public class OnBreak implements Listener {
                             }
                         }
                     }
+                    //COAL
                 } else if (percentChance(0.14)) { //14%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                         if (plugin.getConfig().getString(uuid + ".coal") == "true") {
@@ -374,6 +422,7 @@ public class OnBreak implements Listener {
                             }
                         }
                     }
+                    //OAK LOG
                 } else if (percentChance(0.04)) { //4%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                         if (plugin.getConfig().getString(uuid + ".oaklog") == "true") {
@@ -393,6 +442,7 @@ public class OnBreak implements Listener {
                             }
                         }
                     }
+                    //ARROW
                 } else if (percentChance(0.007)) { //0.7%
                     if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                         if (plugin.getConfig().getString(uuid + ".arrow") == "true") {
@@ -422,13 +472,13 @@ public class OnBreak implements Listener {
         boolean inventoryFull = true;
         if (p.getInventory().getContents() != null) {
             for (ItemStack is : p.getInventory().getStorageContents()) {
-                if(is != null) {
+                if (is != null) {
                     if (is.getType() == mat) {
                         if (is.getAmount() < MaxV) {
                             inventoryFull = false;
                         }
                     }
-                }else {
+                } else {
                     inventoryFull = false;
                 }
                 //System.out.println(is.getType().toString() + " " + is.getAmount() + " "  + inventoryFull);
@@ -436,17 +486,18 @@ public class OnBreak implements Listener {
         }
         return inventoryFull;
     }
+
     private boolean isInventoryFullByMeta(Player p, String meta, int MaxV) {
         boolean inventoryFullByMeta = true;
         if (p.getInventory().getContents() != null) {
             for (ItemStack is : p.getInventory().getStorageContents()) {
-                if(is != null) {
+                if (is != null) {
                     if (is.getItemMeta().getDisplayName().contains(meta)) {
                         if (is.getAmount() < MaxV) {
                             inventoryFullByMeta = false;
                         }
                     }
-                }else {
+                } else {
                     inventoryFullByMeta = false;
                 }
             }
