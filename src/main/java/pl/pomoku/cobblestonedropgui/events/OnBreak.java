@@ -155,7 +155,7 @@ public class OnBreak implements Listener {
                     }
                 }else {
                     if (plugin.getConfig().getString(uuid + ".throwtnt") == "true") {
-                        if(isInventoryFull(p, Material.TNT, 64) == false) {
+                        if(isInventoryFullByMeta(p, "Rzucane TNT", 64) == false) {
                             p.getInventory().addItem(throwtnt);
                         }else {
                             p.sendMessage(" ");
@@ -340,6 +340,23 @@ public class OnBreak implements Listener {
             }
         }
         return inventoryFull;
+    }
+    private boolean isInventoryFullByMeta(Player p, String meta, int MaxV) {
+        boolean inventoryFullByMeta = true;
+        if (p.getInventory().getContents() != null) {
+            for (ItemStack is : p.getInventory().getStorageContents()) {
+                if(is != null) {
+                    if (is.getItemMeta().getDisplayName().contains(meta)) {
+                        if (is.getAmount() < MaxV) {
+                            inventoryFullByMeta = false;
+                        }
+                    }
+                }else {
+                    inventoryFullByMeta = false;
+                }
+            }
+        }
+        return inventoryFullByMeta;
     }
 
 }
