@@ -300,7 +300,7 @@ public class OnBreak implements Listener {
                         }
                     }
                 }
-            }else if (percentChance(0.002)) { //0.2%
+            }else if (percentChance(0.2)) { //0.2%
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".enderpearl") == "true") {
                         enderpearl.setAmount(enderpearl.getAmount() * itemAmoundRandom(1,2));
@@ -308,7 +308,15 @@ public class OnBreak implements Listener {
                     }
                 }else {
                     if (plugin.getConfig().getString(uuid + ".enderpearl") == "true") {
-                        p.getInventory().addItem(new ItemStack(Material.ENDER_PEARL, itemAmoundRandom(1,2)));
+                        if(isInventoryFull(p, Material.ENDER_PEARL, 16) == false) {
+                            p.getInventory().addItem(new ItemStack(Material.ENDER_PEARL, itemAmoundRandom(1, 2)));
+                        }else {
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
                     }
                 }
             }else if (percentChance(0.003)) { //0.3%
