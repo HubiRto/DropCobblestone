@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import static org.bukkit.Material.*;
 import static pl.pomoku.cobblestonedropgui.system.Random.itemAmoundRandom;
 import static pl.pomoku.cobblestonedropgui.system.Random.percentChance;
 
@@ -56,9 +57,9 @@ public class OnBreak implements Listener {
 
         ItemStack cobblestone = new ItemStack(Material.COBBLESTONE);
         ItemStack andesite = new ItemStack(Material.ANDESITE);
-        ItemStack polished_andesite = new ItemStack(Material.POLISHED_ANDESITE);
-        ItemStack diorite = new ItemStack(Material.DIORITE);
-        ItemStack polished_diorite = new ItemStack(Material.POLISHED_DIORITE);
+        ItemStack polished_andesite = new ItemStack(POLISHED_ANDESITE);
+        ItemStack diorite = new ItemStack(DIORITE);
+        ItemStack polished_diorite = new ItemStack(POLISHED_DIORITE);
         ItemStack granite = new ItemStack(Material.GRANITE);
         ItemStack polished_granite = new ItemStack(Material.POLISHED_GRANITE);
         ItemStack deepslate = new ItemStack(Material.DEEPSLATE);
@@ -88,22 +89,22 @@ public class OnBreak implements Listener {
         //   DROP KAMIENI
         //   ------------
 
-        //BRUK
+        //STONE
         if (b.getType() == Material.STONE) {
             if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                 if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
                         e.setDropItems(false);
                         p.getLocation().getWorld().dropItemNaturally(blockLocation, cobblestone);
-                    } else {
+                    }else {
                         e.setDropItems(false);
                     }
-                } else {
+                }else {
                     if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
                         if (isInventoryFull(p, Material.COBBLESTONE, 64) == false) {
                             e.setDropItems(false);
                             p.getInventory().addItem(new ItemStack(Material.COBBLESTONE));
-                        } else {
+                        }else {
                             e.setDropItems(false);
                             //p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.RED + "Nie masz miejsca w EQ!"));
                             p.sendMessage(" ");
@@ -112,27 +113,27 @@ public class OnBreak implements Listener {
                             plugin.getConfig().set(uuid + ".eq", "true");
                             plugin.saveConfig();
                         }
-                    } else {
+                    }else {
                         e.setDropItems(false);
                     }
                 }
             }
-            //ANDEZYT
+            //ANDESITE
         }else if (b.getType() == Material.ANDESITE) {
             if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                 if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
                         e.setDropItems(false);
                         p.getLocation().getWorld().dropItemNaturally(blockLocation, andesite);
-                    } else {
+                    }else {
                         e.setDropItems(false);
                     }
-                } else {
+                }else {
                     if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
                         if (isInventoryFull(p, Material.ANDESITE, 64) == false) {
                             e.setDropItems(false);
                             p.getInventory().addItem(new ItemStack(Material.ANDESITE));
-                        } else {
+                        }else {
                             e.setDropItems(false);
                             //p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.RED + "Nie masz miejsca w EQ!"));
                             p.sendMessage(" ");
@@ -141,26 +142,54 @@ public class OnBreak implements Listener {
                             plugin.getConfig().set(uuid + ".eq", "true");
                             plugin.saveConfig();
                         }
-                    } else {
+                    }else {
                         e.setDropItems(false);
                     }
                 }
             }
-        }
-        else if (b.getType() == Material.POLISHED_ANDESITE) {
+            //POLISHED_ANDESITE
+        }else if (b.getType() == POLISHED_ANDESITE) {
             if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                 if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
                         e.setDropItems(false);
                         p.getLocation().getWorld().dropItemNaturally(blockLocation, polished_andesite);
-                    } else {
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }else {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        if (isInventoryFull(p, POLISHED_ANDESITE, 64) == false) {
+                            e.setDropItems(false);
+                            p.getInventory().addItem(new ItemStack(POLISHED_ANDESITE));
+                        }else {
+                            e.setDropItems(false);
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }
+            }
+            //DIORITE
+        }else if (b.getType() == DIORITE) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
+                if (plugin.getConfig().getString(uuid + ".eq") == "true") {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        e.setDropItems(false);
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, diorite);
+                    }else {
                         e.setDropItems(false);
                     }
                 } else {
                     if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
-                        if (isInventoryFull(p, Material.POLISHED_ANDESITE, 64) == false) {
+                        if (isInventoryFull(p, DIORITE, 64) == false) {
                             e.setDropItems(false);
-                            p.getInventory().addItem(new ItemStack(Material.POLISHED_ANDESITE));
+                            p.getInventory().addItem(new ItemStack(DIORITE));
                         } else {
                             e.setDropItems(false);
                             p.sendMessage(" ");
@@ -174,9 +203,37 @@ public class OnBreak implements Listener {
                     }
                 }
             }
+            //POLISHED_DIORITE
+        }else if (b.getType() == POLISHED_DIORITE) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
+                if (plugin.getConfig().getString(uuid + ".eq") == "true") {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        e.setDropItems(false);
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, polished_diorite);
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }else {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        if (isInventoryFull(p, POLISHED_DIORITE, 64) == false) {
+                            e.setDropItems(false);
+                            p.getInventory().addItem(new ItemStack(POLISHED_DIORITE));
+                        } else {
+                            e.setDropItems(false);
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }
+            }
         }
         //DROP SUROWCÓW
-        if (b.getType() == Material.STONE || b.getType() == Material.ANDESITE || b.getType() == Material.POLISHED_ANDESITE || b.getType() == Material.DIORITE || b.getType() == Material.POLISHED_DIORITE || b.getType() == Material.GRANITE || b.getType() == Material.POLISHED_GRANITE || b.getType() == Material.DEEPSLATE || b.getType() == Material.POLISHED_DEEPSLATE || b.getType() == Material.TUFF) {
+        if (b.getType() == Material.STONE || b.getType() == Material.ANDESITE || b.getType() == POLISHED_ANDESITE || b.getType() == DIORITE || b.getType() == POLISHED_DIORITE || b.getType() == Material.GRANITE || b.getType() == Material.POLISHED_GRANITE || b.getType() == Material.DEEPSLATE || b.getType() == Material.POLISHED_DEEPSLATE || b.getType() == Material.TUFF) {
             if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                 //DIAMENTY
                 if (percentChance(0.13)) { //13%
