@@ -231,6 +231,62 @@ public class OnBreak implements Listener {
                     }
                 }
             }
+            //GRANITE
+        }else if (b.getType() == GRANITE) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
+                if (plugin.getConfig().getString(uuid + ".eq") == "true") {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        e.setDropItems(false);
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, granite);
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }else {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        if (isInventoryFull(p, GRANITE, 64) == false) {
+                            e.setDropItems(false);
+                            p.getInventory().addItem(new ItemStack(GRANITE));
+                        } else {
+                            e.setDropItems(false);
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }
+            }
+            //POLISHED_GRANITE
+        }else if (b.getType() == POLISHED_GRANITE) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
+                if (plugin.getConfig().getString(uuid + ".eq") == "true") {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        e.setDropItems(false);
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, polished_granite);
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }else {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        if (isInventoryFull(p, POLISHED_GRANITE, 64) == false) {
+                            e.setDropItems(false);
+                            p.getInventory().addItem(new ItemStack(POLISHED_GRANITE));
+                        } else {
+                            e.setDropItems(false);
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
+                    }else {
+                        e.setDropItems(false);
+                    }
+                }
+            }
         }
         //DROP SUROWCÓW
         if (b.getType() == Material.STONE || b.getType() == Material.ANDESITE || b.getType() == POLISHED_ANDESITE || b.getType() == DIORITE || b.getType() == POLISHED_DIORITE || b.getType() == Material.GRANITE || b.getType() == Material.POLISHED_GRANITE || b.getType() == Material.DEEPSLATE || b.getType() == Material.POLISHED_DEEPSLATE || b.getType() == Material.TUFF) {
