@@ -5,7 +5,7 @@ import pl.pomoku.cobblestonedropgui.cmds.DropCmds;
 import pl.pomoku.cobblestonedropgui.events.OnBreak;
 import pl.pomoku.cobblestonedropgui.events.OnInventoryClick;
 import pl.pomoku.cobblestonedropgui.events.OnJoin;
-import pl.pomoku.cobblestonedropgui.gui.*;
+import pl.pomoku.cobblestonedropgui.gui.items.*;
 import pl.pomoku.cobblestonedropgui.system.TntSystem;
 
 public final class Main extends JavaPlugin {

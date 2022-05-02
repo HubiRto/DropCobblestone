@@ -1,4 +1,4 @@
-package pl.pomoku.cobblestonedropgui.gui;
+package pl.pomoku.cobblestonedropgui.gui.items;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

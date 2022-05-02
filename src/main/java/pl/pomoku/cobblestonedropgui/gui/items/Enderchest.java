@@ -1,4 +1,4 @@
-package pl.pomoku.cobblestonedropgui.gui;
+package pl.pomoku.cobblestonedropgui.gui.items;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -10,20 +10,20 @@ import pl.pomoku.cobblestonedropgui.main.Main;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Chest {
+public class Enderchest {
 
     static Main plugin;
-    public Chest(Main m) {
+    public Enderchest(Main m) {
         plugin = m;
     }
 
-    public static ItemStack chest(Player p) {
+    public static ItemStack enderchest(Player p) {
         UUID uuid = p.getUniqueId();
 
-        ItemStack chest = new ItemStack(Material.CHEST);
-        ItemMeta chest_meta = chest.getItemMeta();
+        ItemStack enderchest = new ItemStack(Material.ENDER_CHEST);
+        ItemMeta enderchest_meta = enderchest.getItemMeta();
 
-        chest_meta.setDisplayName(ChatColor.GREEN + "Drop z Cobble X");
+        enderchest_meta.setDisplayName(ChatColor.GREEN + "Drop z Cobble X");
         ArrayList<String> lore = new ArrayList<String>();
 
         lore.add(ChatColor.GRAY + "Lista przedmiotow, ktore dropia");
@@ -31,9 +31,9 @@ public class Chest {
         lore.add(" ");
         lore.add(ChatColor.YELLOW + "Kliknij, aby zobaczyc!");
 
-        chest_meta.setLore(lore);
-        chest.setItemMeta(chest_meta);
+        enderchest_meta.setLore(lore);
+        enderchest.setItemMeta(enderchest_meta);
 
-        return chest;
+        return enderchest;
     }
 }

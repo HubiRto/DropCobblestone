@@ -1,4 +1,4 @@
-package pl.pomoku.cobblestonedropgui.gui;
+package pl.pomoku.cobblestonedropgui.gui.items;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -12,37 +12,37 @@ import pl.pomoku.cobblestonedropgui.main.Main;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Apple {
+public class Tnt {
 
     static Main plugin;
-    public Apple(Main m) {
+    public Tnt(Main m) {
         plugin = m;
     }
 
-    public static ItemStack apple(Player p) {
+    public static ItemStack tnt(Player p) {
         UUID uuid = p.getUniqueId();
 
-        ItemStack apple = new ItemStack(Material.APPLE);
-        ItemMeta apple_meta = apple.getItemMeta();
+        ItemStack tnt = new ItemStack(Material.TNT);
+        ItemMeta tnt_meta = tnt.getItemMeta();
 
-        apple_meta.setDisplayName(ChatColor.DARK_GRAY + "Jablko");
+        tnt_meta.setDisplayName(ChatColor.RED + "T" + ChatColor.WHITE + "N" + ChatColor.RED + "T");
         ArrayList<String> lore = new ArrayList<String>();
 
-        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "8.0%");
-        lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "2-3" + ChatColor.GRAY + " szt.");
+        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.3%");
+        lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-3" + ChatColor.GRAY + " szt.");
         lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".apple") == "true") {
+        if(plugin.getConfig().getString(uuid + ".tnt") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
-        apple_meta.setLore(lore);
-        apple_meta.addEnchant(Enchantment.LUCK, 1, false);
-        apple_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        apple.setItemMeta(apple_meta);
+        tnt_meta.setLore(lore);
+        tnt_meta.addEnchant(Enchantment.LUCK, 1, false);
+        tnt_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        tnt.setItemMeta(tnt_meta);
 
-        return apple;
+        return tnt;
     }
 }

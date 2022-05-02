@@ -1,4 +1,4 @@
-package pl.pomoku.cobblestonedropgui.gui;
+package pl.pomoku.cobblestonedropgui.gui.items;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -12,37 +12,37 @@ import pl.pomoku.cobblestonedropgui.main.Main;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Iron {
+public class Slimeball {
 
     static Main plugin;
-    public Iron(Main m) {
+    public Slimeball(Main m) {
         plugin = m;
     }
 
-    public static ItemStack iron(Player p) {
+    public static ItemStack slimeball(Player p) {
         UUID uuid = p.getUniqueId();
 
-        ItemStack iron = new ItemStack(Material.IRON_INGOT);
-        ItemMeta iron_meta = iron.getItemMeta();
+        ItemStack slimeball = new ItemStack(Material.SLIME_BALL);
+        ItemMeta slimeball_meta = slimeball.getItemMeta();
 
-        iron_meta.setDisplayName(ChatColor.DARK_GRAY + "Zelazo");
+        slimeball_meta.setDisplayName(ChatColor.DARK_GRAY + "Slime");
         ArrayList<String> lore = new ArrayList<String>();
 
-        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "18.0%");
+        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "10.0%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "2-4" + ChatColor.GRAY + " szt.");
         lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".iron") == "true") {
+        if(plugin.getConfig().getString(uuid + ".slimeball") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
-        iron_meta.setLore(lore);
-        iron_meta.addEnchant(Enchantment.LUCK, 1, false);
-        iron_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        iron.setItemMeta(iron_meta);
+        slimeball_meta.setLore(lore);
+        slimeball_meta.addEnchant(Enchantment.LUCK, 1, false);
+        slimeball_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        slimeball.setItemMeta(slimeball_meta);
 
-        return iron;
+        return slimeball;
     }
 }

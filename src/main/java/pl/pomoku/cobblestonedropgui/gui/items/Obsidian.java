@@ -1,4 +1,4 @@
-package pl.pomoku.cobblestonedropgui.gui;
+package pl.pomoku.cobblestonedropgui.gui.items;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -12,37 +12,37 @@ import pl.pomoku.cobblestonedropgui.main.Main;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Arrow {
+public class Obsidian {
 
     static Main plugin;
-    public Arrow(Main m) {
+    public Obsidian(Main m) {
         plugin = m;
     }
 
-    public static ItemStack arrow(Player p) {
+    public static ItemStack obsidian(Player p) {
         UUID uuid = p.getUniqueId();
 
-        ItemStack arrow = new ItemStack(Material.ARROW);
-        ItemMeta arrow_meta = arrow.getItemMeta();
+        ItemStack obsidian = new ItemStack(Material.OBSIDIAN);
+        ItemMeta obsidian_meta = obsidian.getItemMeta();
 
-        arrow_meta.setDisplayName(ChatColor.DARK_GRAY + "Strzala");
+        obsidian_meta.setDisplayName(ChatColor.DARK_GRAY + "Obsydian");
         ArrayList<String> lore = new ArrayList<String>();
 
-        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.7%");
+        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "9.0%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-4" + ChatColor.GRAY + " szt.");
         lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".arrow") == "true") {
+        if(plugin.getConfig().getString(uuid + ".obsidian") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
-        arrow_meta.setLore(lore);
-        arrow_meta.addEnchant(Enchantment.LUCK, 1, false);
-        arrow_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        arrow.setItemMeta(arrow_meta);
+        obsidian_meta.setLore(lore);
+        obsidian_meta.addEnchant(Enchantment.LUCK, 1, false);
+        obsidian_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        obsidian.setItemMeta(obsidian_meta);
 
-        return arrow;
+        return obsidian;
     }
 }

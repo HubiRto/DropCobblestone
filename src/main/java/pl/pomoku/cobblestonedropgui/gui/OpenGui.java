@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import pl.pomoku.cobblestonedropgui.gui.items.*;
 
 public class OpenGui {
     public static void OpenGui(Player p) {

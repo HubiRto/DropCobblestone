@@ -1,4 +1,4 @@
-package pl.pomoku.cobblestonedropgui.gui;
+package pl.pomoku.cobblestonedropgui.gui.items;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -12,37 +12,37 @@ import pl.pomoku.cobblestonedropgui.main.Main;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Slimeball {
+public class Gold {
 
     static Main plugin;
-    public Slimeball(Main m) {
+    public Gold(Main m) {
         plugin = m;
     }
 
-    public static ItemStack slimeball(Player p) {
+    public static ItemStack gold(Player p) {
         UUID uuid = p.getUniqueId();
 
-        ItemStack slimeball = new ItemStack(Material.SLIME_BALL);
-        ItemMeta slimeball_meta = slimeball.getItemMeta();
+        ItemStack gold = new ItemStack(Material.GOLD_INGOT);
+        ItemMeta gold_meta = gold.getItemMeta();
 
-        slimeball_meta.setDisplayName(ChatColor.DARK_GRAY + "Slime");
+        gold_meta.setDisplayName(ChatColor.DARK_GRAY + "Zelazo");
         ArrayList<String> lore = new ArrayList<String>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "10.0%");
-        lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "2-4" + ChatColor.GRAY + " szt.");
+        lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "2-3" + ChatColor.GRAY + " szt.");
         lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".slimeball") == "true") {
+        if(plugin.getConfig().getString(uuid + ".gold") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
-        slimeball_meta.setLore(lore);
-        slimeball_meta.addEnchant(Enchantment.LUCK, 1, false);
-        slimeball_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        slimeball.setItemMeta(slimeball_meta);
+        gold_meta.setLore(lore);
+        gold_meta.addEnchant(Enchantment.LUCK, 1, false);
+        gold_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        gold.setItemMeta(gold_meta);
 
-        return slimeball;
+        return gold;
     }
 }

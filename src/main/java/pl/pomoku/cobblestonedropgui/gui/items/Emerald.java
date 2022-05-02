@@ -1,4 +1,4 @@
-package pl.pomoku.cobblestonedropgui.gui;
+package pl.pomoku.cobblestonedropgui.gui.items;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -12,37 +12,37 @@ import pl.pomoku.cobblestonedropgui.main.Main;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Diamond {
+public class Emerald {
 
     static Main plugin;
-    public Diamond(Main m) {
+    public Emerald(Main m) {
         plugin = m;
     }
 
-    public static ItemStack diamond(Player p) {
+    public static ItemStack emerald(Player p) {
         UUID uuid = p.getUniqueId();
 
-        ItemStack diamond = new ItemStack(Material.DIAMOND);
-        ItemMeta diamond_meta = diamond.getItemMeta();
+        ItemStack emerald = new ItemStack(Material.EMERALD);
+        ItemMeta emerald_meta = emerald.getItemMeta();
 
-        diamond_meta.setDisplayName(ChatColor.DARK_GRAY + "Diament");
+        emerald_meta.setDisplayName(ChatColor.DARK_GRAY + "Szmaragd");
         ArrayList<String> lore = new ArrayList<String>();
 
-        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "13.0%");
-        lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-3" + ChatColor.GRAY + " szt.");
+        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "11.0%");
+        lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-2" + ChatColor.GRAY + " szt.");
         lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".diamond") == "true") {
+        if(plugin.getConfig().getString(uuid + ".emerald") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
-        diamond_meta.setLore(lore);
-        diamond_meta.addEnchant(Enchantment.LUCK, 1, false);
-        diamond_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        diamond.setItemMeta(diamond_meta);
+        emerald_meta.setLore(lore);
+        emerald_meta.addEnchant(Enchantment.LUCK, 1, false);
+        emerald_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        emerald.setItemMeta(emerald_meta);
 
-        return diamond;
+        return emerald;
     }
 }

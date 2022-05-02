@@ -1,4 +1,4 @@
-package pl.pomoku.cobblestonedropgui.gui;
+package pl.pomoku.cobblestonedropgui.gui.items;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -12,37 +12,37 @@ import pl.pomoku.cobblestonedropgui.main.Main;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Oaklog {
+public class Arrow {
 
     static Main plugin;
-    public Oaklog(Main m) {
+    public Arrow(Main m) {
         plugin = m;
     }
 
-    public static ItemStack oaklog(Player p) {
+    public static ItemStack arrow(Player p) {
         UUID uuid = p.getUniqueId();
 
-        ItemStack oaklog = new ItemStack(Material.OAK_LOG);
-        ItemMeta oaklog_meta = oaklog.getItemMeta();
+        ItemStack arrow = new ItemStack(Material.ARROW);
+        ItemMeta arrow_meta = arrow.getItemMeta();
 
-        oaklog_meta.setDisplayName(ChatColor.GREEN + "Drewno");
+        arrow_meta.setDisplayName(ChatColor.DARK_GRAY + "Strzala");
         ArrayList<String> lore = new ArrayList<String>();
 
-        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "4.0%");
-        lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "4-8" + ChatColor.GRAY + " szt.");
+        lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.7%");
+        lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-4" + ChatColor.GRAY + " szt.");
         lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".oaklog") == "true") {
+        if(plugin.getConfig().getString(uuid + ".arrow") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
-        oaklog_meta.setLore(lore);
-        oaklog_meta.addEnchant(Enchantment.LUCK, 1, false);
-        oaklog_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        oaklog.setItemMeta(oaklog_meta);
+        arrow_meta.setLore(lore);
+        arrow_meta.addEnchant(Enchantment.LUCK, 1, false);
+        arrow_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        arrow.setItemMeta(arrow_meta);
 
-        return oaklog;
+        return arrow;
     }
 }
