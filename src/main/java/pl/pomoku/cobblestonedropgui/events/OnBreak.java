@@ -262,7 +262,7 @@ public class OnBreak implements Listener {
                         }
                     }
                 }
-            }else if (percentChance(0.10)) { //10%
+            }else if (percentChance(0.1)) { //10%
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".slimeball") == "true") {
                         slimeball.setAmount(slimeball.getAmount() * itemAmoundRandom(2,4));
@@ -270,7 +270,15 @@ public class OnBreak implements Listener {
                     }
                 }else {
                     if (plugin.getConfig().getString(uuid + ".slimeball") == "true") {
-                        p.getInventory().addItem(new ItemStack(Material.SLIME_BALL, itemAmoundRandom(2,4)));
+                        if(isInventoryFull(p, Material.SLIME_BALL, 64) == false) {
+                            p.getInventory().addItem(new ItemStack(Material.SLIME_BALL, itemAmoundRandom(2, 4)));
+                        }else {
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
                     }
                 }
             }else if (percentChance(0.04)) { //4%
