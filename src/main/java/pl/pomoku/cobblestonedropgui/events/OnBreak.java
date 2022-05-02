@@ -403,7 +403,15 @@ public class OnBreak implements Listener {
                     }
                 }else {
                     if (plugin.getConfig().getString(uuid + ".arrow") == "true") {
-                        p.getInventory().addItem(new ItemStack(Material.ARROW, itemAmoundRandom(1,4)));
+                        if(isInventoryFull(p, Material.ARROW, 64) == false) {
+                            p.getInventory().addItem(new ItemStack(Material.ARROW, itemAmoundRandom(1, 4)));
+                        }else {
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
                     }
                 }
             }
