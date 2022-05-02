@@ -1,7 +1,5 @@
 package pl.pomoku.cobblestonedropgui.events;
 
-import net.md_5.bungee.api.ChatMessageType;
-import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -57,6 +55,7 @@ public class OnBreak implements Listener {
         ItemStack emerald = new ItemStack(Material.EMERALD);
         ItemStack cobblestone = new ItemStack(Material.COBBLESTONE);
         ItemStack andesite = new ItemStack(Material.ANDESITE);
+        ItemStack polished_andesite = new ItemStack(Material.POLISHED_ANDESITE);
 
         ItemStack throwtnt = new ItemStack(Material.TNT);
         ItemMeta throwtnt_meta = throwtnt.getItemMeta();
@@ -141,7 +140,7 @@ public class OnBreak implements Listener {
             }
         }
         //DROP SUROWCÓW
-        if (b.getType() == Material.STONE || b.getType() == Material.ANDESITE) {
+        if (b.getType() == Material.STONE || b.getType() == Material.ANDESITE || b.getType() == Material.POLISHED_ANDESITE || b.getType() == Material.DIORITE || b.getType() == Material.POLISHED_DIORITE || b.getType() == Material.GRANITE || b.getType() == Material.POLISHED_GRANITE || b.getType() == Material.DEEPSLATE || b.getType() == Material.POLISHED_DEEPSLATE || b.getType() == Material.TUFF) {
             if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                 //DIAMENTY
                 if (percentChance(0.13)) { //13%
