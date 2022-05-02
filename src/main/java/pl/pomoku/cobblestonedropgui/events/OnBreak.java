@@ -53,9 +53,17 @@ public class OnBreak implements Listener {
         ItemStack gold = new ItemStack(Material.GOLD_INGOT);
         ItemStack obsidian = new ItemStack(Material.OBSIDIAN);
         ItemStack emerald = new ItemStack(Material.EMERALD);
+
         ItemStack cobblestone = new ItemStack(Material.COBBLESTONE);
         ItemStack andesite = new ItemStack(Material.ANDESITE);
         ItemStack polished_andesite = new ItemStack(Material.POLISHED_ANDESITE);
+        ItemStack diorite = new ItemStack(Material.DIORITE);
+        ItemStack polished_diorite = new ItemStack(Material.POLISHED_DIORITE);
+        ItemStack granite = new ItemStack(Material.GRANITE);
+        ItemStack polished_granite = new ItemStack(Material.POLISHED_GRANITE);
+        ItemStack deepslate = new ItemStack(Material.DEEPSLATE);
+        ItemStack polished_deepslate = new ItemStack(Material.POLISHED_DEEPSLATE);
+        ItemStack tuff = new ItemStack(Material.TUFF);
 
         ItemStack throwtnt = new ItemStack(Material.TNT);
         ItemMeta throwtnt_meta = throwtnt.getItemMeta();
@@ -110,7 +118,7 @@ public class OnBreak implements Listener {
                 }
             }
             //ANDEZYT
-        } else if (b.getType() == Material.ANDESITE) {
+        }else if (b.getType() == Material.ANDESITE) {
             if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                 if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                     if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
@@ -127,6 +135,34 @@ public class OnBreak implements Listener {
                         } else {
                             e.setDropItems(false);
                             //p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.RED + "Nie masz miejsca w EQ!"));
+                            p.sendMessage(" ");
+                            p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                            p.sendMessage(" ");
+                            plugin.getConfig().set(uuid + ".eq", "true");
+                            plugin.saveConfig();
+                        }
+                    } else {
+                        e.setDropItems(false);
+                    }
+                }
+            }
+        }
+        else if (b.getType() == Material.POLISHED_ANDESITE) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
+                if (plugin.getConfig().getString(uuid + ".eq") == "true") {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        e.setDropItems(false);
+                        p.getLocation().getWorld().dropItemNaturally(blockLocation, polished_andesite);
+                    } else {
+                        e.setDropItems(false);
+                    }
+                } else {
+                    if (plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+                        if (isInventoryFull(p, Material.POLISHED_ANDESITE, 64) == false) {
+                            e.setDropItems(false);
+                            p.getInventory().addItem(new ItemStack(Material.POLISHED_ANDESITE));
+                        } else {
+                            e.setDropItems(false);
                             p.sendMessage(" ");
                             p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
                             p.sendMessage(" ");
