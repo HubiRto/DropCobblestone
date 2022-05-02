@@ -22,7 +22,7 @@ public class OpenGui {
         ItemStack redstone = Redstone.redstone(p);
         ItemStack oaklog = Oaklog.oaklog(p);
         ItemStack netherite = Netherite.netherite(p);
-        ItemStack glowtnt = GlowTnt.glowtnt(p);
+        ItemStack throwtnt = ThrowTnt.throwtnt(p);
         ItemStack enderpearl = Enderpearl.enderpearl(p);
         ItemStack enderchest = Enderchest.enderchest(p);
         ItemStack chest = Chest.chest(p);
@@ -60,7 +60,7 @@ public class OpenGui {
         i.setItem(3, limestainedglasspane);
 
         i.setItem(5, redstainedglasspane);
-        i.setItem(8, glowtnt);
+        i.setItem(8, throwtnt);
 
         i.setItem(2, blackstainedglasspane);
         i.setItem(6, blackstainedglasspane);

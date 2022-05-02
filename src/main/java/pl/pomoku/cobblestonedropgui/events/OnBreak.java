@@ -109,11 +109,15 @@ public class OnBreak implements Listener {
                             } else {
                                 e.setDropItems(false);
                                 //p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.RED + "Nie masz miejsca w EQ!"));
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                p.sendMessage("§7oporznij ekwipunek.");
+                                p.sendMessage(" ");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                p.sendMessage(" ");
                                 plugin.getConfig().set(uuid + ".eq", "true");
                                 plugin.saveConfig();
                             }
@@ -140,11 +144,15 @@ public class OnBreak implements Listener {
                             } else {
                                 e.setDropItems(false);
                                 //p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.RED + "Nie masz miejsca w EQ!"));
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                p.sendMessage("§7oporznij ekwipunek.");
+                                p.sendMessage(" ");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                p.sendMessage(" ");
                                 plugin.getConfig().set(uuid + ".eq", "true");
                                 plugin.saveConfig();
                             }
@@ -170,11 +178,15 @@ public class OnBreak implements Listener {
                                 p.getInventory().addItem(new ItemStack(POLISHED_ANDESITE));
                             } else {
                                 e.setDropItems(false);
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                p.sendMessage("§7oporznij ekwipunek.");
+                                p.sendMessage(" ");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                p.sendMessage(" ");
                                 plugin.getConfig().set(uuid + ".eq", "true");
                                 plugin.saveConfig();
                             }
@@ -200,11 +212,15 @@ public class OnBreak implements Listener {
                                 p.getInventory().addItem(new ItemStack(DIORITE));
                             } else {
                                 e.setDropItems(false);
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                p.sendMessage("§7oporznij ekwipunek.");
+                                p.sendMessage(" ");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                p.sendMessage(" ");
                                 plugin.getConfig().set(uuid + ".eq", "true");
                                 plugin.saveConfig();
                             }
@@ -230,11 +246,15 @@ public class OnBreak implements Listener {
                                 p.getInventory().addItem(new ItemStack(POLISHED_DIORITE));
                             } else {
                                 e.setDropItems(false);
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                p.sendMessage("§7oporznij ekwipunek.");
+                                p.sendMessage(" ");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                p.sendMessage(" ");
                                 plugin.getConfig().set(uuid + ".eq", "true");
                                 plugin.saveConfig();
                             }
@@ -260,11 +280,15 @@ public class OnBreak implements Listener {
                                 p.getInventory().addItem(new ItemStack(GRANITE));
                             } else {
                                 e.setDropItems(false);
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                p.sendMessage("§7oporznij ekwipunek.");
+                                p.sendMessage(" ");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                p.sendMessage(" ");
                                 plugin.getConfig().set(uuid + ".eq", "true");
                                 plugin.saveConfig();
                             }
@@ -290,11 +314,15 @@ public class OnBreak implements Listener {
                                 p.getInventory().addItem(new ItemStack(POLISHED_GRANITE));
                             } else {
                                 e.setDropItems(false);
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                p.sendMessage("§7oporznij ekwipunek.");
+                                p.sendMessage(" ");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                p.sendMessage(" ");
                                 plugin.getConfig().set(uuid + ".eq", "true");
                                 plugin.saveConfig();
                             }
@@ -320,11 +348,15 @@ public class OnBreak implements Listener {
                                 p.getInventory().addItem(new ItemStack(DEEPSLATE));
                             } else {
                                 e.setDropItems(false);
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                p.sendMessage("§7oporznij ekwipunek.");
+                                p.sendMessage(" ");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                p.sendMessage(" ");
                                 plugin.getConfig().set(uuid + ".eq", "true");
                                 plugin.saveConfig();
                             }
@@ -350,11 +382,15 @@ public class OnBreak implements Listener {
                                 p.getInventory().addItem(new ItemStack(POLISHED_DEEPSLATE));
                             } else {
                                 e.setDropItems(false);
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                p.sendMessage("§7oporznij ekwipunek.");
+                                p.sendMessage(" ");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                p.sendMessage(" ");
                                 plugin.getConfig().set(uuid + ".eq", "true");
                                 plugin.saveConfig();
                             }
@@ -380,11 +416,15 @@ public class OnBreak implements Listener {
                                 p.getInventory().addItem(new ItemStack(TUFF));
                             } else {
                                 e.setDropItems(false);
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                p.sendMessage("§7oporznij ekwipunek.");
+                                p.sendMessage(" ");
+                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                p.sendMessage(" ");
                                 plugin.getConfig().set(uuid + ".eq", "true");
                                 plugin.saveConfig();
                             }
@@ -415,11 +455,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.DIAMOND, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.DIAMOND, itemAmoundRandom(1, 3)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -437,11 +481,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.EMERALD, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.EMERALD, itemAmoundRandom(1, 2)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -458,11 +506,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFullByMeta(p, "Rzucane TNT", 64) == false) {
                                     p.getInventory().addItem(throwtnt);
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -480,11 +532,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.IRON_INGOT, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.IRON_INGOT, itemAmoundRandom(2, 4)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -502,11 +558,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.GOLD_INGOT, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.GOLD_INGOT, itemAmoundRandom(2, 3)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -524,11 +584,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.OBSIDIAN, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.OBSIDIAN, itemAmoundRandom(1, 4)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -546,11 +610,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.REDSTONE, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.REDSTONE, itemAmoundRandom(1, 5)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -568,11 +636,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.NETHERITE_INGOT, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.NETHERITE_INGOT, itemAmoundRandom(1, 2)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -590,11 +662,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.SLIME_BALL, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.SLIME_BALL, itemAmoundRandom(2, 4)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -612,11 +688,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.BOOKSHELF, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.BOOKSHELF, itemAmoundRandom(1, 4)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -634,11 +714,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.ENDER_PEARL, 16) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.ENDER_PEARL, itemAmoundRandom(1, 2)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -656,11 +740,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.TNT, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.TNT, itemAmoundRandom(1, 3)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -678,11 +766,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.APPLE, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.APPLE, itemAmoundRandom(2, 3)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -700,11 +792,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.COAL, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.COAL, itemAmoundRandom(3, 5)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -722,11 +818,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.OAK_LOG, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.OAK_LOG, itemAmoundRandom(4, 8)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -744,11 +844,15 @@ public class OnBreak implements Listener {
                                 if (isInventoryFull(p, Material.ARROW, 64) == false) {
                                     p.getInventory().addItem(new ItemStack(Material.ARROW, itemAmoundRandom(1, 4)));
                                 } else {
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage(ChatColor.YELLOW + "Nie masz miejsca w EQ! " + ChatColor.GRAY + "Drop do EQ zostal " + ChatColor.RED + "wylaczony" + ChatColor.GRAY + ", jezeli chcesz go wlaczyc oporznij ekwipunek.");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
                                     plugin.getConfig().set(uuid + ".eq", "true");
                                     plugin.saveConfig();
                                 }
@@ -757,11 +861,13 @@ public class OnBreak implements Listener {
                     }
                 }
             }else {
-                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
                 p.sendMessage(" ");
-                p.sendMessage(ChatColor.GRAY + "Drop dziala tylko na trybie " + ChatColor.YELLOW + "SURVIVAL" + ChatColor.GRAY + ".");
+                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                 p.sendMessage(" ");
-                p.sendMessage("§8[§c+§8]§m-----------§r§8[ §cSERWER §8]§m-----------§r§8[§c+§8]");
+                p.sendMessage("§7Drop dziala §bwylacznie§7 na trybie §eSURVIVAL§7.");
+                p.sendMessage(" ");
+                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                p.sendMessage(" ");
             }
         }
 

@@ -25,6 +25,6 @@ public class DropCmds implements CommandExecutor {
         }else {
             sender.sendMessage("§cNie można wykonać tej komendy z konsoli!");
         }
-        return false;
+        return true;
     }
 }

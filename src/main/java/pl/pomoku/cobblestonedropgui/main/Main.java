@@ -1,7 +1,5 @@
 package pl.pomoku.cobblestonedropgui.main;
 
-import org.bukkit.NamespacedKey;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.pomoku.cobblestonedropgui.cmds.DropCmds;
 import pl.pomoku.cobblestonedropgui.events.OnBreak;
@@ -9,8 +7,6 @@ import pl.pomoku.cobblestonedropgui.events.OnInventoryClick;
 import pl.pomoku.cobblestonedropgui.events.OnJoin;
 import pl.pomoku.cobblestonedropgui.gui.*;
 import pl.pomoku.cobblestonedropgui.system.TntSystem;
-
-import java.lang.reflect.Field;
 
 public final class Main extends JavaPlugin {
 
@@ -45,7 +41,7 @@ public final class Main extends JavaPlugin {
         new Slimeball(this);
         new Oaklog(this);
         new Netherite(this);
-        new GlowTnt(this);
+        new ThrowTnt(this);
         new Enderpearl(this);
         new Enderchest(this);
         new Coal(this);

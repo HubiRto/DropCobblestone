@@ -10,20 +10,20 @@ import pl.pomoku.cobblestonedropgui.main.Main;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class GlowTnt {
+public class ThrowTnt {
 
     static Main plugin;
-    public GlowTnt(Main m) {
+    public ThrowTnt(Main m) {
         plugin = m;
     }
 
-    public static ItemStack glowtnt(Player p) {
+    public static ItemStack throwtnt(Player p) {
         UUID uuid = p.getUniqueId();
 
-        ItemStack glowtnt = new ItemStack(Material.TNT);
-        ItemMeta glowtnt_meta = glowtnt.getItemMeta();
+        ItemStack throwtnt = new ItemStack(Material.TNT);
+        ItemMeta throwtnt_meta = throwtnt.getItemMeta();
 
-        glowtnt_meta.setDisplayName(ChatColor.DARK_GRAY + "Rzucane TNT");
+        throwtnt_meta.setDisplayName(ChatColor.DARK_GRAY + "Rzucane TNT");
         ArrayList<String> lore = new ArrayList<String>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.2%");
@@ -36,9 +36,9 @@ public class GlowTnt {
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
-        glowtnt_meta.setLore(lore);
-        glowtnt.setItemMeta(glowtnt_meta);
+        throwtnt_meta.setLore(lore);
+        throwtnt.setItemMeta(throwtnt_meta);
 
-        return glowtnt;
+        return throwtnt;
     }
 }
