@@ -21,8 +21,9 @@ public class DropCmds implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command arg1, @NotNull String arg2, @NotNull String[] args) {
         if(sender instanceof Player) {
             Player p = (Player) sender;
-
             OpenGui.OpenGui(p);
+        }else {
+            sender.sendMessage("§cNie można wykonać tej komendy z konsoli!");
         }
         return false;
     }

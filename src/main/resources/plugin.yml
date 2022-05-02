@@ -3,5 +3,11 @@ version: '${project.version}'
 main: pl.pomoku.cobblestonedropgui.main.Main
 api-version: 1.18
 authors: [ HubiRto ]
+website: https://github.com/HubiRto
 commands:
   drop:
+    description: Plugin na drop przedmiotów z kamienia.
+    aliases:
+      - d
+      - dro
+    usage: /<command>
