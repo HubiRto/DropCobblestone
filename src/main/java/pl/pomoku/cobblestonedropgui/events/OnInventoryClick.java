@@ -62,6 +62,16 @@ public class OnInventoryClick implements Listener {
                 }
                 OpenGui.OpenGui(p);
                 break;
+            case YELLOW_SHULKER_BOX:
+                if(plugin.getConfig().getString(uuid + ".ultra_block") == "true") {
+                    plugin.getConfig().set(uuid + ".ultra_block", "false");
+                    plugin.saveConfig();
+                }else {
+                    plugin.getConfig().set(uuid + ".ultra_block", "true");
+                    plugin.saveConfig();
+                }
+                OpenGui.OpenGui(p);
+                break;
             case REDSTONE:
                 if(plugin.getConfig().getString(uuid + ".redstone") == "true") {
                     plugin.getConfig().set(uuid + ".redstone", "false");

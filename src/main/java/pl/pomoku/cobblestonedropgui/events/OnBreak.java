@@ -55,6 +55,19 @@ public class OnBreak implements Listener {
         ItemStack gold = new ItemStack(Material.GOLD_INGOT);
         ItemStack obsidian = new ItemStack(Material.OBSIDIAN);
         ItemStack emerald = new ItemStack(Material.EMERALD);
+        
+        ItemStack ultra_block = new ItemStack(Material.TRAPPED_CHEST);
+        ItemMeta ultra_block_meta = ultra_block.getItemMeta();
+        ultra_block_meta.setDisplayName("§a§lUltra Block");
+        List<String> ultra_block_lore = new ArrayList<>();
+        ultra_block_lore.add("§7Jest to skrzynia z ktorej");
+        ultra_block_lore.add("§7wypadaja bardzo cenne itemki.");
+        ultra_block_lore.add(" ");
+        ultra_block_lore.add("§ePostaw, aby otworzyc!");
+        ultra_block_meta.setLore(ultra_block_lore);
+        ultra_block_meta.addEnchant(Enchantment.LUCK, 1, false);
+        ultra_block_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        ultra_block.setItemMeta(ultra_block_meta);
 
         ItemStack cobblestone = new ItemStack(Material.COBBLESTONE);
         ItemStack andesite = new ItemStack(Material.ANDESITE);
@@ -496,7 +509,7 @@ public class OnBreak implements Listener {
                             }
                         }
                         //RZUCANE TNT
-                    } else if (percentChance(0.002)) { //0.2%
+                    }else if (percentChance(0.002)) { //0.2%
                         if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                             if (plugin.getConfig().getString(uuid + ".throwtnt") == "true") {
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, throwtnt);
@@ -520,8 +533,33 @@ public class OnBreak implements Listener {
                                 }
                             }
                         }
+                        //TRAPPED_CHEST
+                    }else if (percentChance(0.1)) { //0.01%
+                        if (plugin.getConfig().getString(uuid + ".eq") == "true") {
+                            if (plugin.getConfig().getString(uuid + ".ultra_block") == "true") {
+                                p.getLocation().getWorld().dropItemNaturally(blockLocation, ultra_block);
+                            }
+                        } else {
+                            if (plugin.getConfig().getString(uuid + ".ultra_block") == "true") {
+                                if (isInventoryFull(p, Material.TRAPPED_CHEST, 64) == false) {
+                                    p.getInventory().addItem(ultra_block);
+                                } else {
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
+                                    plugin.getConfig().set(uuid + ".eq", "true");
+                                    plugin.saveConfig();
+                                }
+                            }
+                        }
                         //IRON
-                    } else if (percentChance(0.18)) { //18%
+                    }else if (percentChance(0.18)) { //18%
                         if (plugin.getConfig().getString(uuid + ".eq") == "true") {
                             if (plugin.getConfig().getString(uuid + ".iron") == "true") {
                                 iron.setAmount(iron.getAmount() * itemAmoundRandom(2, 4));

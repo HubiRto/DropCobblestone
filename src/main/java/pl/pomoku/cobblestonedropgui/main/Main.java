@@ -49,9 +49,7 @@ public final class Main extends JavaPlugin {
         new Bookshelf(this);
         new Arrow(this);
         new Apple(this);
-
-
-
+        new Shulker(this);
 
         getServer().getPluginManager().registerEvents(new OnBreak(this), this);
         getServer().getPluginManager().registerEvents(new OnJoin(this), this);
