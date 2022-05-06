@@ -1,10 +1,14 @@
 package pl.pomoku.cobblestonedropgui.main;
 
+//import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.pomoku.cobblestonedropgui.cmds.DropCmds;
+import pl.pomoku.cobblestonedropgui.cmds.GetChest;
 import pl.pomoku.cobblestonedropgui.events.OnBreak;
 import pl.pomoku.cobblestonedropgui.events.OnInventoryClick;
 import pl.pomoku.cobblestonedropgui.events.OnJoin;
+import pl.pomoku.cobblestonedropgui.events.OnPlace;
 import pl.pomoku.cobblestonedropgui.gui.items.*;
 import pl.pomoku.cobblestonedropgui.system.TntSystem;
 
@@ -14,7 +18,12 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        getLogger().info("Plugin sie uruchamia");
+        getServer().getConsoleSender().sendMessage(" ");
+        getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "=============================");
+        getServer().getConsoleSender().sendMessage(ChatColor.GRAY + "DropCobblestone v1.0 by" + ChatColor.DARK_PURPLE + " HubiRto");
+        getServer().getConsoleSender().sendMessage(ChatColor.GRAY + "Action:" + ChatColor.GREEN + " Enabling" + ChatColor.GRAY + "...");
+        getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "=============================");
+        getServer().getConsoleSender().sendMessage(" ");
 
         getConfig().options().copyDefaults(true);
         saveConfig();
@@ -30,7 +39,10 @@ public final class Main extends JavaPlugin {
         new Iron(this);
         new Obsidian(this);
         new Hopper(this);
+
         new DropCmds(this);
+        new GetChest(this);
+
         new Cobblestone(this);
         new Limestainedglasspane(this);
         new Blackstainedglasspane(this);
@@ -51,12 +63,20 @@ public final class Main extends JavaPlugin {
         new Apple(this);
         new Shulker(this);
 
+        getServer().getPluginManager().registerEvents(new OnPlace(this), this);
         getServer().getPluginManager().registerEvents(new OnBreak(this), this);
         getServer().getPluginManager().registerEvents(new OnJoin(this), this);
         getServer().getPluginManager().registerEvents(new OnInventoryClick(this), this);
         getServer().getPluginManager().registerEvents(new TntSystem(), this);
-
-
+    }
+    @Override
+    public void onDisable() {
+        getServer().getConsoleSender().sendMessage(" ");
+        getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "=============================");
+        getServer().getConsoleSender().sendMessage(ChatColor.GRAY + "DropCobblestone v1.0 by" + ChatColor.DARK_PURPLE + " HubiRto");
+        getServer().getConsoleSender().sendMessage(ChatColor.GRAY + "Action:" + ChatColor.RED + " Disabling" + ChatColor.GRAY + "...");
+        getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "=============================");
+        getServer().getConsoleSender().sendMessage(" ");
     }
 
     public static Main getMain() {

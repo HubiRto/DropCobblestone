@@ -11,3 +11,4 @@ commands:
       - d
       - dro
     usage: /<command>
+  getchest:
