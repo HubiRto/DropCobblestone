@@ -18,10 +18,12 @@ import pl.pomoku.cobblestonedropgui.main.Main;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static org.bukkit.Material.*;
+import static org.bukkit.enchantments.Enchantment.ARROW_KNOCKBACK;
 
 public class OnPlace implements Listener {
     Main plugin;
@@ -114,29 +116,13 @@ public class OnPlace implements Listener {
             meta3.addEnchant(Enchantment.DURABILITY, 4, true);
             items[3].setItemMeta(meta3);
 
-            ItemMeta meta4 = items[4].getItemMeta();
-            meta4.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            meta4.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, false);
-            meta4.addEnchant(Enchantment.DURABILITY, 4, true);
-            items[4].setItemMeta(meta4);
-
-            ItemMeta meta5 = items[5].getItemMeta();
-            meta5.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            meta5.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, false);
-            meta5.addEnchant(Enchantment.DURABILITY, 4, true);
-            items[5].setItemMeta(meta5);
-
-            ItemMeta meta6 = items[6].getItemMeta();
-            meta6.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            meta6.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, false);
-            meta6.addEnchant(Enchantment.DURABILITY, 4, true);
-            items[6].setItemMeta(meta6);
-
-            ItemMeta meta7 = items[7].getItemMeta();
-            meta7.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            meta7.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, false);
-            meta7.addEnchant(Enchantment.DURABILITY, 4, true);
-            items[7].setItemMeta(meta7);
+            for(int m = 4; m < 8; m++) {
+                ItemMeta meta_m = items[m].getItemMeta();
+                meta_m.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
+                meta_m.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, false);
+                meta_m.addEnchant(Enchantment.DURABILITY, 4, true);
+                items[m].setItemMeta(meta_m);
+            }
 
             ItemMeta meta8 = items[8].getItemMeta();
             meta8.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Auto Fosa");
@@ -183,27 +169,11 @@ public class OnPlace implements Listener {
             meta13.addEnchant(Enchantment.DURABILITY, 4, true);
             items[13].setItemMeta(meta13);
 
-            ItemMeta meta14 = items[14].getItemMeta();
-            meta14.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            items[14].setItemMeta(meta14);
-
-            ItemMeta meta15 = items[15].getItemMeta();
-            meta15.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            items[15].setItemMeta(meta15);
-
-            ItemMeta meta16 = items[16].getItemMeta();
-            meta16.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            items[16].setItemMeta(meta16);
-
             ItemMeta meta17 = items[17].getItemMeta();
             meta17.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            meta17.addEnchant(Enchantment.ARROW_KNOCKBACK ,2, false);
+            meta17.addEnchant(ARROW_KNOCKBACK ,2, false);
             meta17.addEnchant(Enchantment.DURABILITY, 4, true);
             items[17].setItemMeta(meta17);
-
-            ItemMeta meta18 = items[18].getItemMeta();
-            meta18.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            items[18].setItemMeta(meta18);
 
             ItemMeta meta19 = items[19].getItemMeta();
             meta19.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
@@ -211,12 +181,6 @@ public class OnPlace implements Listener {
             meta19.addEnchant(Enchantment.ARROW_DAMAGE ,2, false);
             meta19.addEnchant(Enchantment.DURABILITY, 4, true);
             items[19].setItemMeta(meta19);
-
-            for(int n = 20; n < 27; n++) {
-                ItemMeta meta_n = items[n].getItemMeta();
-                meta_n.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-                items[n].setItemMeta(meta_n);
-            }
 
             contents = items;
         }
@@ -285,110 +249,249 @@ public class OnPlace implements Listener {
                         new BukkitRunnable() {
                             public void run() {
                                 ItemStack item = inv.getItem(13);
-                                switch(item.getType()){
-                                    case NETHERITE_SWORD:
-                                        if(isInventoryFull(player, NETHERITE_SWORD, 1) == false) {
-                                            player.getInventory().addItem(item);
-                                            player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowy miecz!");
+                                //System.out.println(item.getType().name());
+                                if (item != null) {
+                                    switch(item.getType()){
+                                        case NETHERITE_SWORD:
+                                            if(!isInventoryFull(player, NETHERITE_SWORD, 1)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowy miecz!" + item.getType().name().replace("_", " "));
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }else {
-                                            player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            break;
+                                        case NETHERITE_AXE:
+                                            if(!isInventoryFull(player, NETHERITE_AXE, 1)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowa sikiere!");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }
-                                        break;
-                                    case NETHERITE_AXE:
-                                        if(isInventoryFull(player, NETHERITE_AXE, 1) == false) {
-                                            player.getInventory().addItem(item);
-                                            player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowa sikiere!");
+                                            break;
+                                        case NETHERITE_PICKAXE:
+                                            if(!isInventoryFull(player, NETHERITE_PICKAXE, 1)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowy kilof!");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }else {
-                                            player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            break;
+                                        case NETHERITE_SHOVEL:
+                                            if(!isInventoryFull(player, NETHERITE_SHOVEL, 1)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowa sikiere!");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }
-                                        break;
-                                    case NETHERITE_PICKAXE:
-                                        if(isInventoryFull(player, NETHERITE_PICKAXE, 1) == false) {
-                                            player.getInventory().addItem(item);
-                                            player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowy kilof!");
+                                            break;
+                                        case NETHERITE_BOOTS:
+                                            if(!isInventoryFull(player, NETHERITE_BOOTS, 1)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowe buty!");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }else {
-                                            player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            break;
+                                        case NETHERITE_LEGGINGS:
+                                            if(!isInventoryFull(player, NETHERITE_LEGGINGS, 1)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowe spodnie!");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }
-                                        break;
-                                    case NETHERITE_SHOVEL:
-                                        if(isInventoryFull(player, NETHERITE_SHOVEL, 1) == false) {
-                                            player.getInventory().addItem(item);
-                                            player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowa sikiere!");
+                                            break;
+                                        case NETHERITE_CHESTPLATE:
+                                            if(!isInventoryFull(player, NETHERITE_CHESTPLATE, 1)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowa klate!");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }else {
-                                            player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            break;
+                                        case NETHERITE_HELMET:
+                                            if(!isInventoryFull(player, NETHERITE_HELMET, 1)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowy kask!");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }
-                                        break;
-                                    case NETHERITE_BOOTS:
-                                        if(isInventoryFull(player, NETHERITE_BOOTS, 1) == false) {
-                                            player.getInventory().addItem(item);
-                                            player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowe buty!");
+                                            break;
+                                        case RED_GLAZED_TERRACOTTA:
+                                            if(!isInventoryFullByMeta(player, "Auto Fosa", 64)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Auto Fose x64");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }else {
-                                            player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            break;
+                                        case PURPLE_GLAZED_TERRACOTTA:
+                                            if(!isInventoryFullByMeta(player, "Boy Farmer", 64)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Boy Farmera x64");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }
-                                        break;
-                                    case NETHERITE_LEGGINGS:
-                                        if(isInventoryFull(player, NETHERITE_LEGGINGS, 1) == false) {
-                                            player.getInventory().addItem(item);
-                                            player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowe spodnie!");
+                                            break;
+                                        case LIME_GLAZED_TERRACOTTA:
+                                            if(!isInventoryFullByMeta(player, "Sand Farmer", 64)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Sand Farmera x64");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }else {
-                                            player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            break;
+                                        case TNT:
+                                            if(!isInventoryFullByMeta(player, "Rzucane TNT", 64)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Rzucane TNT x6");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }
-                                        break;
-                                    case NETHERITE_CHESTPLATE:
-                                        if(isInventoryFull(player, NETHERITE_CHESTPLATE, 1) == false) {
-                                            player.getInventory().addItem(item);
-                                            player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowa klate!");
+                                            break;
+                                        case TRAPPED_CHEST:
+                                            if(!isInventoryFullByMeta(player, "Cobble X", 64)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Cobble X x6");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }else {
-                                            player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            break;
+                                        case ENCHANTED_GOLDEN_APPLE:
+                                            if(!isInventoryFull(player, ENCHANTED_GOLDEN_APPLE, 64)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Zlote Jablko Nocha x4");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }
-                                        break;
-                                    case NETHERITE_HELMET:
-                                        if(isInventoryFull(player, NETHERITE_HELMET, 1) == false) {
-                                            player.getInventory().addItem(item);
-                                            player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales netariatowy kask!");
+                                            break;
+                                        case GOLDEN_APPLE:
+                                            if(!isInventoryFull(player, GOLDEN_APPLE, 64)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Zlote Jablko x16");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }else {
-                                            player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            break;
+                                        case ENDER_PEARL:
+                                            if(!isInventoryFull(player, ENDER_PEARL, 16)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Perly x8");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }
-                                        break;
-                                    case RED_GLAZED_TERRACOTTA:
-                                        if(isInventoryFull(player, RED_GLAZED_TERRACOTTA, 64) == false) {
-                                            player.getInventory().addItem(item);
-                                            player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Auto Fose x64");
+                                            break;
+                                        case BOW:
+                                            Map<Enchantment, Integer> enchantments = item.getEnchantments();
+                                            if(enchantments.containsKey(ARROW_KNOCKBACK)) {
+                                                if(!isInventoryFull(player, BOW, 1)) {
+                                                    player.getInventory().addItem(item);
+                                                    player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Odrzucajacy Luk");
+                                                }else {
+                                                    player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                                }
+                                            }else {
+                                                if(!isInventoryFull(player, BOW, 1)) {
+                                                    player.getInventory().addItem(item);
+                                                    player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Silny Luk");
+                                                }else {
+                                                    player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                                }
+                                            }
                                             isOpen = false;
-                                        }else {
-                                            player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            break;
+                                        case CHORUS_FLOWER:
+                                            if(!isInventoryFull(player, CHORUS_FLOWER, 64)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Owoce Chorus x3");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }
-                                        break;
-                                    case PURPLE_GLAZED_TERRACOTTA:
-                                        if(isInventoryFull(player, PURPLE_GLAZED_TERRACOTTA, 64) == false) {
-                                            player.getInventory().addItem(item);
-                                            player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Boy Farmera x64");
+                                            break;
+                                        case SHULKER_BOX:
+                                            if(!isInventoryFull(player, SHULKER_BOX, 1)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Shulkerowa Skrzynie x5");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }else {
-                                            player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            break;
+                                        case DIAMOND_BLOCK:
+                                            if(!isInventoryFull(player, DIAMOND_BLOCK, 64)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Bloki Diamentow x16");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
                                             isOpen = false;
-                                        }
-                                        break;
-                                    default:
-                                        isOpen = false;
-                                        break;
+                                            break;
+                                        case BEACON:
+                                            if(!isInventoryFull(player, BEACON, 64)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Beacon");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
+                                            isOpen = false;
+                                            break;
+                                        case ELYTRA:
+                                            if(!isInventoryFull(player, ELYTRA, 1)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Elytre");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
+                                            isOpen = false;
+                                            break;
+                                        case TRIDENT:
+                                            if(!isInventoryFull(player, TRIDENT, 1)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Trident");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
+                                            isOpen = false;
+                                            break;
+                                        case TOTEM_OF_UNDYING:
+                                            if(!isInventoryFull(player, TOTEM_OF_UNDYING, 1)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Totem Niesmiertelnosci");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
+                                            isOpen = false;
+                                            break;
+                                        case HEART_OF_THE_SEA:
+                                            if(!isInventoryFull(player, HEART_OF_THE_SEA, 64)) {
+                                                player.getInventory().addItem(item);
+                                                player.sendMessage(ChatColor.GOLD + "Gratulacje! " + ChatColor.GREEN + "Wylosowales Serce Oceanu");
+                                            }else {
+                                                player.getLocation().getWorld().dropItemNaturally(player.getLocation(), item);
+                                            }
+                                            isOpen = false;
+                                            break;
+                                        default:
+                                            player.sendMessage(ChatColor.RED + "Nie wylosowales rzadnego przedmiotu?" + ChatColor.YELLOW + " Zglos to do administracji!");
+                                            isOpen = false;
+                                            break;
+                                    }
                                 }
                                 player.updateInventory();
                                 player.closeInventory();
@@ -404,6 +507,7 @@ public class OnPlace implements Listener {
         }.runTaskTimer(this.plugin, 0, 1);
 
     }
+
     private boolean isInventoryFull(Player p, Material mat, int MaxV) {
         boolean inventoryFull = true;
         if (p.getInventory().getContents() != null) {
@@ -417,11 +521,29 @@ public class OnPlace implements Listener {
                 } else {
                     inventoryFull = false;
                 }
-                //System.out.println(is.getType().toString() + " " + is.getAmount() + " "  + inventoryFull);
             }
         }
         return inventoryFull;
     }
+
+    private boolean isInventoryFullByMeta(Player p, String meta, int MaxV) {
+        boolean inventoryFullByMeta = true;
+        if (p.getInventory().getContents() != null) {
+            for (ItemStack is : p.getInventory().getStorageContents()) {
+                if (is != null) {
+                    if (is.getItemMeta().getDisplayName().contains(meta)) {
+                        if (is.getAmount() < MaxV) {
+                            inventoryFullByMeta = false;
+                        }
+                    }
+                } else {
+                    inventoryFullByMeta = false;
+                }
+            }
+        }
+        return inventoryFullByMeta;
+    }
+
     @EventHandler
     public void OnClick(InventoryClickEvent event) {
         if(!invs.contains(event.getInventory())) {
