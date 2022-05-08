@@ -212,33 +212,11 @@ public class OnPlace implements Listener {
             meta19.addEnchant(Enchantment.DURABILITY, 4, true);
             items[19].setItemMeta(meta19);
 
-            ItemMeta meta20 = items[20].getItemMeta();
-            meta20.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            items[20].setItemMeta(meta20);
-
-            ItemMeta meta21 = items[21].getItemMeta();
-            meta21.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            items[21].setItemMeta(meta21);
-
-            ItemMeta meta22 = items[22].getItemMeta();
-            meta22.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            items[22].setItemMeta(meta22);
-
-            ItemMeta meta23 = items[23].getItemMeta();
-            meta23.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            items[23].setItemMeta(meta23);
-
-            ItemMeta meta24 = items[24].getItemMeta();
-            meta24.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            items[24].setItemMeta(meta24);
-
-            ItemMeta meta25 = items[25].getItemMeta();
-            meta25.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            items[25].setItemMeta(meta25);
-
-            ItemMeta meta26 = items[26].getItemMeta();
-            meta26.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
-            items[26].setItemMeta(meta26);
+            for(int n = 20; n < 27; n++) {
+                ItemMeta meta_n = items[n].getItemMeta();
+                meta_n.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
+                items[n].setItemMeta(meta_n);
+            }
 
             contents = items;
         }
