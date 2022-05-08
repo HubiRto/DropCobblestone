@@ -65,8 +65,6 @@ public class OnBreak implements Listener {
         ultra_block_lore.add(" ");
         ultra_block_lore.add("§ePostaw, aby otworzyc!");
         ultra_block_meta.setLore(ultra_block_lore);
-        ultra_block_meta.addEnchant(Enchantment.LUCK, 1, false);
-        ultra_block_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         ultra_block.setItemMeta(ultra_block_meta);
 
         ItemStack cobblestone = new ItemStack(Material.COBBLESTONE);

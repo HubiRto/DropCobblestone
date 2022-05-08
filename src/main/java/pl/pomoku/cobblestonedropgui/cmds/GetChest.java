@@ -35,11 +35,6 @@ public class GetChest implements CommandExecutor {
         ultra_block_lore.add(" ");
         ultra_block_lore.add("§ePostaw, aby otworzyc!");
         ultra_block_meta.setLore(ultra_block_lore);
-        ultra_block_meta.addEnchant(Enchantment.LUCK, 1, false);
-        ultra_block_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        ultra_block.setItemMeta(ultra_block_meta);
-
-        ultra_block_meta.setDisplayName("");
         ultra_block.setItemMeta(ultra_block_meta);
 
         if(sender instanceof Player) {
