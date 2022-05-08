@@ -5,10 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.pomoku.cobblestonedropgui.cmds.DropCmds;
 import pl.pomoku.cobblestonedropgui.cmds.GetChest;
-import pl.pomoku.cobblestonedropgui.events.OnBreak;
-import pl.pomoku.cobblestonedropgui.events.OnInventoryClick;
-import pl.pomoku.cobblestonedropgui.events.OnJoin;
-import pl.pomoku.cobblestonedropgui.events.OnPlace;
+import pl.pomoku.cobblestonedropgui.events.*;
 import pl.pomoku.cobblestonedropgui.gui.items.*;
 import pl.pomoku.cobblestonedropgui.system.TntSystem;
 
