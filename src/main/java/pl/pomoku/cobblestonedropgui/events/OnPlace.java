@@ -79,11 +79,10 @@ public class OnPlace implements Listener {
         }
         else if(b.getType() == RED_GLAZED_TERRACOTTA) {
             if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Auto Fosa")){
-                p.sendMessage(ChatColor.AQUA + "Postawiles Auto Fose!");
                 for(int i = b.getY(); i > -64; i--) {
                     Location loc = new Location(p.getLocation().getWorld(), b.getX(), i, b.getZ());
                     if(loc.getBlock().getType().equals(Material.BEDROCK)) {
-                        return;
+                        i = -64;
                     }else {
                         loc.getBlock().setType(Material.AIR);
                     }
@@ -92,11 +91,10 @@ public class OnPlace implements Listener {
         }
         else if(b.getType() == LIME_GLAZED_TERRACOTTA) {
             if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Sand Farmer")){
-                p.sendMessage(ChatColor.AQUA + "Postawiles Sand Farmera!");
                 for(int i = b.getY(); i > -64; i--) {
                     Location loc = new Location(p.getLocation().getWorld(), b.getX(), i, b.getZ());
                     if(loc.getBlock().getType().equals(Material.BEDROCK)) {
-                        return;
+                        i = -64;
                     }else {
                         loc.getBlock().setType(Material.SAND);
                     }
@@ -105,11 +103,10 @@ public class OnPlace implements Listener {
         }
         else if(b.getType() == PURPLE_GLAZED_TERRACOTTA) {
             if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Boy Farmer")){
-                p.sendMessage(ChatColor.AQUA + "Postawiles Boy Farmera!");
                 for(int i = b.getY(); i > -64; i--) {
                     Location loc = new Location(p.getLocation().getWorld(), b.getX(), i, b.getZ());
                     if(loc.getBlock().getType().equals(Material.BEDROCK)) {
-                        return;
+                        i = -64;
                     }else {
                         loc.getBlock().setType(Material.OBSIDIAN);
                     }
