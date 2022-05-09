@@ -1,8 +1,10 @@
 package pl.pomoku.cobblestonedropgui.events;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -74,6 +76,18 @@ public class OnPlace implements Listener {
                     p.sendMessage(" ");
                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                     p.sendMessage(" ");
+                }
+            }
+        }
+        else if(b.getType() == RED_GLAZED_TERRACOTTA) {
+            if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Auto Fosa")){
+                for(int i = b.getY(); i > -63; i--) {
+                    Location loc = new Location(p.getLocation().getWorld(), b.getX(), i, b.getZ());
+                    new BukkitRunnable() {
+                        public void run() {
+                            loc.getBlock().setType(Material.AIR);
+                        }
+                    }.runTaskLater(Main.getPlugin(Main.class), 50);
                 }
             }
         }
