@@ -29,7 +29,7 @@ public final class Main extends JavaPlugin {
 
         new OnBreak(this);
         new OnJoin(this);
-        new OnInventoryClick(this);
+        new OnInventoryClickForDropGui(this);
 
         new Emerald(this);
         new Gold(this);
@@ -60,13 +60,16 @@ public final class Main extends JavaPlugin {
         new Apple(this);
         new Shulker(this);
 
-        getServer().getPluginManager().registerEvents(new OnPlace(this), this);
+        getServer().getPluginManager().registerEvents(new OnPlaceForUltraBlock(this), this);
+        getServer().getPluginManager().registerEvents(new OnPlaceForCobbleX(this), this);
+
         getServer().getPluginManager().registerEvents(new OnBreak(this), this);
         getServer().getPluginManager().registerEvents(new OnJoin(this), this);
         getServer().getPluginManager().registerEvents(new TntSystem(), this);
 
-        getServer().getPluginManager().registerEvents(new OnInventoryClick(this), this);
+        getServer().getPluginManager().registerEvents(new OnInventoryClickForDropGui(this), this);
         getServer().getPluginManager().registerEvents(new OnInventoryClickForUltraBlockGui(this), this);
+        getServer().getPluginManager().registerEvents(new OnInventoryClickForCobbleXGui(this), this);
     }
     @Override
     public void onDisable() {

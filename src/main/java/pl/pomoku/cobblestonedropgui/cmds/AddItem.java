@@ -58,6 +58,13 @@ public class AddItem implements CommandExecutor {
         auto_fosa_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         auto_fosa.setItemMeta(auto_fosa_meta);
 
+        ItemStack cobblex = new ItemStack(Material.TRAPPED_CHEST);
+        ItemMeta cobblex_meta = cobblex.getItemMeta();
+        cobblex_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Cobble X");
+        cobblex_meta.addEnchant(Enchantment.LUCK, 1, true);
+        cobblex_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        cobblex.setItemMeta(cobblex_meta);
+
         if(sender instanceof Player) {
             Player p = (Player) sender;
             if(args.length == 0) {
@@ -78,6 +85,10 @@ public class AddItem implements CommandExecutor {
                 else if (args[0].equalsIgnoreCase("AutoFosa")){
                     p.getInventory().addItem(auto_fosa);
                     p.sendMessage(ChatColor.GREEN + "Dostales Auto Fose!");
+                }
+                else if (args[0].equalsIgnoreCase("CobbleX")){
+                    p.getInventory().addItem(cobblex);
+                    p.sendMessage(ChatColor.GREEN + "Dostales Cobble X!");
                 }
             }
         }else {

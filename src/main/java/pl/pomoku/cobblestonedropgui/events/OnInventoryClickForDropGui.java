@@ -7,17 +7,17 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import pl.pomoku.cobblestonedropgui.gui.OpenCobbleXGui;
-import pl.pomoku.cobblestonedropgui.gui.OpenGui;
+import pl.pomoku.cobblestonedropgui.gui.OpenDropGui;
 import pl.pomoku.cobblestonedropgui.gui.OpenUltraBlockGui;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
 import java.util.UUID;
 
-public class OnInventoryClick implements Listener {
+public class OnInventoryClickForDropGui implements Listener {
 
     Main plugin;
 
-    public OnInventoryClick(Main m) {
+    public OnInventoryClickForDropGui(Main m) {
         plugin = m;
     }
 
@@ -47,7 +47,7 @@ public class OnInventoryClick implements Listener {
                 //Wyrzucialem zamykanie sie inventory i kusor sie nie przemieszcza
                 //p.closeInventory();
                 //Moga wystapic bledy z optymalizacja
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case DIAMOND:
                 if(plugin.getConfig().getString(uuid + ".diamond") == "true") {
@@ -57,7 +57,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".diamond", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case YELLOW_SHULKER_BOX:
                 if(plugin.getConfig().getString(uuid + ".ultra_block") == "true") {
@@ -67,7 +67,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".ultra_block", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case REDSTONE:
                 if(plugin.getConfig().getString(uuid + ".redstone") == "true") {
@@ -77,7 +77,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".redstone", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case NETHERITE_INGOT:
                 if(plugin.getConfig().getString(uuid + ".netherite") == "true") {
@@ -87,7 +87,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".netherite", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case SLIME_BALL:
                 if(plugin.getConfig().getString(uuid + ".slimeball") == "true") {
@@ -97,7 +97,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".slimeball", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case BOOKSHELF:
                 if(plugin.getConfig().getString(uuid + ".bookshelf") == "true") {
@@ -107,7 +107,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".bookshelf", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case ENDER_PEARL:
                 if(plugin.getConfig().getString(uuid + ".enderpearl") == "true") {
@@ -117,7 +117,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".enderpearl", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case TNT:
                 if(e.getCurrentItem().getItemMeta().getDisplayName().contains("Rzucane TNT")) {
@@ -128,7 +128,7 @@ public class OnInventoryClick implements Listener {
                         plugin.getConfig().set(uuid + ".throwtnt", "true");
                         plugin.saveConfig();
                     }
-                    OpenGui.OpenGui(p);
+                    OpenDropGui.OpenGui(p);
                 }else {
                     if (plugin.getConfig().getString(uuid + ".tnt") == "true") {
                         plugin.getConfig().set(uuid + ".tnt", "false");
@@ -137,7 +137,7 @@ public class OnInventoryClick implements Listener {
                         plugin.getConfig().set(uuid + ".tnt", "true");
                         plugin.saveConfig();
                     }
-                    OpenGui.OpenGui(p);
+                    OpenDropGui.OpenGui(p);
                 }
                 break;
             case APPLE:
@@ -148,7 +148,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".apple", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case COAL:
                 if(plugin.getConfig().getString(uuid + ".coal") == "true") {
@@ -158,7 +158,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".coal", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case OAK_LOG:
                 if(plugin.getConfig().getString(uuid + ".oaklog") == "true") {
@@ -168,7 +168,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".oaklog", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case ARROW:
                 if(plugin.getConfig().getString(uuid + ".arrow") == "true") {
@@ -178,7 +178,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".arrow", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case LIME_STAINED_GLASS_PANE:
                 plugin.getConfig().set(uuid + ".cobblestone", "true");
@@ -199,7 +199,7 @@ public class OnInventoryClick implements Listener {
                 plugin.getConfig().set(uuid + ".arrow", "true");
 
                 plugin.saveConfig();
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case RED_STAINED_GLASS_PANE:
                 plugin.getConfig().set(uuid + ".cobblestone", "false");
@@ -219,7 +219,7 @@ public class OnInventoryClick implements Listener {
                 plugin.getConfig().set(uuid + ".oaklog", "false");
                 plugin.getConfig().set(uuid + ".arrow", "false");
                 plugin.saveConfig();
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case IRON_INGOT:
                 if(plugin.getConfig().getString(uuid + ".iron") == "true") {
@@ -229,7 +229,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".iron", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case GOLD_INGOT:
                 if(plugin.getConfig().getString(uuid + ".gold") == "true") {
@@ -239,7 +239,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".gold", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case OBSIDIAN:
                 if(plugin.getConfig().getString(uuid + ".obsidian") == "true") {
@@ -249,7 +249,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".obsidian", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case EMERALD:
                 if(plugin.getConfig().getString(uuid + ".emerald") == "true") {
@@ -259,7 +259,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".emerald", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case HOPPER:
                 if(plugin.getConfig().getString(uuid + ".eq") == "true") {
@@ -269,7 +269,7 @@ public class OnInventoryClick implements Listener {
                     plugin.getConfig().set(uuid + ".eq", "true");
                     plugin.saveConfig();
                 }
-                OpenGui.OpenGui(p);
+                OpenDropGui.OpenGui(p);
                 break;
             case ENDER_CHEST:
                 p.closeInventory();

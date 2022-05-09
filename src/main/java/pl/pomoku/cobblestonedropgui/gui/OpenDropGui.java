@@ -7,7 +7,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import pl.pomoku.cobblestonedropgui.gui.items.*;
 
-public class OpenGui {
+public class OpenDropGui {
     public static void OpenGui(Player p) {
         Inventory i = Bukkit.createInventory(null, 54, ChatColor.DARK_GRAY + "Drop z kamienia");
 

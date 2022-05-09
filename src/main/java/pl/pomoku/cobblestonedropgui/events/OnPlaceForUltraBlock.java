@@ -26,9 +26,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import static org.bukkit.Material.*;
 import static org.bukkit.enchantments.Enchantment.ARROW_KNOCKBACK;
 
-public class OnPlace implements Listener {
+public class OnPlaceForUltraBlock implements Listener {
     Main plugin;
-    public OnPlace(Main m) {
+    public OnPlaceForUltraBlock(Main m) {
         plugin = m;
     }
 
