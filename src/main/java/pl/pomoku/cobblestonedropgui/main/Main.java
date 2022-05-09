@@ -4,7 +4,7 @@ package pl.pomoku.cobblestonedropgui.main;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.pomoku.cobblestonedropgui.cmds.DropCmds;
-import pl.pomoku.cobblestonedropgui.cmds.GetChest;
+import pl.pomoku.cobblestonedropgui.cmds.AddItem;
 import pl.pomoku.cobblestonedropgui.events.*;
 import pl.pomoku.cobblestonedropgui.gui.items.*;
 import pl.pomoku.cobblestonedropgui.system.TntSystem;
@@ -38,7 +38,7 @@ public final class Main extends JavaPlugin {
         new Hopper(this);
 
         new DropCmds(this);
-        new GetChest(this);
+        new AddItem(this);
 
         new Cobblestone(this);
         new Limestainedglasspane(this);

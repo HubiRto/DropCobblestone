@@ -4,7 +4,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -21,7 +20,6 @@ import pl.pomoku.cobblestonedropgui.main.Main;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -81,13 +79,37 @@ public class OnPlace implements Listener {
         }
         else if(b.getType() == RED_GLAZED_TERRACOTTA) {
             if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Auto Fosa")){
-                for(int i = b.getY(); i > -63; i--) {
+                for(int i = b.getY(); i > -64; i--) {
                     Location loc = new Location(p.getLocation().getWorld(), b.getX(), i, b.getZ());
-                    new BukkitRunnable() {
-                        public void run() {
-                            loc.getBlock().setType(Material.AIR);
-                        }
-                    }.runTaskLater(Main.getPlugin(Main.class), 50);
+                    if(loc.getBlock().getType().equals(Material.BEDROCK)) {
+                        return;
+                    }else {
+                        loc.getBlock().setType(Material.AIR);
+                    }
+                }
+            }
+        }
+        else if(b.getType() == LIME_GLAZED_TERRACOTTA) {
+            if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Sand Farmer")){
+                for(int i = b.getY(); i > -64; i--) {
+                    Location loc = new Location(p.getLocation().getWorld(), b.getX(), i, b.getZ());
+                    if(loc.getBlock().getType().equals(Material.BEDROCK)) {
+                        return;
+                    }else {
+                        loc.getBlock().setType(Material.SAND);
+                    }
+                }
+            }
+        }
+        else if(b.getType() == PURPLE_GLAZED_TERRACOTTA) {
+            if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Boy Farmer")){
+                for(int i = b.getY(); i > -64; i--) {
+                    Location loc = new Location(p.getLocation().getWorld(), b.getX(), i, b.getZ());
+                    if(loc.getBlock().getType().equals(Material.BEDROCK)) {
+                        return;
+                    }else {
+                        loc.getBlock().setType(Material.OBSIDIAN);
+                    }
                 }
             }
         }

@@ -6,13 +6,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import pl.pomoku.cobblestonedropgui.gui.OpenGui;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class OnInventoryClick implements Listener {
