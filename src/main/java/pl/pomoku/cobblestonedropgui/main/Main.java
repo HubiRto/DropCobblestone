@@ -63,8 +63,10 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new OnPlace(this), this);
         getServer().getPluginManager().registerEvents(new OnBreak(this), this);
         getServer().getPluginManager().registerEvents(new OnJoin(this), this);
-        getServer().getPluginManager().registerEvents(new OnInventoryClick(this), this);
         getServer().getPluginManager().registerEvents(new TntSystem(), this);
+
+        getServer().getPluginManager().registerEvents(new OnInventoryClick(this), this);
+        getServer().getPluginManager().registerEvents(new OnInventoryClickForUltraBlockGui(this), this);
     }
     @Override
     public void onDisable() {

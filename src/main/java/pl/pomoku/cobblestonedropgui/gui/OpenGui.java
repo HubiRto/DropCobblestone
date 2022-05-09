@@ -26,7 +26,7 @@ public class OpenGui {
         ItemStack throwtnt = ThrowTnt.throwtnt(p);
         ItemStack enderpearl = Enderpearl.enderpearl(p);
         ItemStack enderchest = Enderchest.enderchest(p);
-        ItemStack chest = Chest.chest(p);
+        ItemStack chest = Chest.chest();
         ItemStack bookshelf = Bookshelf.bookshelf(p);
         ItemStack arrow = Arrow.arrow(p);
         ItemStack diamond = Diamond.diamond(p);

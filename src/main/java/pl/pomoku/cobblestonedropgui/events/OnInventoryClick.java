@@ -6,7 +6,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import pl.pomoku.cobblestonedropgui.gui.OpenCobbleXGui;
 import pl.pomoku.cobblestonedropgui.gui.OpenGui;
+import pl.pomoku.cobblestonedropgui.gui.OpenUltraBlockGui;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
 import java.util.UUID;
@@ -18,7 +20,6 @@ public class OnInventoryClick implements Listener {
     public OnInventoryClick(Main m) {
         plugin = m;
     }
-
 
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent e) {
@@ -270,10 +271,20 @@ public class OnInventoryClick implements Listener {
                 }
                 OpenGui.OpenGui(p);
                 break;
+            case ENDER_CHEST:
+                p.closeInventory();
+                OpenCobbleXGui.OpenCobbleXGui(p);
+                break;
+            case CHEST:
+                p.closeInventory();
+                OpenUltraBlockGui.OpenUltraBlockGui(p);
+                break;
+            case BLACK_STAINED_GLASS_PANE:
+                break;
             default:
                 p.closeInventory();
                 break;
 
         }
-     }
+    }
 }
