@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import pl.pomoku.cobblestonedropgui.cmds.DropCmds;
 import pl.pomoku.cobblestonedropgui.cmds.AddItem;
 import pl.pomoku.cobblestonedropgui.events.*;
-import pl.pomoku.cobblestonedropgui.gui.items.*;
+import pl.pomoku.cobblestonedropgui.gui.OpenDropGui;
 import pl.pomoku.cobblestonedropgui.system.TntSystem;
 
 public final class Main extends JavaPlugin {
@@ -31,34 +31,10 @@ public final class Main extends JavaPlugin {
         new OnJoin(this);
         new OnInventoryClickForDropGui(this);
 
-        new Emerald(this);
-        new Gold(this);
-        new Iron(this);
-        new Obsidian(this);
-        new Hopper(this);
+        new OpenDropGui(this);
 
         new DropCmds(this);
         new AddItem(this);
-
-        new Cobblestone(this);
-        new Limestainedglasspane(this);
-        new Blackstainedglasspane(this);
-        new Redstainedglasspane(this);
-        new Diamond(this);
-        new Redstone(this);
-        new Tnt(this);
-        new Slimeball(this);
-        new Oaklog(this);
-        new Netherite(this);
-        new ThrowTnt(this);
-        new Enderpearl(this);
-        new Enderchest(this);
-        new Coal(this);
-        new Chest(this);
-        new Bookshelf(this);
-        new Arrow(this);
-        new Apple(this);
-        new Shulker(this);
 
         getServer().getPluginManager().registerEvents(new OnPlaceForUltraBlock(this), this);
         getServer().getPluginManager().registerEvents(new OnPlaceForCobbleX(this), this);
