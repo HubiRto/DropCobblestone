@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.pomoku.cobblestonedropgui.cmds.DropCmds;
 import pl.pomoku.cobblestonedropgui.cmds.AddItem;
+import pl.pomoku.cobblestonedropgui.cmds.tab_compliters.AddItemCompliter;
 import pl.pomoku.cobblestonedropgui.events.*;
 import pl.pomoku.cobblestonedropgui.gui.OpenDropGui;
 import pl.pomoku.cobblestonedropgui.system.TntSystem;
@@ -35,6 +36,7 @@ public final class Main extends JavaPlugin {
 
         new DropCmds(this);
         new AddItem(this);
+        new AddItemCompliter(this);
 
         getServer().getPluginManager().registerEvents(new OnPlaceForUltraBlock(this), this);
         getServer().getPluginManager().registerEvents(new OnPlaceForCobbleX(this), this);

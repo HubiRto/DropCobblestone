@@ -23,6 +23,15 @@ public class AddItem implements CommandExecutor {
         m.getCommand("dodaj").setExecutor(this);
     }
 
+    public static boolean isInt(String s) {
+        try{
+            Integer.parseInt(s);
+        }catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -67,7 +76,7 @@ public class AddItem implements CommandExecutor {
 
         if(sender instanceof Player) {
             Player p = (Player) sender;
-            if(args.length == 0) {
+            if(!(args.length == 0)) {
 
             }else {
                 if(args[0].equalsIgnoreCase("UltraBlock")) {
