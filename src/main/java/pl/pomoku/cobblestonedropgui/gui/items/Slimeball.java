@@ -26,21 +26,21 @@ public class Slimeball {
         ItemMeta slimeball_meta = slimeball.getItemMeta();
 
         slimeball_meta.setDisplayName(ChatColor.DARK_GRAY + "Slime");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "10.0%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "2-4" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".slimeball") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
+            slimeball_meta.addEnchant(Enchantment.LUCK, 1, false);
+            slimeball_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         slimeball_meta.setLore(lore);
-        slimeball_meta.addEnchant(Enchantment.LUCK, 1, false);
-        slimeball_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         slimeball.setItemMeta(slimeball_meta);
 
         return slimeball;

@@ -26,21 +26,21 @@ public class Oaklog {
         ItemMeta oaklog_meta = oaklog.getItemMeta();
 
         oaklog_meta.setDisplayName(ChatColor.GREEN + "Drewno");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "4.0%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "4-8" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".oaklog") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
+            oaklog_meta.addEnchant(Enchantment.LUCK, 1, false);
+            oaklog_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         oaklog_meta.setLore(lore);
-        oaklog_meta.addEnchant(Enchantment.LUCK, 1, false);
-        oaklog_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         oaklog.setItemMeta(oaklog_meta);
 
         return oaklog;

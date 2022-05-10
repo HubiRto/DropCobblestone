@@ -26,21 +26,21 @@ public class Iron {
         ItemMeta iron_meta = iron.getItemMeta();
 
         iron_meta.setDisplayName(ChatColor.DARK_GRAY + "Zelazo");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "18.0%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "2-4" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".iron") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
+            iron_meta.addEnchant(Enchantment.LUCK, 1, false);
+            iron_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         iron_meta.setLore(lore);
-        iron_meta.addEnchant(Enchantment.LUCK, 1, false);
-        iron_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         iron.setItemMeta(iron_meta);
 
         return iron;

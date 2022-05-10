@@ -26,21 +26,21 @@ public class Apple {
         ItemMeta apple_meta = apple.getItemMeta();
 
         apple_meta.setDisplayName(ChatColor.DARK_GRAY + "Jablko");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "8.0%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "2-3" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".apple") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
+            apple_meta.addEnchant(Enchantment.LUCK, 1, false);
+            apple_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         apple_meta.setLore(lore);
-        apple_meta.addEnchant(Enchantment.LUCK, 1, false);
-        apple_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         apple.setItemMeta(apple_meta);
 
         return apple;

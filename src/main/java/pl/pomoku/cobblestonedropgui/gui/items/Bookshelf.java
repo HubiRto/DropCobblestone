@@ -26,21 +26,21 @@ public class Bookshelf {
         ItemMeta bookshelf_meta = bookshelf.getItemMeta();
 
         bookshelf_meta.setDisplayName(ChatColor.DARK_GRAY + "Biblioteczka");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "4.0%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-4" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".bookshelf") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
+            bookshelf_meta.addEnchant(Enchantment.LUCK, 1, false);
+            bookshelf_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         bookshelf_meta.setLore(lore);
-        bookshelf_meta.addEnchant(Enchantment.LUCK, 1, false);
-        bookshelf_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         bookshelf.setItemMeta(bookshelf_meta);
 
         return bookshelf;

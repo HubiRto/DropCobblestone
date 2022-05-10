@@ -24,7 +24,7 @@ public class Hopper {
         ItemMeta hopper_meta = hopper.getItemMeta();
 
         hopper_meta.setDisplayName(ChatColor.GREEN + "Drop, gdy EQ pelne");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         if(plugin.getConfig().getString(uuid + ".eq") == "true") {
             lore.add(ChatColor.GRAY + "Aktualnie aktywny: " + ChatColor.RED + "Nie");

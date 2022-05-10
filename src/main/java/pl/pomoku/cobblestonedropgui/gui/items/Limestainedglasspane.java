@@ -2,13 +2,11 @@ package pl.pomoku.cobblestonedropgui.gui.items;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class Limestainedglasspane {
 
@@ -17,14 +15,13 @@ public class Limestainedglasspane {
         plugin = m;
     }
 
-    public static ItemStack limestainedglasspane(Player p) {
-        UUID uuid = p.getUniqueId();
+    public static ItemStack limestainedglasspane() {
 
         ItemStack limestainedglasspane = new ItemStack(Material.LIME_STAINED_GLASS_PANE);
         ItemMeta limestainedglasspane_meta = limestainedglasspane.getItemMeta();
 
         limestainedglasspane_meta.setDisplayName(ChatColor.GREEN + "Wlacz wszystkie dropy");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Po kliknieciu kazdy przedmiot z");
         lore.add(ChatColor.GRAY + "dropu bedzie wypadac po wykopaniu.");

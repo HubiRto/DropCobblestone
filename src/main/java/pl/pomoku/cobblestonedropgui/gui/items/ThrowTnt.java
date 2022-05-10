@@ -24,7 +24,7 @@ public class ThrowTnt {
         ItemMeta throwtnt_meta = throwtnt.getItemMeta();
 
         throwtnt_meta.setDisplayName(ChatColor.DARK_GRAY + "Rzucane TNT");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.2%");
         lore.add(ChatColor.GRAY + "Rangi Premium: " + ChatColor.LIGHT_PURPLE + "+0.005%");

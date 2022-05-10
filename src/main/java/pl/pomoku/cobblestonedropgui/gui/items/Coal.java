@@ -26,21 +26,21 @@ public class Coal {
         ItemMeta coal_meta = coal.getItemMeta();
 
         coal_meta.setDisplayName(ChatColor.DARK_GRAY + "Wegiel");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "14.0%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "3-5" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".coal") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
+            coal_meta.addEnchant(Enchantment.LUCK, 1, false);
+            coal_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         coal_meta.setLore(lore);
-        coal_meta.addEnchant(Enchantment.LUCK, 1, false);
-        coal_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         coal.setItemMeta(coal_meta);
 
         return coal;

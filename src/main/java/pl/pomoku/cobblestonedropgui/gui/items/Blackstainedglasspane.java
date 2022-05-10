@@ -1,13 +1,9 @@
 package pl.pomoku.cobblestonedropgui.gui.items;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import pl.pomoku.cobblestonedropgui.main.Main;
-
-import java.util.ArrayList;
 
 public class Blackstainedglasspane {
 

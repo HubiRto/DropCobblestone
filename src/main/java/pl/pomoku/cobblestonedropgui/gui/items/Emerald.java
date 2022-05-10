@@ -26,21 +26,21 @@ public class Emerald {
         ItemMeta emerald_meta = emerald.getItemMeta();
 
         emerald_meta.setDisplayName(ChatColor.DARK_GRAY + "Szmaragd");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "11.0%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-2" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".emerald") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
+            emerald_meta.addEnchant(Enchantment.LUCK, 1, false);
+            emerald_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         emerald_meta.setLore(lore);
-        emerald_meta.addEnchant(Enchantment.LUCK, 1, false);
-        emerald_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         emerald.setItemMeta(emerald_meta);
 
         return emerald;

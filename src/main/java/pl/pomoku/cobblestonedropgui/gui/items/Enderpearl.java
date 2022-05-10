@@ -26,21 +26,21 @@ public class Enderpearl {
         ItemMeta enderpearl_meta = enderpearl.getItemMeta();
 
         enderpearl_meta.setDisplayName(ChatColor.DARK_GRAY + "Perla");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.2%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-2" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".enderpearl") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
+            enderpearl_meta.addEnchant(Enchantment.LUCK, 1, false);
+            enderpearl_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         enderpearl_meta.setLore(lore);
-        enderpearl_meta.addEnchant(Enchantment.LUCK, 1, false);
-        enderpearl_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         enderpearl.setItemMeta(enderpearl_meta);
 
         return enderpearl;

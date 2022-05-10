@@ -25,15 +25,15 @@ public class OpenDropGui {
         ItemStack netherite = Netherite.netherite(p);
         ItemStack throwtnt = ThrowTnt.throwtnt(p);
         ItemStack enderpearl = Enderpearl.enderpearl(p);
-        ItemStack enderchest = Enderchest.enderchest(p);
+        ItemStack enderchest = Enderchest.enderchest();
         ItemStack chest = Chest.chest();
         ItemStack bookshelf = Bookshelf.bookshelf(p);
         ItemStack arrow = Arrow.arrow(p);
         ItemStack diamond = Diamond.diamond(p);
         ItemStack cobblestone = Cobblestone.cobblestone(p);
-        ItemStack limestainedglasspane = Limestainedglasspane.limestainedglasspane(p);
+        ItemStack limestainedglasspane = Limestainedglasspane.limestainedglasspane();
         ItemStack blackstainedglasspane = Blackstainedglasspane.blackstainedglasspane();
-        ItemStack redstainedglasspane = Redstainedglasspane.redstainedglasspane(p);
+        ItemStack redstainedglasspane = Redstainedglasspane.redstainedglasspane();
         ItemStack shulker = Shulker.shulker(p);
 
         i.setItem(20, diamond);

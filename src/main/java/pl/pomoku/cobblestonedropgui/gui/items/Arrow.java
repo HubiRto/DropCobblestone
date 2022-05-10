@@ -26,21 +26,21 @@ public class Arrow {
         ItemMeta arrow_meta = arrow.getItemMeta();
 
         arrow_meta.setDisplayName(ChatColor.DARK_GRAY + "Strzala");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.7%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-4" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".arrow") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
+            arrow_meta.addEnchant(Enchantment.LUCK, 1, false);
+            arrow_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         arrow_meta.setLore(lore);
-        arrow_meta.addEnchant(Enchantment.LUCK, 1, false);
-        arrow_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         arrow.setItemMeta(arrow_meta);
 
         return arrow;

@@ -21,7 +21,7 @@ public class Chest {
         ItemMeta chest_meta = chest.getItemMeta();
 
         chest_meta.setDisplayName(ChatColor.GREEN + "Drop z Ultra Block");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Lista przedmiotow, ktore dropia");
         lore.add(ChatColor.GRAY + "z legendarnej skrzyni Ultra Block.");

@@ -26,21 +26,21 @@ public class Tnt {
         ItemMeta tnt_meta = tnt.getItemMeta();
 
         tnt_meta.setDisplayName(ChatColor.RED + "T" + ChatColor.WHITE + "N" + ChatColor.RED + "T");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.3%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-3" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".tnt") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
+            tnt_meta.addEnchant(Enchantment.LUCK, 1, false);
+            tnt_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         tnt_meta.setLore(lore);
-        tnt_meta.addEnchant(Enchantment.LUCK, 1, false);
-        tnt_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         tnt.setItemMeta(tnt_meta);
 
         return tnt;

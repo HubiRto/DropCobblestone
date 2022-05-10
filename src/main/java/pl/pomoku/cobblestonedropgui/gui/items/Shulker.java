@@ -23,7 +23,7 @@ public class Shulker {
         ItemMeta ultra_block_meta = ultra_block.getItemMeta();
 
         ultra_block_meta.setDisplayName("§aUltra Blok");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add("§7Szansa na drop: §b0.01%");
         lore.add("§7Rangi Premium: §d+0.005%");

@@ -26,21 +26,21 @@ public class Diamond {
         ItemMeta diamond_meta = diamond.getItemMeta();
 
         diamond_meta.setDisplayName(ChatColor.DARK_GRAY + "Diament");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "13.0%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-3" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".diamond") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
+            diamond_meta.addEnchant(Enchantment.LUCK, 1, false);
+            diamond_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         diamond_meta.setLore(lore);
-        diamond_meta.addEnchant(Enchantment.LUCK, 1, false);
-        diamond_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         diamond.setItemMeta(diamond_meta);
 
         return diamond;

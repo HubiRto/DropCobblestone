@@ -26,21 +26,21 @@ public class Obsidian {
         ItemMeta obsidian_meta = obsidian.getItemMeta();
 
         obsidian_meta.setDisplayName(ChatColor.DARK_GRAY + "Obsydian");
-        ArrayList<String> lore = new ArrayList<String>();
+        ArrayList<String> lore = new ArrayList<>();
 
         lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "9.0%");
         lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-4" + ChatColor.GRAY + " szt.");
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".obsidian") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
+            obsidian_meta.addEnchant(Enchantment.LUCK, 1, false);
+            obsidian_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         obsidian_meta.setLore(lore);
-        obsidian_meta.addEnchant(Enchantment.LUCK, 1, false);
-        obsidian_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         obsidian.setItemMeta(obsidian_meta);
 
         return obsidian;

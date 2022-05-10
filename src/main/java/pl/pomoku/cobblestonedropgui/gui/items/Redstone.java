@@ -33,14 +33,14 @@ public class Redstone {
         lore.add(" ");
         if(plugin.getConfig().getString(uuid + ".redstone") == "true") {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
+            redstone_meta.addEnchant(Enchantment.LUCK, 1, false);
+            redstone_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
         }
         lore.add(ChatColor.YELLOW + "Kliknij, aby przelaczyc!");
 
         redstone_meta.setLore(lore);
-        redstone_meta.addEnchant(Enchantment.LUCK, 1, false);
-        redstone_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         redstone.setItemMeta(redstone_meta);
 
         return redstone;
