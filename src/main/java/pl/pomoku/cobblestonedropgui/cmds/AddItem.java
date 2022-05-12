@@ -23,15 +23,6 @@ public class AddItem implements CommandExecutor {
         m.getCommand("dodaj").setExecutor(this);
     }
 
-    public static boolean isInt(String s) {
-        try{
-            Integer.parseInt(s);
-        }catch (NumberFormatException nfe) {
-            return false;
-        }
-        return true;
-    }
-
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -77,27 +68,29 @@ public class AddItem implements CommandExecutor {
         if(sender instanceof Player) {
             Player p = (Player) sender;
             if(!(args.length == 0)) {
-
-            }else {
-                if(args[0].equalsIgnoreCase("UltraBlock")) {
-                    p.getInventory().addItem(ultra_block);
-                    p.sendMessage(ChatColor.GREEN + "Dostales ultra block!");
-                }
-                else if (args[0].equalsIgnoreCase("SandFarmer")){
-                    p.getInventory().addItem(sand_farmer);
-                    p.sendMessage(ChatColor.GREEN + "Dostales Sand Farmera!");
-                }
-                else if (args[0].equalsIgnoreCase("BoyFarmer")){
-                    p.getInventory().addItem(boy_farmer);
-                    p.sendMessage(ChatColor.GREEN + "Dostales Boy Farmera!");
-                }
-                else if (args[0].equalsIgnoreCase("AutoFosa")){
-                    p.getInventory().addItem(auto_fosa);
-                    p.sendMessage(ChatColor.GREEN + "Dostales Auto Fose!");
-                }
-                else if (args[0].equalsIgnoreCase("CobbleX")){
-                    p.getInventory().addItem(cobblex);
-                    p.sendMessage(ChatColor.GREEN + "Dostales Cobble X!");
+                switch(args[0]) {
+                    case "Ultra Block":
+                        p.getInventory().addItem(ultra_block);
+                        p.sendMessage(ChatColor.GREEN + "Dostales ultra block!");
+                        break;
+                    case "SandFarmer":
+                        p.getInventory().addItem(sand_farmer);
+                        p.sendMessage(ChatColor.GREEN + "Dostales Sand Farmera!");
+                        break;
+                    case "BoyFarmer":
+                        p.getInventory().addItem(boy_farmer);
+                        p.sendMessage(ChatColor.GREEN + "Dostales Boy Farmera!");
+                        break;
+                    case "AutoFosa":
+                        p.getInventory().addItem(auto_fosa);
+                        p.sendMessage(ChatColor.GREEN + "Dostales Auto Fose!");
+                        break;
+                    case "CobbleX":
+                        p.getInventory().addItem(cobblex);
+                        p.sendMessage(ChatColor.GREEN + "Dostales Cobble X!");
+                        break;
+                    default:
+                        break;
                 }
             }
         }else {

@@ -24,8 +24,6 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static org.bukkit.Material.*;
-import static org.bukkit.Material.HEART_OF_THE_SEA;
-import static org.bukkit.enchantments.Enchantment.ARROW_KNOCKBACK;
 
 public class OnPlaceForCobbleX implements Listener {
     Main plugin;

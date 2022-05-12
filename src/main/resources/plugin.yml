@@ -6,9 +6,15 @@ authors: [ HubiRto ]
 website: https://github.com/HubiRto
 commands:
   drop:
-    description: Plugin na drop przedmiotów z kamienia.
+    description: Komenda wyswietlajaca GUI z dropem przedmiotow ze stone'a.
     aliases:
       - d
       - dro
     usage: /<command>
   dodaj:
+    usage: /<command> <item>
+    description: Komenda przeznaczona dla administacji do dodawania specjalnych blokow.
+    aliases:
+      - dodawanie
+      - dod
+      - doda

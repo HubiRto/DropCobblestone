@@ -6,13 +6,23 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import pl.pomoku.cobblestonedropgui.gui.OpenDropGui;
 import pl.pomoku.cobblestonedropgui.main.Main;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.UUID;
 
 public class OnInventoryClickForCobbleXGui implements Listener {
     Main plugin;
+    private final HashMap<UUID, Long> cooldowns;
 
     public OnInventoryClickForCobbleXGui(Main m) {
         plugin = m;
+        this.cooldowns = new HashMap<>();
     }
 
     @EventHandler
@@ -27,5 +37,63 @@ public class OnInventoryClickForCobbleXGui implements Listener {
             return;
         }
 
+        switch(e.getCurrentItem().getType()) {
+            case CRAFTING_TABLE -> {
+                if(isPlayerHaveNineStacks(p, 576)){
+                    ItemStack cobble_x = new ItemStack(Material.TRAPPED_CHEST);
+                    ItemMeta cobble_x_meta = cobble_x.getItemMeta();
+                    cobble_x_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Cobble X");
+                    List<String> cobble_x_lore = new ArrayList<>();
+                    cobble_x_lore.add("§7Jest to skrzynia z ktorej");
+                    cobble_x_lore.add("§7wypadaja bardzo cenne itemki.");
+                    cobble_x_lore.add(" ");
+                    cobble_x_lore.add("§ePostaw, aby otworzyc!");
+                    cobble_x.setLore(cobble_x_lore);
+                    cobble_x.setItemMeta(cobble_x_meta);
+                    p.sendMessage(ChatColor.GREEN + "Zcraftowales cobble X!");
+                    ItemStack cob = new ItemStack(Material.COBBLESTONE);
+                    cob.setAmount(576);
+                    p.getInventory().removeItem(cob);
+                    p.getInventory().addItem(cobble_x);
+                }else {
+                    if(!this.cooldowns.containsKey(p.getUniqueId())) {
+                        this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
+                        p.sendMessage(ChatColor.RED + "Masz za malo itemow do zcraftowania cobble X!");
+                    }else {
+                        long timeElapsed = System.currentTimeMillis() - cooldowns.get(p.getUniqueId());
+                        if(timeElapsed >= 10000) {
+                            this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
+                            p.sendMessage(ChatColor.RED + "Masz za malo itemow do zcraftowania cobble X!");
+                        }
+                    }
+                }
+            }
+            case BARRIER -> {
+                OpenDropGui.OpenGui(p);
+            }
+            default -> {
+                p.updateInventory();
+            }
+        }
+
+    }
+    private boolean isPlayerHaveNineStacks(Player p, int MaxValue) {
+        boolean isplayerhaveninestacks;
+        int i = 0;
+        if (p.getInventory().getContents() != null) {
+            for (ItemStack is : p.getInventory().getContents()) {
+                if (is != null) {
+                    if (is.getType() == Material.COBBLESTONE) {
+                        i = i + is.getAmount();
+                    }
+                }
+            }
+        }
+        if(i >= MaxValue) {
+            isplayerhaveninestacks = true;
+        }else {
+            isplayerhaveninestacks = false;
+        }
+        return isplayerhaveninestacks;
     }
 }
