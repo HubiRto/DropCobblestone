@@ -4,7 +4,6 @@ Zawansowany plugin na wypadanie przedmiotów z kamienia. Napisany jest na najnow
 ## KOMENDY
 - / dodaj (przedmiot)
 - / drop
-- / 
 ### RODZAJE KAMIENIA Z DROP'EM
 - STONE
 - ANDESITE
@@ -102,4 +101,3 @@ Przedmiot ten po postawieniu tworzy sciane z pisaku aż do samej granicy swiata.
 ![2022-05-13_17 45 18](https://user-images.githubusercontent.com/57270888/168322206-ad6618f8-aebb-411f-a105-de5daf12295c.png)
 ![2022-05-13_17 45 15](https://user-images.githubusercontent.com/57270888/168322347-ce690f72-1f8c-4f7e-9d4f-6a9324a70d85.png)
 ![2022-05-13_17 41 40](https://user-images.githubusercontent.com/57270888/168322446-fb6ffbeb-13f1-4e26-a369-b584a56d923b.png)
-![2022-05-13_17 40 46](https://user-images.githubusercontent.com/57270888/168322457-c2b63b5c-872d-45a1-a64a-8d77e27dc92b.png)
