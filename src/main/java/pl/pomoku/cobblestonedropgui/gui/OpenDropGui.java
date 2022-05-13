@@ -526,6 +526,14 @@ public class OpenDropGui {
         arrow_meta.setLore(arrow_lore);
         arrow.setItemMeta(arrow_meta);
 
+        //BARRIER
+
+        ItemStack barrier = new ItemStack(Material.BARRIER);
+        ItemMeta barrier_meta = barrier.getItemMeta();
+        barrier_meta.setDisplayName(ChatColor.RED + "WYJSCIE");
+        barrier.setItemMeta(barrier_meta);
+
+
         i.setItem(20, diamond);
         i.setItem(21, emerald);
         i.setItem(22, iron);
@@ -571,7 +579,12 @@ public class OpenDropGui {
         i.setItem(36, blackstainedglasspane);
         i.setItem(37, blackstainedglasspane);
 
-        for(int b = 43; b < 54; b++) {
+        i.setItem(43, blackstainedglasspane);
+        i.setItem(44, blackstainedglasspane);
+
+        i.setItem(45, barrier);
+
+        for(int b = 46; b < 54; b++) {
             i.setItem(b, blackstainedglasspane);
         }
 

@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import pl.pomoku.cobblestonedropgui.gui.OpenDropGui;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
 public class OnInventoryClickForUltraBlockGui implements Listener {
@@ -26,6 +27,13 @@ public class OnInventoryClickForUltraBlockGui implements Listener {
             p.closeInventory();
             return;
         }
-
+        switch(e.getCurrentItem().getType()) {
+            case BARRIER:
+                OpenDropGui.OpenGui(p);
+                break;
+            default:
+                p.updateInventory();
+                break;
+        }
     }
 }

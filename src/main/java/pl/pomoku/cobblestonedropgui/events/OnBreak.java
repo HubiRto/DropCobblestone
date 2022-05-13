@@ -60,8 +60,8 @@ public class OnBreak implements Listener {
         ItemMeta ultra_block_meta = ultra_block.getItemMeta();
         ultra_block_meta.setDisplayName("§a§lUltra Block");
         List<String> ultra_block_lore = new ArrayList<>();
-        ultra_block_lore.add("§7Jest to skrzynia z ktorej");
-        ultra_block_lore.add("§7wypadaja bardzo cenne itemki.");
+        ultra_block_lore.add("§7Jest to bardzo rzadka przedmiot z");
+        ultra_block_lore.add("§7ktorego wypadaja bardzo cenne itemki.");
         ultra_block_lore.add(" ");
         ultra_block_lore.add("§ePostaw, aby otworzyc!");
         ultra_block_meta.setLore(ultra_block_lore);

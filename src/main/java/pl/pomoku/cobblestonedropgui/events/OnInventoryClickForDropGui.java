@@ -281,6 +281,8 @@ public class OnInventoryClickForDropGui implements Listener {
                 break;
             case BLACK_STAINED_GLASS_PANE:
                 break;
+            case BARRIER:
+                p.closeInventory();
             default:
                 p.closeInventory();
                 break;

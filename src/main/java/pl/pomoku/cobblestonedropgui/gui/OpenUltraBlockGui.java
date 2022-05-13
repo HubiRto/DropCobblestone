@@ -21,8 +21,8 @@ import static org.bukkit.enchantments.Enchantment.ARROW_KNOCKBACK;
 
 public class OpenUltraBlockGui {
     public static void OpenUltraBlockGui(Player p) {
-        Inventory inv = Bukkit.createInventory(null, 27, ChatColor.DARK_GRAY + "Drop z" + ChatColor.BOLD + "" + ChatColor.AQUA + " Ultra Block");
-        ItemStack[] items = new ItemStack[27];
+        Inventory inv = Bukkit.createInventory(null, 45, ChatColor.DARK_GRAY + "Drop z" + ChatColor.BOLD + "" + ChatColor.AQUA + " Ultra Block");
+        ItemStack[] items = new ItemStack[30];
 
         items[0] = new ItemStack(NETHERITE_SWORD, 1);
         items[1] = new ItemStack(NETHERITE_AXE, 1);
@@ -51,6 +51,9 @@ public class OpenUltraBlockGui {
         items[24] = new ItemStack(TRIDENT, 1);
         items[25] = new ItemStack(TOTEM_OF_UNDYING, 1);
         items[26] = new ItemStack(HEART_OF_THE_SEA, 1);
+        items[27] = new ItemStack(BARRIER, 1);
+        items[28] = new ItemStack(TRAPPED_CHEST, 1);
+        items[29] = new ItemStack(BLACK_STAINED_GLASS_PANE, 1);
 
         ItemMeta meta0 = items[0].getItemMeta();
         meta0.setDisplayName(ChatColor.GRAY + "Przedmiot z " + ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
@@ -109,8 +112,8 @@ public class OpenUltraBlockGui {
         ItemMeta meta11 = items[11].getItemMeta();
         meta11.setDisplayName(ChatColor.RED + "Rzucane TNT");
         List<String> meta11_lore = new ArrayList<>();
-        meta11_lore.add(ChatColor.YELLOW + "Przytrzymaj PPM, aby rzucic");
-        meta11_lore.add(ChatColor.YELLOW + "lub pozostaw na ziemi.");
+        meta11_lore.add(ChatColor.GRAY + "Jest to przydatny przedmiot");
+        meta11_lore.add(ChatColor.GRAY + "sluzacy do przebijania gildii.");
         meta11.setLore(meta11_lore);
         meta11.addEnchant(Enchantment.LUCK, 1, true);
         meta11.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -119,8 +122,8 @@ public class OpenUltraBlockGui {
         ItemMeta meta12 = items[12].getItemMeta();
         meta12.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Cobble X");
         List<String> meta12_lore = new ArrayList<>();
-        meta12_lore.add("§7Jest to skrzynia z ktorej");
-        meta12_lore.add("§7wypadaja bardzo cenne itemki.");
+        meta12_lore.add("§7Jest to rzadki przedmiot z");
+        meta12_lore.add("§7ktorego wypadaja cenne itemki.");
         meta12_lore.add(" ");
         meta12_lore.add("§ePostaw, aby otworzyc!");
         meta12.setLore(meta12_lore);
@@ -146,9 +149,33 @@ public class OpenUltraBlockGui {
         meta19.addEnchant(Enchantment.DURABILITY, 4, true);
         items[19].setItemMeta(meta19);
 
+        ItemMeta meta27 = items[27].getItemMeta();
+        meta27.setDisplayName(ChatColor.RED + "WYJSCIE");
+        items[27].setItemMeta(meta27);
+
+        ItemMeta meta28 = items[28].getItemMeta();
+        meta28.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Ultra Block");
+        List<String> meta28_lore = new ArrayList<>();
+        meta28_lore.add(ChatColor.GRAY + "Jest to bardzo rzadki przedmiot z");
+        meta28_lore.add(ChatColor.GRAY + "ktorego wypadaja bardzo cenne itemki.");
+        meta28.setLore(meta28_lore);
+        items[28].setItemMeta(meta28);
+
+        ItemMeta meta29 = items[29].getItemMeta();
+        meta29.setDisplayName(" ");
+        items[29].setItemMeta(meta29);
+
         for(int i = 0; i < 27; i++) {
             inv.setItem(i, items[i]);
         }
+        for(int a = 27; a < 36; a++) {
+            inv.setItem(a, items[29]);
+        }
+        inv.setItem(36, items[27]);
+        for(int b = 37; b < 44; b++) {
+            inv.setItem(b, items[29]);
+        }
+        inv.setItem(44, items[28]);
         p.openInventory(inv);
     }
 }

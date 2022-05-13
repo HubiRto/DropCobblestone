@@ -219,8 +219,8 @@ public class OnPlaceForUltraBlock implements Listener {
             ItemMeta meta12 = items[12].getItemMeta();
             meta12.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Cobble X");
             List<String> meta12_lore = new ArrayList<>();
-            meta12_lore.add("§7Jest to skrzynia z ktorej");
-            meta12_lore.add("§7wypadaja bardzo cenne itemki.");
+            meta12_lore.add("§7Jest to rzadki przedmiot z");
+            meta12_lore.add("§7ktorego wypadaja cenne itemki.");
             meta12_lore.add(" ");
             meta12_lore.add("§ePostaw, aby otworzyc!");
             meta12.setLore(meta12_lore);
