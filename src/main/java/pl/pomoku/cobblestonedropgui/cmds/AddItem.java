@@ -69,7 +69,7 @@ public class AddItem implements CommandExecutor {
             Player p = (Player) sender;
             if(!(args.length == 0)) {
                 switch(args[0]) {
-                    case "Ultra Block":
+                    case "UltraBlock":
                         p.getInventory().addItem(ultra_block);
                         p.sendMessage(ChatColor.GREEN + "Dostales ultra block!");
                         break;
@@ -96,6 +96,6 @@ public class AddItem implements CommandExecutor {
         }else {
             sender.sendMessage("§cNie można wykonać tej komendy z konsoli!");
         }
-        return false;
+        return true;
     }
 }
