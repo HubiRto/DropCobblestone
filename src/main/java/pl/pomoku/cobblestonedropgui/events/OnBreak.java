@@ -5,6 +5,7 @@ import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,6 +16,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
+import java.io.File;
 import java.util.*;
 
 import static org.bukkit.Material.*;
@@ -37,6 +39,8 @@ public class OnBreak implements Listener {
         UUID uuid = p.getUniqueId();
         Block b = e.getBlock();
 
+        File config = new File("plugins\\CobbleStoneDropGUI", "aa.yml");
+        YamlConfiguration conf = YamlConfiguration.loadConfiguration(config);
 
         Location blockLocation = e.getBlock().getLocation();
 
