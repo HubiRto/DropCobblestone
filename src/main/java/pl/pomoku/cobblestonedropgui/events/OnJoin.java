@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import pl.pomoku.cobblestonedropgui.files.PlayerDropConfig;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
 import java.util.UUID;
@@ -22,6 +23,9 @@ public class OnJoin implements Listener {
 
         if(!p.hasPlayedBefore()) {
             UUID uuid = p.getUniqueId();
+
+            PlayerDropConfig.get().set(uuid + ".eq", true);
+            PlayerDropConfig.save();
 
             plugin.getConfig().set(uuid + ".eq", true);
             plugin.getConfig().set(uuid + ".cobblestone", true);

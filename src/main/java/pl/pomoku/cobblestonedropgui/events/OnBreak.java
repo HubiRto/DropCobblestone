@@ -14,6 +14,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import pl.pomoku.cobblestonedropgui.files.PlayerDropConfig;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
 import java.io.File;
@@ -38,9 +39,6 @@ public class OnBreak implements Listener {
         Player p = e.getPlayer();
         UUID uuid = p.getUniqueId();
         Block b = e.getBlock();
-
-        File config = new File("plugins\\CobbleStoneDropGUI", "aa.yml");
-        YamlConfiguration conf = YamlConfiguration.loadConfiguration(config);
 
         Location blockLocation = e.getBlock().getLocation();
 
@@ -109,7 +107,8 @@ public class OnBreak implements Listener {
         if(p.getGameMode() == GameMode.SURVIVAL) {
             if (b.getType() == Material.STONE) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
+                    if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                    //if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
                         if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
                             e.setDropItems(false);
                             p.getLocation().getWorld().dropItemNaturally(blockLocation, cobblestone);
@@ -133,8 +132,10 @@ public class OnBreak implements Listener {
                                 p.sendMessage(" ");
                                 p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                plugin.getConfig().set(uuid + ".eq", "true");
-                                plugin.saveConfig();
+                                PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                PlayerDropConfig.save();
+                                //plugin.getConfig().set(uuid + ".eq", "true");
+                                //plugin.saveConfig();
                             }
                         } else {
                             e.setDropItems(false);

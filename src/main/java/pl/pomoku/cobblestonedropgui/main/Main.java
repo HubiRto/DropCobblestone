@@ -1,11 +1,10 @@
 package pl.pomoku.cobblestonedropgui.main;
 
-//import net.md_5.bungee.api.ChatColor;
-
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.pomoku.cobblestonedropgui.cmds.DropCmds;
 import pl.pomoku.cobblestonedropgui.cmds.AddItem;
+import pl.pomoku.cobblestonedropgui.cmds.Reload;
 import pl.pomoku.cobblestonedropgui.cmds.tab_compliters.AddItemCompliter;
 import pl.pomoku.cobblestonedropgui.events.*;
 import pl.pomoku.cobblestonedropgui.files.PlayerDropConfig;
@@ -29,7 +28,6 @@ public final class Main extends JavaPlugin {
         saveConfig();
 
         PlayerDropConfig.setup();
-        PlayerDropConfig.get().addDefault("Taco", "Rice");
         PlayerDropConfig.get().options().copyDefaults(true);
         PlayerDropConfig.save();
 
@@ -42,6 +40,7 @@ public final class Main extends JavaPlugin {
         new OpenDropGui(this);
 
         new DropCmds(this);
+        new Reload(this);
         new AddItem(this);
         new AddItemCompliter(this);
 
@@ -70,6 +69,4 @@ public final class Main extends JavaPlugin {
     public static Main getMain() {
         return main;
     }
-
-
 }

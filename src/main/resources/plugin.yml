@@ -18,3 +18,7 @@ commands:
       - dodawanie
       - dod
       - doda
+  reloadd:
+    description: Komenda ta powoduje odswierzenie plikow konfiguracyjnych
+    aliases:
+      - r

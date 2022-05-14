@@ -9,30 +9,32 @@ import java.io.IOException;
 
 public class PlayerDropConfig {
     private static File file;
-    private static FileConfiguration customFile;
+    private static FileConfiguration configFile;
 
     public static void setup() {
-        file = new File(Bukkit.getServer().getPluginManager().getPlugin("Main").getDataFolder(), "drop_config.yml");
+        //file = new File(Bukkit.getServer().getPluginManager().getPlugin("Main").getDataFolder(), "player_drop_config.yml");
+        file = new File("plugins\\CobbleStoneDropGUI", "player_drop_config.yml");
         if(!file.exists()) {
             try{
                 file.createNewFile();
             }catch (IOException e) {
-
+                e.printStackTrace();
             }
-            customFile = YamlConfiguration.loadConfiguration(file);
         }
+        configFile = YamlConfiguration.loadConfiguration(file);
     }
-    public static FileConfiguration get() {
-        return customFile;
+    public static FileConfiguration get(){
+        return configFile;
     }
     public static void save() {
-        try {
-            customFile.save(file);
+        try{
+            configFile.save(file);
         }catch (IOException e) {
             System.out.println("Nie mozna zapisac pliku!");
         }
     }
     public static void reload() {
-        customFile = YamlConfiguration.loadConfiguration(file);
+
+        configFile = YamlConfiguration.loadConfiguration(file);
     }
 }

@@ -6,11 +6,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import pl.pomoku.cobblestonedropgui.files.PlayerDropConfig;
 import pl.pomoku.cobblestonedropgui.gui.OpenCobbleXGui;
 import pl.pomoku.cobblestonedropgui.gui.OpenDropGui;
 import pl.pomoku.cobblestonedropgui.gui.OpenUltraBlockGui;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class OnInventoryClickForDropGui implements Listener {
@@ -262,13 +264,20 @@ public class OnInventoryClickForDropGui implements Listener {
                 OpenDropGui.OpenGui(p);
                 break;
             case HOPPER:
-                if(plugin.getConfig().getString(uuid + ".eq") == "true") {
-                    plugin.getConfig().set(uuid + ".eq", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")){
+                    PlayerDropConfig.get().set(uuid + ".eq", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".eq", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                    PlayerDropConfig.save();
                 }
+//                if(plugin.getConfig().getString(uuid + ".eq") == "true") {
+//                    plugin.getConfig().set(uuid + ".eq", "false");
+//                    plugin.saveConfig();
+//                }else {
+//                    plugin.getConfig().set(uuid + ".eq", "true");
+//                    plugin.saveConfig();
+//                }
                 OpenDropGui.OpenGui(p);
                 break;
             case ENDER_CHEST:
