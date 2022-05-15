@@ -7,6 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import pl.pomoku.cobblestonedropgui.files.PlayerDropConfig;
+import pl.pomoku.cobblestonedropgui.gui.OpenAutoCraftGui;
 import pl.pomoku.cobblestonedropgui.gui.OpenCobbleXGui;
 import pl.pomoku.cobblestonedropgui.gui.OpenDropGui;
 import pl.pomoku.cobblestonedropgui.gui.OpenUltraBlockGui;
@@ -292,6 +293,10 @@ public class OnInventoryClickForDropGui implements Listener {
                 break;
             case BARRIER:
                 p.closeInventory();
+            case DIAMOND_PICKAXE:
+                p.closeInventory();
+                OpenAutoCraftGui.OpenAutoCraftGui(p);
+                break;
             default:
                 p.closeInventory();
                 break;
