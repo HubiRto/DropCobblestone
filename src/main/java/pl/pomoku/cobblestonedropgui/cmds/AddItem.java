@@ -84,10 +84,19 @@ public class AddItem implements CommandExecutor {
         cobblex_lore.add(" ");
         cobblex_lore.add(ChatColor.YELLOW + "Posatw, aby otworzyc!");
         cobblex_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Cobble X");
-        cobblex_meta.addEnchant(Enchantment.LUCK, 1, true);
-        cobblex_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         cobblex_meta.setLore(cobblex_lore);
         cobblex.setItemMeta(cobblex_meta);
+
+        ItemStack throwtnt = new ItemStack(Material.TNT);
+        ItemMeta throwtnt_meta = throwtnt.getItemMeta();
+        throwtnt_meta.setDisplayName(ChatColor.RED + "Rzucane TNT");
+        List<String> throwtnt_lore = new ArrayList<>();
+        throwtnt_lore.add(ChatColor.YELLOW + "Przytrzymaj PPM, aby rzucic");
+        throwtnt_lore.add(ChatColor.YELLOW + "lub pozostaw na ziemi.");
+        throwtnt_meta.setLore(throwtnt_lore);
+        throwtnt_meta.addEnchant(Enchantment.LUCK, 1, false);
+        throwtnt_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        throwtnt.setItemMeta(throwtnt_meta);
 
         if(sender instanceof Player) {
             Player p = (Player) sender;
@@ -112,6 +121,10 @@ public class AddItem implements CommandExecutor {
                     case "CobbleX":
                         p.getInventory().addItem(cobblex);
                         p.sendMessage(ChatColor.GREEN + "Dostales Cobble X!");
+                        break;
+                    case "RzucaneTNT":
+                        p.getInventory().addItem(throwtnt);
+                        p.sendMessage(ChatColor.GREEN + "Dostales Rzucane TnT!");
                         break;
                     default:
                         break;

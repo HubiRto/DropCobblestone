@@ -534,6 +534,12 @@ public class OpenDropGui {
         barrier_meta.setDisplayName(ChatColor.RED + "WYJSCIE");
         barrier.setItemMeta(barrier_meta);
 
+        ItemStack pickaxe = new ItemStack(Material.DIAMOND_PICKAXE);
+        ItemMeta pickaxe_meta = pickaxe.getItemMeta();
+        pickaxe_meta.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Szybkie Craftowanie");
+        pickaxe_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        pickaxe.setItemMeta(pickaxe_meta);
+
 
         i.setItem(20, diamond);
         i.setItem(21, emerald);
@@ -556,6 +562,7 @@ public class OpenDropGui {
         i.setItem(42, arrow);
 
         i.setItem(0, hopper);
+        i.setItem(4, pickaxe);
         i.setItem(7, shulker);
         i.setItem(1, cobblestone);
 
