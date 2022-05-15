@@ -38,12 +38,12 @@ public class OnInventoryClickForDropGui implements Listener {
 
         switch(e.getCurrentItem().getType()) {
             case COBBLESTONE:
-                if(plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
-                    plugin.getConfig().set(uuid + ".cobblestone", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".cobblestone", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".cobblestone", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".cobblestone", "true");
+                    PlayerDropConfig.save();
                 }
                 //p.updateInventory(); ---> Nie dziala
                 //Wyrzucialem zamykanie sie inventory i kusor sie nie przemieszcza
@@ -52,214 +52,214 @@ public class OnInventoryClickForDropGui implements Listener {
                 OpenDropGui.OpenGui(p);
                 break;
             case DIAMOND:
-                if(plugin.getConfig().getString(uuid + ".diamond") == "true") {
-                    plugin.getConfig().set(uuid + ".diamond", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".diamond"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".diamond", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".diamond", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".diamond", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case YELLOW_SHULKER_BOX:
-                if(plugin.getConfig().getString(uuid + ".ultra_block") == "true") {
-                    plugin.getConfig().set(uuid + ".ultra_block", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".ultra_block"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".ultra_block", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".ultra_block", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".ultra_block", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case REDSTONE:
-                if(plugin.getConfig().getString(uuid + ".redstone") == "true") {
-                    plugin.getConfig().set(uuid + ".redstone", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".redstone"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".redstone", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".redstone", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".redstone", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case NETHERITE_INGOT:
-                if(plugin.getConfig().getString(uuid + ".netherite") == "true") {
-                    plugin.getConfig().set(uuid + ".netherite", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".netherite"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".netherite", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".netherite", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".netherite", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case SLIME_BALL:
-                if(plugin.getConfig().getString(uuid + ".slimeball") == "true") {
-                    plugin.getConfig().set(uuid + ".slimeball", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".slimeball"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".slimeball", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".slimeball", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".slimeball", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case BOOKSHELF:
-                if(plugin.getConfig().getString(uuid + ".bookshelf") == "true") {
-                    plugin.getConfig().set(uuid + ".bookshelf", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".bookshelf"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".bookshelf", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".bookshelf", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".bookshelf", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case ENDER_PEARL:
-                if(plugin.getConfig().getString(uuid + ".enderpearl") == "true") {
-                    plugin.getConfig().set(uuid + ".enderpearl", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".enderpearl"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".enderpearl", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".enderpearl", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".enderpearl", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case TNT:
                 if(e.getCurrentItem().getItemMeta().getDisplayName().contains("Rzucane TNT")) {
-                    if (plugin.getConfig().getString(uuid + ".throwtnt") == "true") {
-                        plugin.getConfig().set(uuid + ".throwtnt", "false");
-                        plugin.saveConfig();
+                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".throwtnt"), "true")) {
+                        PlayerDropConfig.get().set(uuid + ".throwtnt", "false");
+                        PlayerDropConfig.save();
                     } else {
-                        plugin.getConfig().set(uuid + ".throwtnt", "true");
-                        plugin.saveConfig();
+                        PlayerDropConfig.get().set(uuid + ".throwtnt", "true");
+                        PlayerDropConfig.save();
                     }
                     OpenDropGui.OpenGui(p);
                 }else {
-                    if (plugin.getConfig().getString(uuid + ".tnt") == "true") {
-                        plugin.getConfig().set(uuid + ".tnt", "false");
-                        plugin.saveConfig();
+                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".tnt"), "true")) {
+                        PlayerDropConfig.get().set(uuid + ".tnt", "false");
+                        PlayerDropConfig.save();
                     } else {
-                        plugin.getConfig().set(uuid + ".tnt", "true");
-                        plugin.saveConfig();
+                        PlayerDropConfig.get().set(uuid + ".tnt", "true");
+                        PlayerDropConfig.save();
                     }
                     OpenDropGui.OpenGui(p);
                 }
                 break;
             case APPLE:
-                if(plugin.getConfig().getString(uuid + ".apple") == "true") {
-                    plugin.getConfig().set(uuid + ".apple", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".apple"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".apple", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".apple", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".apple", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case COAL:
-                if(plugin.getConfig().getString(uuid + ".coal") == "true") {
-                    plugin.getConfig().set(uuid + ".coal", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".coal"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".coal", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".coal", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".coal", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case OAK_LOG:
-                if(plugin.getConfig().getString(uuid + ".oaklog") == "true") {
-                    plugin.getConfig().set(uuid + ".oaklog", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".oaklog"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".oaklog", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".oaklog", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".oaklog", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case ARROW:
-                if(plugin.getConfig().getString(uuid + ".arrow") == "true") {
-                    plugin.getConfig().set(uuid + ".arrow", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".arrow"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".arrow", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".arrow", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".arrow", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case LIME_STAINED_GLASS_PANE:
-                plugin.getConfig().set(uuid + ".cobblestone", "true");
-                plugin.getConfig().set(uuid + ".iron", "true");
-                plugin.getConfig().set(uuid + ".gold", "true");
-                plugin.getConfig().set(uuid + ".obsidian", "true");
-                plugin.getConfig().set(uuid + ".emerald", "true");
-                plugin.getConfig().set(uuid + ".diamond", "true");
-                plugin.getConfig().set(uuid + ".redstone", "true");
-                plugin.getConfig().set(uuid + ".netherite", "true");
-                plugin.getConfig().set(uuid + ".slimeball", "true");
-                plugin.getConfig().set(uuid + ".bookshelf", "true");
-                plugin.getConfig().set(uuid + ".enderpearl", "true");
-                plugin.getConfig().set(uuid + ".tnt", "true");
-                plugin.getConfig().set(uuid + ".apple", "true");
-                plugin.getConfig().set(uuid + ".coal", "true");
-                plugin.getConfig().set(uuid + ".oaklog", "true");
-                plugin.getConfig().set(uuid + ".arrow", "true");
+                PlayerDropConfig.get().set(uuid + ".cobblestone", "true");
+                PlayerDropConfig.get().set(uuid + ".iron", "true");
+                PlayerDropConfig.get().set(uuid + ".gold", "true");
+                PlayerDropConfig.get().set(uuid + ".obsidian", "true");
+                PlayerDropConfig.get().set(uuid + ".emerald", "true");
+                PlayerDropConfig.get().set(uuid + ".diamond", "true");
+                PlayerDropConfig.get().set(uuid + ".redstone", "true");
+                PlayerDropConfig.get().set(uuid + ".netherite", "true");
+                PlayerDropConfig.get().set(uuid + ".slimeball", "true");
+                PlayerDropConfig.get().set(uuid + ".bookshelf", "true");
+                PlayerDropConfig.get().set(uuid + ".enderpearl", "true");
+                PlayerDropConfig.get().set(uuid + ".tnt", "true");
+                PlayerDropConfig.get().set(uuid + ".apple", "true");
+                PlayerDropConfig.get().set(uuid + ".coal", "true");
+                PlayerDropConfig.get().set(uuid + ".oaklog", "true");
+                PlayerDropConfig.get().set(uuid + ".arrow", "true");
 
-                plugin.saveConfig();
+                PlayerDropConfig.save();
                 OpenDropGui.OpenGui(p);
                 break;
             case RED_STAINED_GLASS_PANE:
-                plugin.getConfig().set(uuid + ".cobblestone", "false");
-                plugin.getConfig().set(uuid + ".iron", "false");
-                plugin.getConfig().set(uuid + ".gold", "false");
-                plugin.getConfig().set(uuid + ".obsidian", "false");
-                plugin.getConfig().set(uuid + ".emerald", "false");
-                plugin.getConfig().set(uuid + ".diamond", "false");
-                plugin.getConfig().set(uuid + ".redstone", "false");
-                plugin.getConfig().set(uuid + ".netherite", "false");
-                plugin.getConfig().set(uuid + ".slimeball", "false");
-                plugin.getConfig().set(uuid + ".bookshelf", "false");
-                plugin.getConfig().set(uuid + ".enderpearl", "false");
-                plugin.getConfig().set(uuid + ".tnt", "false");
-                plugin.getConfig().set(uuid + ".apple", "false");
-                plugin.getConfig().set(uuid + ".coal", "false");
-                plugin.getConfig().set(uuid + ".oaklog", "false");
-                plugin.getConfig().set(uuid + ".arrow", "false");
-                plugin.saveConfig();
+                PlayerDropConfig.get().set(uuid + ".cobblestone", "false");
+                PlayerDropConfig.get().set(uuid + ".iron", "false");
+                PlayerDropConfig.get().set(uuid + ".gold", "false");
+                PlayerDropConfig.get().set(uuid + ".obsidian", "false");
+                PlayerDropConfig.get().set(uuid + ".emerald", "false");
+                PlayerDropConfig.get().set(uuid + ".diamond", "false");
+                PlayerDropConfig.get().set(uuid + ".redstone", "false");
+                PlayerDropConfig.get().set(uuid + ".netherite", "false");
+                PlayerDropConfig.get().set(uuid + ".slimeball", "false");
+                PlayerDropConfig.get().set(uuid + ".bookshelf", "false");
+                PlayerDropConfig.get().set(uuid + ".enderpearl", "false");
+                PlayerDropConfig.get().set(uuid + ".tnt", "false");
+                PlayerDropConfig.get().set(uuid + ".apple", "false");
+                PlayerDropConfig.get().set(uuid + ".coal", "false");
+                PlayerDropConfig.get().set(uuid + ".oaklog", "false");
+                PlayerDropConfig.get().set(uuid + ".arrow", "false");
+                PlayerDropConfig.save();
                 OpenDropGui.OpenGui(p);
                 break;
             case IRON_INGOT:
-                if(plugin.getConfig().getString(uuid + ".iron") == "true") {
-                    plugin.getConfig().set(uuid + ".iron", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".iron"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".iron", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".iron", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".iron", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case GOLD_INGOT:
-                if(plugin.getConfig().getString(uuid + ".gold") == "true") {
-                    plugin.getConfig().set(uuid + ".gold", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".gold"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".gold", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".gold", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".gold", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case OBSIDIAN:
-                if(plugin.getConfig().getString(uuid + ".obsidian") == "true") {
-                    plugin.getConfig().set(uuid + ".obsidian", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".obsidian"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".obsidian", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".obsidian", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".obsidian", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;
             case EMERALD:
-                if(plugin.getConfig().getString(uuid + ".emerald") == "true") {
-                    plugin.getConfig().set(uuid + ".emerald", "false");
-                    plugin.saveConfig();
+                if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".emerald"), "true")) {
+                    PlayerDropConfig.get().set(uuid + ".emerald", "false");
+                    PlayerDropConfig.save();
                 }else {
-                    plugin.getConfig().set(uuid + ".emerald", "true");
-                    plugin.saveConfig();
+                    PlayerDropConfig.get().set(uuid + ".emerald", "true");
+                    PlayerDropConfig.save();
                 }
                 OpenDropGui.OpenGui(p);
                 break;

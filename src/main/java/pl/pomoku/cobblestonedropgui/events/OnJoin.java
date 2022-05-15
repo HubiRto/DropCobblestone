@@ -24,29 +24,26 @@ public class OnJoin implements Listener {
         if(!p.hasPlayedBefore()) {
             UUID uuid = p.getUniqueId();
 
-            PlayerDropConfig.get().set(uuid + ".eq", true);
+            PlayerDropConfig.get().set(uuid + ".eq", "true");
+            PlayerDropConfig.get().set(uuid + ".cobblestone", "true");
+            PlayerDropConfig.get().set(uuid + ".iron", "true");
+            PlayerDropConfig.get().set(uuid + ".gold", "true");
+            PlayerDropConfig.get().set(uuid + ".obsidian", "true");
+            PlayerDropConfig.get().set(uuid + ".emerald", "true");
+            PlayerDropConfig.get().set(uuid + ".diamond", "true");
+            PlayerDropConfig.get().set(uuid + ".apple", "true");
+            PlayerDropConfig.get().set(uuid + ".enderpearl", "true");
+            PlayerDropConfig.get().set(uuid + ".arrow", "true");
+            PlayerDropConfig.get().set(uuid + ".oaklog", "true");
+            PlayerDropConfig.get().set(uuid + ".redstone", "true");
+            PlayerDropConfig.get().set(uuid + ".slimeball", "true");
+            PlayerDropConfig.get().set(uuid + ".tnt", "true");
+            PlayerDropConfig.get().set(uuid + ".coal", "true");
+            PlayerDropConfig.get().set(uuid + ".bookshelf", "true");
+            PlayerDropConfig.get().set(uuid + ".netherite", "true");
+            PlayerDropConfig.get().set(uuid + ".throwtnt", "true");
+            PlayerDropConfig.get().set(uuid + ".ultra_block", "true");
             PlayerDropConfig.save();
-
-            plugin.getConfig().set(uuid + ".eq", true);
-            plugin.getConfig().set(uuid + ".cobblestone", true);
-            plugin.getConfig().set(uuid + ".iron", true);
-            plugin.getConfig().set(uuid + ".gold", true);
-            plugin.getConfig().set(uuid + ".obsidian", true);
-            plugin.getConfig().set(uuid + ".emerald", true);
-            plugin.getConfig().set(uuid + ".diamond", true);
-            plugin.getConfig().set(uuid + ".apple", true);
-            plugin.getConfig().set(uuid + ".enderpearl", true);
-            plugin.getConfig().set(uuid + ".arrow", true);
-            plugin.getConfig().set(uuid + ".oaklog", true);
-            plugin.getConfig().set(uuid + ".redstone", true);
-            plugin.getConfig().set(uuid + ".slimeball", true);
-            plugin.getConfig().set(uuid + ".tnt", true);
-            plugin.getConfig().set(uuid + ".coal", true);
-            plugin.getConfig().set(uuid + ".bookshelf", true);
-            plugin.getConfig().set(uuid + ".netherite", true);
-            plugin.getConfig().set(uuid + ".throwtnt", true);
-            plugin.getConfig().set(uuid + ".ultra_block", true);
-            plugin.saveConfig();
         }
     }
 }

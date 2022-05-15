@@ -5,7 +5,6 @@ import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,7 +16,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import pl.pomoku.cobblestonedropgui.files.PlayerDropConfig;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
-import java.io.File;
 import java.util.*;
 
 import static org.bukkit.Material.*;
@@ -108,15 +106,14 @@ public class OnBreak implements Listener {
             if (b.getType() == Material.STONE) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                     if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                    //if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             e.setDropItems(false);
                             p.getLocation().getWorld().dropItemNaturally(blockLocation, cobblestone);
                         } else {
                             e.setDropItems(false);
                         }
                     } else {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             if (!isInventoryFull(p, Material.COBBLESTONE, 64)) {
                                 e.setDropItems(false);
                                 p.getInventory().addItem(new ItemStack(Material.COBBLESTONE));
@@ -134,8 +131,6 @@ public class OnBreak implements Listener {
                                 p.sendMessage(" ");
                                 PlayerDropConfig.get().set(uuid + ".eq", "true");
                                 PlayerDropConfig.save();
-                                //plugin.getConfig().set(uuid + ".eq", "true");
-                                //plugin.saveConfig();
                             }
                         } else {
                             e.setDropItems(false);
@@ -145,15 +140,15 @@ public class OnBreak implements Listener {
                 //ANDESITE
             } else if (b.getType() == Material.ANDESITE) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             e.setDropItems(false);
                             p.getLocation().getWorld().dropItemNaturally(blockLocation, andesite);
                         } else {
                             e.setDropItems(false);
                         }
                     } else {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             if (!isInventoryFull(p, Material.ANDESITE, 64)) {
                                 e.setDropItems(false);
                                 p.getInventory().addItem(new ItemStack(Material.ANDESITE));
@@ -169,8 +164,8 @@ public class OnBreak implements Listener {
                                 p.sendMessage(" ");
                                 p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                plugin.getConfig().set(uuid + ".eq", "true");
-                                plugin.saveConfig();
+                                PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                PlayerDropConfig.save();
                             }
                         } else {
                             e.setDropItems(false);
@@ -180,15 +175,15 @@ public class OnBreak implements Listener {
                 //POLISHED_ANDESITE
             } else if (b.getType() == POLISHED_ANDESITE) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             e.setDropItems(false);
                             p.getLocation().getWorld().dropItemNaturally(blockLocation, polished_andesite);
                         } else {
                             e.setDropItems(false);
                         }
                     } else {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             if (!isInventoryFull(p, POLISHED_ANDESITE, 64)) {
                                 e.setDropItems(false);
                                 p.getInventory().addItem(new ItemStack(POLISHED_ANDESITE));
@@ -203,8 +198,8 @@ public class OnBreak implements Listener {
                                 p.sendMessage(" ");
                                 p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                plugin.getConfig().set(uuid + ".eq", "true");
-                                plugin.saveConfig();
+                                PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                PlayerDropConfig.save();
                             }
                         } else {
                             e.setDropItems(false);
@@ -214,15 +209,15 @@ public class OnBreak implements Listener {
                 //DIORITE
             } else if (b.getType() == DIORITE) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             e.setDropItems(false);
                             p.getLocation().getWorld().dropItemNaturally(blockLocation, diorite);
                         } else {
                             e.setDropItems(false);
                         }
                     } else {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             if (!isInventoryFull(p, DIORITE, 64)) {
                                 e.setDropItems(false);
                                 p.getInventory().addItem(new ItemStack(DIORITE));
@@ -237,8 +232,8 @@ public class OnBreak implements Listener {
                                 p.sendMessage(" ");
                                 p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                plugin.getConfig().set(uuid + ".eq", "true");
-                                plugin.saveConfig();
+                                PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                PlayerDropConfig.save();
                             }
                         } else {
                             e.setDropItems(false);
@@ -248,15 +243,15 @@ public class OnBreak implements Listener {
                 //POLISHED_DIORITE
             } else if (b.getType() == POLISHED_DIORITE) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             e.setDropItems(false);
                             p.getLocation().getWorld().dropItemNaturally(blockLocation, polished_diorite);
                         } else {
                             e.setDropItems(false);
                         }
                     } else {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             if (!isInventoryFull(p, POLISHED_DIORITE, 64)) {
                                 e.setDropItems(false);
                                 p.getInventory().addItem(new ItemStack(POLISHED_DIORITE));
@@ -271,8 +266,8 @@ public class OnBreak implements Listener {
                                 p.sendMessage(" ");
                                 p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                plugin.getConfig().set(uuid + ".eq", "true");
-                                plugin.saveConfig();
+                                PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                PlayerDropConfig.save();
                             }
                         } else {
                             e.setDropItems(false);
@@ -282,15 +277,15 @@ public class OnBreak implements Listener {
                 //GRANITE
             } else if (b.getType() == GRANITE) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             e.setDropItems(false);
                             p.getLocation().getWorld().dropItemNaturally(blockLocation, granite);
                         } else {
                             e.setDropItems(false);
                         }
                     } else {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             if (!isInventoryFull(p, GRANITE, 64)) {
                                 e.setDropItems(false);
                                 p.getInventory().addItem(new ItemStack(GRANITE));
@@ -305,8 +300,8 @@ public class OnBreak implements Listener {
                                 p.sendMessage(" ");
                                 p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                plugin.getConfig().set(uuid + ".eq", "true");
-                                plugin.saveConfig();
+                                PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                PlayerDropConfig.save();
                             }
                         } else {
                             e.setDropItems(false);
@@ -316,15 +311,15 @@ public class OnBreak implements Listener {
                 //POLISHED_GRANITE
             } else if (b.getType() == POLISHED_GRANITE) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             e.setDropItems(false);
                             p.getLocation().getWorld().dropItemNaturally(blockLocation, polished_granite);
                         } else {
                             e.setDropItems(false);
                         }
                     } else {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             if (!isInventoryFull(p, POLISHED_GRANITE, 64)) {
                                 e.setDropItems(false);
                                 p.getInventory().addItem(new ItemStack(POLISHED_GRANITE));
@@ -339,8 +334,8 @@ public class OnBreak implements Listener {
                                 p.sendMessage(" ");
                                 p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                plugin.getConfig().set(uuid + ".eq", "true");
-                                plugin.saveConfig();
+                                PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                PlayerDropConfig.save();
                             }
                         } else {
                             e.setDropItems(false);
@@ -350,15 +345,15 @@ public class OnBreak implements Listener {
                 //DEEPSLATE
             } else if (b.getType() == DEEPSLATE) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             e.setDropItems(false);
                             p.getLocation().getWorld().dropItemNaturally(blockLocation, deepslate);
                         } else {
                             e.setDropItems(false);
                         }
                     } else {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             if (!isInventoryFull(p, DEEPSLATE, 64)) {
                                 e.setDropItems(false);
                                 p.getInventory().addItem(new ItemStack(DEEPSLATE));
@@ -373,8 +368,8 @@ public class OnBreak implements Listener {
                                 p.sendMessage(" ");
                                 p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                plugin.getConfig().set(uuid + ".eq", "true");
-                                plugin.saveConfig();
+                                PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                PlayerDropConfig.save();
                             }
                         } else {
                             e.setDropItems(false);
@@ -384,15 +379,15 @@ public class OnBreak implements Listener {
                 //POLISHED_DEEPSLATE
             } else if (b.getType() == POLISHED_DEEPSLATE) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             e.setDropItems(false);
                             p.getLocation().getWorld().dropItemNaturally(blockLocation, polished_deepslate);
                         } else {
                             e.setDropItems(false);
                         }
                     } else {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             if (!isInventoryFull(p, POLISHED_DEEPSLATE, 64)) {
                                 e.setDropItems(false);
                                 p.getInventory().addItem(new ItemStack(POLISHED_DEEPSLATE));
@@ -407,8 +402,8 @@ public class OnBreak implements Listener {
                                 p.sendMessage(" ");
                                 p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                plugin.getConfig().set(uuid + ".eq", "true");
-                                plugin.saveConfig();
+                                PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                PlayerDropConfig.save();
                             }
                         } else {
                             e.setDropItems(false);
@@ -418,15 +413,15 @@ public class OnBreak implements Listener {
                 //TUFF
             } else if (b.getType() == TUFF) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             e.setDropItems(false);
                             p.getLocation().getWorld().dropItemNaturally(blockLocation, tuff);
                         } else {
                             e.setDropItems(false);
                         }
                     } else {
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".cobblestone"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
                             if (!isInventoryFull(p, TUFF, 64)) {
                                 e.setDropItems(false);
                                 p.getInventory().addItem(new ItemStack(TUFF));
@@ -441,8 +436,8 @@ public class OnBreak implements Listener {
                                 p.sendMessage(" ");
                                 p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                 p.sendMessage(" ");
-                                plugin.getConfig().set(uuid + ".eq", "true");
-                                plugin.saveConfig();
+                                PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                PlayerDropConfig.save();
                             }
                         } else {
                             e.setDropItems(false);
@@ -461,13 +456,13 @@ public class OnBreak implements Listener {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                     //DIAMENTY
                     if (percentChance(0.13)) { //13%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".diamond"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".diamond"), "true")) {
                                 diamond.setAmount(diamond.getAmount() * itemAmoundRandom(1, 3));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, diamond);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".diamond"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".diamond"), "true")) {
                                 if (!isInventoryFull(p, Material.DIAMOND, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.DIAMOND, itemAmoundRandom(1, 3)));
                                 } else {
@@ -480,20 +475,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //EMERALDY
                     } else if (percentChance(0.11)) { //11%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".emerald"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".emerald"), "true")) {
                                 emerald.setAmount(emerald.getAmount() * itemAmoundRandom(1, 2));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, emerald);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".emerald"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".emerald"), "true")) {
                                 if (!isInventoryFull(p, Material.EMERALD, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.EMERALD, itemAmoundRandom(1, 2)));
                                 } else {
@@ -506,19 +501,19 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //RZUCANE TNT
                     }else if (percentChance(0.002)) { //0.2%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".throwtnt"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".throwtnt"), "true")) {
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, throwtnt);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".throwtnt"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".throwtnt"), "true")) {
                                 if (!isInventoryFullByMeta(p, "Rzucane TNT", 64)) {
                                     p.getInventory().addItem(throwtnt);
                                 } else {
@@ -531,19 +526,19 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //TRAPPED_CHEST
                     }else if (percentChance(0.1)) { //0.01%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".ultra_block"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".ultra_block"), "true")) {
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, ultra_block);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".ultra_block"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".ultra_block"), "true")) {
                                 if (!isInventoryFull(p, Material.TRAPPED_CHEST, 64)) {
                                     p.getInventory().addItem(ultra_block);
                                 } else {
@@ -556,20 +551,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //IRON
                     }else if (percentChance(0.18)) { //18%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".iron"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".iron"), "true")) {
                                 iron.setAmount(iron.getAmount() * itemAmoundRandom(2, 4));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, iron);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".iron"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".iron"), "true")) {
                                 if (!isInventoryFull(p, Material.IRON_INGOT, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.IRON_INGOT, itemAmoundRandom(2, 4)));
                                 } else {
@@ -582,20 +577,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //ZLOTO
                     } else if (percentChance(0.1)) { //10%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".gold"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".gold"), "true")) {
                                 gold.setAmount(gold.getAmount() * itemAmoundRandom(2, 3));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, gold);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".gold"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".gold"), "true")) {
                                 if (!isInventoryFull(p, Material.GOLD_INGOT, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.GOLD_INGOT, itemAmoundRandom(2, 3)));
                                 } else {
@@ -608,20 +603,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //OBSYDIAN
                     } else if (percentChance(0.09)) { //9%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".obsidian"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".obsidian"), "true")) {
                                 obsidian.setAmount(obsidian.getAmount() * itemAmoundRandom(1, 4));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, obsidian);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".obsidian"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".obsidian"), "true")) {
                                 if (!isInventoryFull(p, Material.OBSIDIAN, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.OBSIDIAN, itemAmoundRandom(1, 4)));
                                 } else {
@@ -634,20 +629,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //REDSTONE
                     } else if (percentChance(0.11)) { //11%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".redstone"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".redstone"), "true")) {
                                 redstone.setAmount(redstone.getAmount() * itemAmoundRandom(1, 5));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, redstone);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".redstone"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".redstone"), "true")) {
                                 if (!isInventoryFull(p, Material.REDSTONE, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.REDSTONE, itemAmoundRandom(1, 5)));
                                 } else {
@@ -660,20 +655,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //NETHERITE
                     } else if (percentChance(0.001)) { //0.1%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".netherite"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".netherite"), "true")) {
                                 netherite.setAmount(netherite.getAmount() * itemAmoundRandom(1, 2));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, netherite);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".netherite"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".netherite"), "true")) {
                                 if (!isInventoryFull(p, Material.NETHERITE_INGOT, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.NETHERITE_INGOT, itemAmoundRandom(1, 2)));
                                 } else {
@@ -686,20 +681,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //SLIME BALL
                     } else if (percentChance(0.1)) { //10%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".slimeball"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".slimeball"), "true")) {
                                 slimeball.setAmount(slimeball.getAmount() * itemAmoundRandom(2, 4));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, slimeball);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".slimeball"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".slimeball"), "true")) {
                                 if (!isInventoryFull(p, Material.SLIME_BALL, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.SLIME_BALL, itemAmoundRandom(2, 4)));
                                 } else {
@@ -712,20 +707,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //BOOKSHELF
                     } else if (percentChance(0.04)) { //4%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".bookshelf"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".bookshelf"), "true")) {
                                 bookshelf.setAmount(bookshelf.getAmount() * itemAmoundRandom(1, 4));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, bookshelf);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".bookshelf"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".bookshelf"), "true")) {
                                 if (!isInventoryFull(p, Material.BOOKSHELF, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.BOOKSHELF, itemAmoundRandom(1, 4)));
                                 } else {
@@ -738,20 +733,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //ENDER PEARL
                     } else if (percentChance(0.002)) { //0.2%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".enderpearl"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".enderpearl"), "true")) {
                                 enderpearl.setAmount(enderpearl.getAmount() * itemAmoundRandom(1, 2));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, enderpearl);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".enderpearl"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".enderpearl"), "true")) {
                                 if (!isInventoryFull(p, Material.ENDER_PEARL, 16)) {
                                     p.getInventory().addItem(new ItemStack(Material.ENDER_PEARL, itemAmoundRandom(1, 2)));
                                 } else {
@@ -764,20 +759,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //TNT
                     } else if (percentChance(0.003)) { //0.3%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".tnt"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".tnt"), "true")) {
                                 tnt.setAmount(tnt.getAmount() * itemAmoundRandom(1, 3));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, tnt);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".tnt"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".tnt"), "true")) {
                                 if (!isInventoryFull(p, Material.TNT, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.TNT, itemAmoundRandom(1, 3)));
                                 } else {
@@ -790,20 +785,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //APPLE
                     } else if (percentChance(0.08)) { //8%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".apple"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".apple"), "true")) {
                                 apple.setAmount(apple.getAmount() * itemAmoundRandom(2, 3));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, apple);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".apple"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".apple"), "true")) {
                                 if (!isInventoryFull(p, Material.APPLE, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.APPLE, itemAmoundRandom(2, 3)));
                                 } else {
@@ -816,20 +811,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //COAL
                     } else if (percentChance(0.14)) { //14%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".coal"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".coal"), "true")) {
                                 coal.setAmount(coal.getAmount() * itemAmoundRandom(3, 5));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, coal);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".coal"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".coal"), "true")) {
                                 if (!isInventoryFull(p, Material.COAL, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.COAL, itemAmoundRandom(3, 5)));
                                 } else {
@@ -842,20 +837,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //OAK LOG
                     } else if (percentChance(0.04)) { //4%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".oaklog"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".oaklog"), "true")) {
                                 oaklog.setAmount(oaklog.getAmount() * itemAmoundRandom(4, 8));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, oaklog);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".oaklog"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".oaklog"), "true")) {
                                 if (!isInventoryFull(p, Material.OAK_LOG, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.OAK_LOG, itemAmoundRandom(4, 8)));
                                 } else {
@@ -868,20 +863,20 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }
                         //ARROW
                     } else if (percentChance(0.007)) { //0.7%
-                        if (Objects.equals(plugin.getConfig().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".arrow"), "true")) {
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".arrow"), "true")) {
                                 arrow.setAmount(arrow.getAmount() * itemAmoundRandom(1, 4));
                                 p.getLocation().getWorld().dropItemNaturally(blockLocation, arrow);
                             }
                         } else {
-                            if (Objects.equals(plugin.getConfig().getString(uuid + ".arrow"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".arrow"), "true")) {
                                 if (!isInventoryFull(p, Material.ARROW, 64)) {
                                     p.getInventory().addItem(new ItemStack(Material.ARROW, itemAmoundRandom(1, 4)));
                                 } else {
@@ -894,8 +889,8 @@ public class OnBreak implements Listener {
                                     p.sendMessage(" ");
                                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                                     p.sendMessage(" ");
-                                    plugin.getConfig().set(uuid + ".eq", "true");
-                                    plugin.saveConfig();
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
                                 }
                             }
                         }

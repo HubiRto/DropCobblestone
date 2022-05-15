@@ -9,6 +9,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import pl.pomoku.cobblestonedropgui.files.PlayerDropConfig;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class OpenDropGui {
         hopper_meta.setDisplayName(ChatColor.GREEN + "Drop, gdy EQ pelne");
         ArrayList<String> hopper_lore = new ArrayList<>();
 
-        if(plugin.getConfig().getString(uuid + ".eq") == "true") {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
             hopper_lore.add(ChatColor.GRAY + "Aktualnie aktywny: " + ChatColor.RED + "Nie");
         }else {
             hopper_lore.add(ChatColor.GRAY + "Aktualnie aktywny: " + ChatColor.GREEN + "Tak");
@@ -53,7 +54,7 @@ public class OpenDropGui {
         cobblestone_meta.setDisplayName(ChatColor.GREEN + "Wypadanie bruku");
         ArrayList<String> cobblestone_lore = new ArrayList<>();
 
-        if(plugin.getConfig().getString(uuid + ".cobblestone") == "true") {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
             cobblestone_lore.add(ChatColor.GRAY + "Aktualnie aktywny: " + ChatColor.GREEN + "Tak");
             cobblestone_meta.addEnchant(Enchantment.LUCK, 1, false);
             cobblestone_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -109,7 +110,7 @@ public class OpenDropGui {
         shulker_lore.add("§7Szansa na drop: §b0.01%");
         shulker_lore.add("§7Rangi Premium: §d+0.005%");
         shulker_lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".ultra_block") == "true") {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".ultra_block"), "true")) {
             shulker_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
         }else {
             shulker_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
@@ -130,7 +131,7 @@ public class OpenDropGui {
         throwtnt_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.2%");
         throwtnt_lore.add(ChatColor.GRAY + "Rangi Premium: " + ChatColor.LIGHT_PURPLE + "+0.005%");
         throwtnt_lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".throwtnt") == "true") {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".throwtnt"), "true")) {
             throwtnt_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
         }else {
             throwtnt_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.RED + ChatColor.BOLD + "WYLACZONE");
@@ -192,7 +193,7 @@ public class OpenDropGui {
         diamond_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "13.0%");
         diamond_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-3" + ChatColor.GRAY + " szt.");
         diamond_lore.add(" ");
-        if(Objects.equals(plugin.getConfig().getString(uuid + ".diamond"), "true")) {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".diamond"), "true")) {
             diamond_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             diamond_meta.addEnchant(Enchantment.LUCK, 1, false);
             diamond_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -215,7 +216,7 @@ public class OpenDropGui {
         emerald_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "11.0%");
         emerald_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-2" + ChatColor.GRAY + " szt.");
         emerald_lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".emerald") == "true") {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".emerald"), "true")) {
             emerald_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             emerald_meta.addEnchant(Enchantment.LUCK, 1, false);
             emerald_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -238,7 +239,7 @@ public class OpenDropGui {
         iron_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "18.0%");
         iron_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "2-4" + ChatColor.GRAY + " szt.");
         iron_lore.add(" ");
-        if(Objects.equals(plugin.getConfig().getString(uuid + ".iron"), "true")) {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".iron"), "true")) {
             iron_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             iron_meta.addEnchant(Enchantment.LUCK, 1, false);
             iron_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -261,7 +262,7 @@ public class OpenDropGui {
         gold_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "10.0%");
         gold_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "2-3" + ChatColor.GRAY + " szt.");
         gold_lore.add(" ");
-        if(Objects.equals(plugin.getConfig().getString(uuid + ".gold"), "true")) {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".gold"), "true")) {
             gold_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             gold_meta.addEnchant(Enchantment.LUCK, 1, false);
             gold_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -284,7 +285,7 @@ public class OpenDropGui {
         obsidian_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "9.0%");
         obsidian_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-4" + ChatColor.GRAY + " szt.");
         obsidian_lore.add(" ");
-        if(Objects.equals(plugin.getConfig().getString(uuid + ".obsidian"), "true")) {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".obsidian"), "true")) {
             obsidian_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             obsidian_meta.addEnchant(Enchantment.LUCK, 1, false);
             obsidian_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -307,7 +308,7 @@ public class OpenDropGui {
         redstone_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "11.0%");
         redstone_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-5" + ChatColor.GRAY + " szt.");
         redstone_lore.add(" ");
-        if(Objects.equals(plugin.getConfig().getString(uuid + ".redstone"), "true")) {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".redstone"), "true")) {
             redstone_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             redstone_meta.addEnchant(Enchantment.LUCK, 1, false);
             redstone_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -330,7 +331,7 @@ public class OpenDropGui {
         netherite_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.1%");
         netherite_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-2" + ChatColor.GRAY + " szt.");
         netherite_lore.add(" ");
-        if(Objects.equals(plugin.getConfig().getString(uuid + ".netherite"), "true")) {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".netherite"), "true")) {
             netherite_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             netherite_meta.addEnchant(Enchantment.LUCK, 1, false);
             netherite_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -353,7 +354,7 @@ public class OpenDropGui {
         slimeball_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "10.0%");
         slimeball_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "2-4" + ChatColor.GRAY + " szt.");
         slimeball_lore.add(" ");
-        if(Objects.equals(plugin.getConfig().getString(uuid + ".slimeball"), "true")) {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".slimeball"), "true")) {
             slimeball_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             slimeball_meta.addEnchant(Enchantment.LUCK, 1, false);
             slimeball_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -376,7 +377,7 @@ public class OpenDropGui {
         bookshelf_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "4.0%");
         bookshelf_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-4" + ChatColor.GRAY + " szt.");
         bookshelf_lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".bookshelf") == "true") {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".bookshelf"), "true")) {
             bookshelf_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             bookshelf_meta.addEnchant(Enchantment.LUCK, 1, false);
             bookshelf_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -399,7 +400,7 @@ public class OpenDropGui {
         enderpearl_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.2%");
         enderpearl_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-2" + ChatColor.GRAY + " szt.");
         enderpearl_lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".enderpearl") == "true") {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".enderpearl"), "true")) {
             enderpearl_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             enderpearl_meta.addEnchant(Enchantment.LUCK, 1, false);
             enderpearl_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -422,7 +423,7 @@ public class OpenDropGui {
         tnt_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.3%");
         tnt_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-3" + ChatColor.GRAY + " szt.");
         tnt_lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".tnt") == "true") {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".tnt"), "true")) {
             tnt_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             tnt_meta.addEnchant(Enchantment.LUCK, 1, false);
             tnt_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -445,7 +446,7 @@ public class OpenDropGui {
         apple_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "8.0%");
         apple_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "2-3" + ChatColor.GRAY + " szt.");
         apple_lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".apple") == "true") {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".apple"), "true")) {
             apple_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             apple_meta.addEnchant(Enchantment.LUCK, 1, false);
             apple_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -468,7 +469,7 @@ public class OpenDropGui {
         coal_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "14.0%");
         coal_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "3-5" + ChatColor.GRAY + " szt.");
         coal_lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".coal") == "true") {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".coal"), "true")) {
             coal_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             coal_meta.addEnchant(Enchantment.LUCK, 1, false);
             coal_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -491,7 +492,7 @@ public class OpenDropGui {
         oaklog_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "4.0%");
         oaklog_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "4-8" + ChatColor.GRAY + " szt.");
         oaklog_lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".oaklog") == "true") {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".oaklog"), "true")) {
             oaklog_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             oaklog_meta.addEnchant(Enchantment.LUCK, 1, false);
             oaklog_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -514,7 +515,7 @@ public class OpenDropGui {
         arrow_lore.add(ChatColor.GRAY + "Szansa na drop: " + ChatColor.AQUA + "0.7%");
         arrow_lore.add(ChatColor.GRAY + "Ilosc itemow: " + ChatColor.LIGHT_PURPLE + "1-4" + ChatColor.GRAY + " szt.");
         arrow_lore.add(" ");
-        if(plugin.getConfig().getString(uuid + ".arrow") == "true") {
+        if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".arrow"), "true")) {
             arrow_lore.add(ChatColor.GRAY + "Wypadanie: " + ChatColor.GREEN + ChatColor.BOLD + "WLACZONE");
             arrow_meta.addEnchant(Enchantment.LUCK, 1, false);
             arrow_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
