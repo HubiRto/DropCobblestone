@@ -43,6 +43,15 @@ public class OnJoin implements Listener {
             PlayerDropConfig.get().set(uuid + ".netherite", "true");
             PlayerDropConfig.get().set(uuid + ".throwtnt", "true");
             PlayerDropConfig.get().set(uuid + ".ultra_block", "true");
+            PlayerDropConfig.get().set(uuid + ".auto_craft_diamond_block", "false");
+            PlayerDropConfig.get().set(uuid + ".auto_craft_iron_block", "false");
+            PlayerDropConfig.get().set(uuid + ".auto_craft_gold_block", "false");
+            PlayerDropConfig.get().set(uuid + ".auto_craft_emerald_block", "false");
+            PlayerDropConfig.get().set(uuid + ".auto_craft_redstone_block", "false");
+            PlayerDropConfig.get().set(uuid + ".auto_craft_coal_block", "false");
+            PlayerDropConfig.get().set(uuid + ".auto_craft_auto_fosa", "false");
+            PlayerDropConfig.get().set(uuid + ".auto_craft_boy_farmer", "false");
+            PlayerDropConfig.get().set(uuid + ".auto_craft_sand_farmer", "false");
             PlayerDropConfig.save();
         }
     }
