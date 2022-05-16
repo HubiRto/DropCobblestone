@@ -3,17 +3,23 @@ package pl.pomoku.cobblestonedropgui.recipes;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
-import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomRecipes {
+
+    public static ItemStack af;
+    public static ItemStack sf;
+    public static ItemStack bf;
+    public static ItemStack cx;
+    public static ItemStack tt;
 
     public ItemStack item_auto_fosa = new ItemStack(Material.RED_GLAZED_TERRACOTTA, 1);
     public ItemMeta auto_fosa_meta = item_auto_fosa.getItemMeta();
@@ -37,8 +43,9 @@ public class CustomRecipes {
         auto_fosa_meta.addEnchant(Enchantment.LUCK, 1, true);
         auto_fosa_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item_auto_fosa.setItemMeta(auto_fosa_meta);
+        af = item_auto_fosa;
 
-        ShapedRecipe AutoFosa = new ShapedRecipe(item_auto_fosa);
+        ShapedRecipe AutoFosa = new ShapedRecipe(NamespacedKey.minecraft("af"), item_auto_fosa);
         AutoFosa.shape("XXX", "XSX", "XXX");
         AutoFosa.setIngredient('X', Material.EMERALD_BLOCK);
         AutoFosa.setIngredient('S', Material.DIAMOND_BLOCK);
@@ -51,8 +58,9 @@ public class CustomRecipes {
         boy_farmer_meta.addEnchant(Enchantment.LUCK, 1, true);
         boy_farmer_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item_boy_farmer.setItemMeta(boy_farmer_meta);
+        bf = item_boy_farmer;
 
-        ShapedRecipe BoyFarmer = new ShapedRecipe(item_boy_farmer);
+        ShapedRecipe BoyFarmer = new ShapedRecipe(NamespacedKey.minecraft("bf"), item_boy_farmer);
         BoyFarmer.shape("XXX", "XSX", "XXX");
         BoyFarmer.setIngredient('X', Material.OBSIDIAN);
         BoyFarmer.setIngredient('S', Material.EMERALD_BLOCK);
@@ -65,8 +73,9 @@ public class CustomRecipes {
         sand_farmer_meta.addEnchant(Enchantment.LUCK, 1, true);
         sand_farmer_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item_sand_farmer.setItemMeta(sand_farmer_meta);
+        sf = item_sand_farmer;
 
-        ShapedRecipe SandFarmer = new ShapedRecipe(item_sand_farmer);
+        ShapedRecipe SandFarmer = new ShapedRecipe(NamespacedKey.minecraft("sf"), item_sand_farmer);
         SandFarmer.shape("XXX", "XSX", "XXX");
         SandFarmer.setIngredient('X', Material.SAND);
         SandFarmer.setIngredient('S', Material.EMERALD_BLOCK);
@@ -81,11 +90,12 @@ public class CustomRecipes {
         cobblex_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Cobble X");
         cobblex_meta.setLore(cobblex_lore);
         item_cobble_x.setItemMeta(cobblex_meta);
+        cx = item_cobble_x;
 
         //ShapelessRecipe CobbleX_v2 = new ShapelessRecipe(item_cobble_x);
         //CobbleX_v2.addIngredient(576, Material.COBBLESTONE);
 
-        ShapedRecipe CobbleX = new ShapedRecipe(item_cobble_x);
+        ShapedRecipe CobbleX = new ShapedRecipe(NamespacedKey.minecraft("cx"), item_cobble_x);
         CobbleX.shape("XXX", "XSX", "XXX");
         CobbleX.setIngredient('X', Material.NETHERITE_INGOT);
         CobbleX.setIngredient('S', Material.COBBLESTONE);
@@ -102,8 +112,9 @@ public class CustomRecipes {
         throwtnt_meta.addEnchant(Enchantment.LUCK, 1, false);
         throwtnt_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         throwtnt.setItemMeta(throwtnt_meta);
+        tt = throwtnt;
 
-        ShapedRecipe ThrowTnt = new ShapedRecipe(throwtnt);
+        ShapedRecipe ThrowTnt = new ShapedRecipe(NamespacedKey.minecraft("rzucane"), throwtnt);
         ThrowTnt.shape("XXX", "XSX", "XXX");
         ThrowTnt.setIngredient('X', Material.NETHERITE_INGOT);
         ThrowTnt.setIngredient('S', Material.TNT);
