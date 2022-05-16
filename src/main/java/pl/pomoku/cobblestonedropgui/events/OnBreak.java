@@ -120,8 +120,8 @@ public class OnBreak implements Listener {
             //Inna opcja usuwania
             e.setExpToDrop(0); //Zablokowanie wypadania exp'a
         }
-        if (p.getGameMode() == GameMode.SURVIVAL) {
-            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
+        if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
+            if (p.getGameMode() == GameMode.SURVIVAL) {
                 if (b.getType() == Material.STONE) {
                     stones_mode(e, p, uuid, blockLocation, cobblestone, COBBLESTONE);
                 } else if (b.getType() == Material.ANDESITE) {
@@ -144,15 +144,8 @@ public class OnBreak implements Listener {
                     stones_mode(e, p, uuid, blockLocation, tuff, TUFF);
                 }
             }
-        }
-
-        //  -------------
-        //  DROP SUROWCÓW
-        //  -------------
-
-        if (b.getType() == Material.STONE || b.getType() == Material.ANDESITE || b.getType() == POLISHED_ANDESITE || b.getType() == DIORITE || b.getType() == POLISHED_DIORITE || b.getType() == Material.GRANITE || b.getType() == Material.POLISHED_GRANITE || b.getType() == Material.DEEPSLATE || b.getType() == Material.POLISHED_DEEPSLATE || b.getType() == Material.TUFF) {
-            if (p.getGameMode() == GameMode.SURVIVAL) {
-                if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
+            if (b.getType() == Material.STONE || b.getType() == Material.ANDESITE || b.getType() == POLISHED_ANDESITE || b.getType() == DIORITE || b.getType() == POLISHED_DIORITE || b.getType() == Material.GRANITE || b.getType() == Material.POLISHED_GRANITE || b.getType() == Material.DEEPSLATE || b.getType() == Material.POLISHED_DEEPSLATE || b.getType() == Material.TUFF) {
+                if (p.getGameMode() == GameMode.SURVIVAL) {
                     if (percentChance(0.13)) { //13%
                         items_drop_mode(p, uuid, ".diamond", 3, 1, 64, blockLocation, diamond, DIAMOND);
                     } else if (percentChance(0.11)) { //11%
@@ -184,70 +177,12 @@ public class OnBreak implements Listener {
                     } else if (percentChance(0.007)) { //0.7%
                         items_drop_mode(p, uuid, ".arrow", 4, 1, 64, blockLocation, arrow, ARROW);
                     } else if (percentChance(0.002)) { //0.2%
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".throwtnt"), "true")) {
-                                p.getLocation().getWorld().dropItemNaturally(blockLocation, throwtnt);
-                            }
-                        } else {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".throwtnt"), "true")) {
-                                if (!isInventoryFullByMeta(p, "Rzucane TNT", 64)) {
-                                    p.getInventory().addItem(throwtnt);
-                                } else {
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                    p.sendMessage("§7oporznij ekwipunek.");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                    PlayerDropConfig.save();
-                                }
-                            }
-                        }
-                        //TRAPPED_CHEST
-                    } else if (percentChance(0.1)) { //0.01%
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".ultra_block"), "true")) {
-                                p.getLocation().getWorld().dropItemNaturally(blockLocation, ultra_block);
-                            }
-                        } else {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".ultra_block"), "true")) {
-                                if (!isInventoryFull(p, Material.TRAPPED_CHEST, 64)) {
-                                    p.getInventory().addItem(ultra_block);
-                                } else {
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                    p.sendMessage("§7oporznij ekwipunek.");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                    PlayerDropConfig.save();
-                                }
-                            }
-                        }
-                        //IRON
+                        items_drop_mode_by_meta(p, uuid, ".throwtnt", 64, blockLocation, throwtnt, "Rzucane TNT");
+                    } else if (percentChance(0.0001)) { //0.01%
+                        items_drop_mode_by_meta(p, uuid, ".ultra_block", 64, blockLocation, ultra_block, "Ultra Block");
                     }
-                }
-            } else {
-                if (!this.cooldowns.containsKey(p.getUniqueId())) {
-                    this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
-                    p.sendMessage(" ");
-                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                    p.sendMessage(" ");
-                    p.sendMessage("§7Drop dziala §bwylacznie§7 na trybie §eSURVIVAL§7.");
-                    p.sendMessage(" ");
-                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                    p.sendMessage(" ");
                 } else {
-                    long timeElapsed = System.currentTimeMillis() - cooldowns.get(p.getUniqueId());
-                    if (timeElapsed >= 10000) {
+                    if (!this.cooldowns.containsKey(p.getUniqueId())) {
                         this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
                         p.sendMessage(" ");
                         p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
@@ -256,11 +191,38 @@ public class OnBreak implements Listener {
                         p.sendMessage(" ");
                         p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                         p.sendMessage(" ");
+                    } else {
+                        long timeElapsed = System.currentTimeMillis() - cooldowns.get(p.getUniqueId());
+                        if (timeElapsed >= 10000) {
+                            this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
+                            p.sendMessage(" ");
+                            p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                            p.sendMessage(" ");
+                            p.sendMessage("§7Drop dziala §bwylacznie§7 na trybie §eSURVIVAL§7.");
+                            p.sendMessage(" ");
+                            p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                            p.sendMessage(" ");
+                        }
                     }
                 }
             }
         }
+    }
 
+    private void items_drop_mode_by_meta(Player p, UUID uuid, String i, int MaxV, Location blockLocation, ItemStack is, String s) {
+        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+            if (Objects.equals(PlayerDropConfig.get().getString(uuid + i), "true")) {
+                p.getLocation().getWorld().dropItemNaturally(blockLocation, is);
+            }
+        } else {
+            if (Objects.equals(PlayerDropConfig.get().getString(uuid + i), "true")) {
+                if (!isInventoryFullByMeta(p, s, MaxV)) {
+                    p.getInventory().addItem(is);
+                } else {
+                    not_enough_space_mode(p);
+                }
+            }
+        }
     }
 
     private void items_drop_mode(Player p, UUID uuid, String i, int max, int min, int MaxV, Location blockLocation, ItemStack is, Material mat) {
