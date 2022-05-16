@@ -151,113 +151,14 @@ public class OnBreak implements Listener {
         //  -------------
 
         if (b.getType() == Material.STONE || b.getType() == Material.ANDESITE || b.getType() == POLISHED_ANDESITE || b.getType() == DIORITE || b.getType() == POLISHED_DIORITE || b.getType() == Material.GRANITE || b.getType() == Material.POLISHED_GRANITE || b.getType() == Material.DEEPSLATE || b.getType() == Material.POLISHED_DEEPSLATE || b.getType() == Material.TUFF) {
-            if(p.getGameMode() == GameMode.SURVIVAL) {
+            if (p.getGameMode() == GameMode.SURVIVAL) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    //DIAMENTY
                     if (percentChance(0.13)) { //13%
-                        items_drop_mode(p, uuid, ".diamond",3,1, blockLocation, diamond, DIAMOND);
+                        items_drop_mode(p, uuid, ".diamond", 3, 1, blockLocation, diamond, DIAMOND);
                     } else if (percentChance(0.11)) { //11%
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".emerald"), "true")) {
-                                emerald.setAmount(emerald.getAmount() * itemAmoundRandom(1, 2));
-                                p.getLocation().getWorld().dropItemNaturally(blockLocation, emerald);
-                            }
-                        } else {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".emerald"), "true")) {
-                                if (!isInventoryFull(p, Material.EMERALD, 64)) {
-                                    p.getInventory().addItem(new ItemStack(Material.EMERALD, itemAmoundRandom(1, 2)));
-                                } else {
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                    p.sendMessage("§7oporznij ekwipunek.");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                    PlayerDropConfig.save();
-                                }
-                            }
-                        }
-                        //RZUCANE TNT
-                    }else if (percentChance(0.002)) { //0.2%
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".throwtnt"), "true")) {
-                                p.getLocation().getWorld().dropItemNaturally(blockLocation, throwtnt);
-                            }
-                        } else {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".throwtnt"), "true")) {
-                                if (!isInventoryFullByMeta(p, "Rzucane TNT", 64)) {
-                                    p.getInventory().addItem(throwtnt);
-                                } else {
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                    p.sendMessage("§7oporznij ekwipunek.");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                    PlayerDropConfig.save();
-                                }
-                            }
-                        }
-                        //TRAPPED_CHEST
-                    }else if (percentChance(0.1)) { //0.01%
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".ultra_block"), "true")) {
-                                p.getLocation().getWorld().dropItemNaturally(blockLocation, ultra_block);
-                            }
-                        } else {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".ultra_block"), "true")) {
-                                if (!isInventoryFull(p, Material.TRAPPED_CHEST, 64)) {
-                                    p.getInventory().addItem(ultra_block);
-                                } else {
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                    p.sendMessage("§7oporznij ekwipunek.");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                    PlayerDropConfig.save();
-                                }
-                            }
-                        }
-                        //IRON
-                    }else if (percentChance(0.18)) { //18%
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".iron"), "true")) {
-                                iron.setAmount(iron.getAmount() * itemAmoundRandom(2, 4));
-                                p.getLocation().getWorld().dropItemNaturally(blockLocation, iron);
-                            }
-                        } else {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".iron"), "true")) {
-                                if (!isInventoryFull(p, Material.IRON_INGOT, 64)) {
-                                    p.getInventory().addItem(new ItemStack(Material.IRON_INGOT, itemAmoundRandom(2, 4)));
-                                } else {
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                    p.sendMessage("§7oporznij ekwipunek.");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                    PlayerDropConfig.save();
-                                }
-                            }
-                        }
-                        //ZLOTO
+                        items_drop_mode(p, uuid, ".emerald", 2, 1, blockLocation, emerald, EMERALD);
+                    } else if (percentChance(0.18)) { //18%
+                        items_drop_mode(p, uuid, ".iron", 4, 2, blockLocation, iron, IRON_INGOT);
                     } else if (percentChance(0.1)) { //10%
                         if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
                             if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".gold"), "true")) {
@@ -569,10 +470,60 @@ public class OnBreak implements Listener {
                                 }
                             }
                         }
+                    } else if (percentChance(0.002)) { //0.2%
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".throwtnt"), "true")) {
+                                p.getLocation().getWorld().dropItemNaturally(blockLocation, throwtnt);
+                            }
+                        } else {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".throwtnt"), "true")) {
+                                if (!isInventoryFullByMeta(p, "Rzucane TNT", 64)) {
+                                    p.getInventory().addItem(throwtnt);
+                                } else {
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
+                                }
+                            }
+                        }
+                        //TRAPPED_CHEST
+                    } else if (percentChance(0.1)) { //0.01%
+                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".ultra_block"), "true")) {
+                                p.getLocation().getWorld().dropItemNaturally(blockLocation, ultra_block);
+                            }
+                        } else {
+                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".ultra_block"), "true")) {
+                                if (!isInventoryFull(p, Material.TRAPPED_CHEST, 64)) {
+                                    p.getInventory().addItem(ultra_block);
+                                } else {
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                                    p.sendMessage("§7oporznij ekwipunek.");
+                                    p.sendMessage(" ");
+                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                                    p.sendMessage(" ");
+                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
+                                    PlayerDropConfig.save();
+                                }
+                            }
+                        }
+                        //IRON
                     }
                 }
-            }else {
-                if(!this.cooldowns.containsKey(p.getUniqueId())) {
+            } else {
+                if (!this.cooldowns.containsKey(p.getUniqueId())) {
                     this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
                     p.sendMessage(" ");
                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
@@ -581,10 +532,9 @@ public class OnBreak implements Listener {
                     p.sendMessage(" ");
                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                     p.sendMessage(" ");
-                }
-                else {
+                } else {
                     long timeElapsed = System.currentTimeMillis() - cooldowns.get(p.getUniqueId());
-                    if(timeElapsed >= 10000) {
+                    if (timeElapsed >= 10000) {
                         this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
                         p.sendMessage(" ");
                         p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
