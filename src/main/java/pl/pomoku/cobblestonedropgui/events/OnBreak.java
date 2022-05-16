@@ -7,6 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -31,6 +32,29 @@ public class OnBreak implements Listener {
         this.cooldowns = new HashMap<>();
     }
 
+/*    public void stones_mode(Event e, Player p){
+        UUID uuid = p.getUniqueId();
+        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
+                e.setDropItems(false);
+                p.getLocation().getWorld().dropItemNaturally(blockLocation, cobblestone);
+            } else {
+                e.setDropItems(false);
+            }
+        } else {
+            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
+                if (!isInventoryFull(p, Material.COBBLESTONE, 64)) {
+                    e.setDropItems(false);
+                    p.getInventory().addItem(new ItemStack(Material.COBBLESTONE));
+                } else {
+                    e.setDropItems(false);
+                    not_enough_space_mode(p);
+                }
+            } else {
+                e.setDropItems(false);
+            }
+        }
+    }*/
 
     @EventHandler
     public void OnBreak(BlockBreakEvent e) {
@@ -96,353 +120,28 @@ public class OnBreak implements Listener {
             //Inna opcja usuwania
             e.setExpToDrop(0); //Zablokowanie wypadania exp'a
         }
-
-        //   ------------
-        //   DROP KAMIENI
-        //   ------------
-
-        //STONE
-        if(p.getGameMode() == GameMode.SURVIVAL) {
-            if (b.getType() == Material.STONE) {
-                if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            e.setDropItems(false);
-                            p.getLocation().getWorld().dropItemNaturally(blockLocation, cobblestone);
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    } else {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            if (!isInventoryFull(p, Material.COBBLESTONE, 64)) {
-                                e.setDropItems(false);
-                                p.getInventory().addItem(new ItemStack(Material.COBBLESTONE));
-                            } else {
-                                e.setDropItems(false);
-                                //p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.RED + "Nie masz miejsca w EQ!"));
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                p.sendMessage("§7oporznij ekwipunek.");
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                PlayerDropConfig.save();
-                            }
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    }
-                }
-                //ANDESITE
-            } else if (b.getType() == Material.ANDESITE) {
-                if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            e.setDropItems(false);
-                            p.getLocation().getWorld().dropItemNaturally(blockLocation, andesite);
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    } else {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            if (!isInventoryFull(p, Material.ANDESITE, 64)) {
-                                e.setDropItems(false);
-                                p.getInventory().addItem(new ItemStack(Material.ANDESITE));
-                            } else {
-                                e.setDropItems(false);
-                                //p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.RED + "Nie masz miejsca w EQ!"));
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                p.sendMessage("§7oporznij ekwipunek.");
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                PlayerDropConfig.save();
-                            }
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    }
-                }
-                //POLISHED_ANDESITE
-            } else if (b.getType() == POLISHED_ANDESITE) {
-                if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            e.setDropItems(false);
-                            p.getLocation().getWorld().dropItemNaturally(blockLocation, polished_andesite);
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    } else {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            if (!isInventoryFull(p, POLISHED_ANDESITE, 64)) {
-                                e.setDropItems(false);
-                                p.getInventory().addItem(new ItemStack(POLISHED_ANDESITE));
-                            } else {
-                                e.setDropItems(false);
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                p.sendMessage("§7oporznij ekwipunek.");
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                PlayerDropConfig.save();
-                            }
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    }
-                }
-                //DIORITE
-            } else if (b.getType() == DIORITE) {
-                if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            e.setDropItems(false);
-                            p.getLocation().getWorld().dropItemNaturally(blockLocation, diorite);
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    } else {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            if (!isInventoryFull(p, DIORITE, 64)) {
-                                e.setDropItems(false);
-                                p.getInventory().addItem(new ItemStack(DIORITE));
-                            } else {
-                                e.setDropItems(false);
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                p.sendMessage("§7oporznij ekwipunek.");
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                PlayerDropConfig.save();
-                            }
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    }
-                }
-                //POLISHED_DIORITE
-            } else if (b.getType() == POLISHED_DIORITE) {
-                if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            e.setDropItems(false);
-                            p.getLocation().getWorld().dropItemNaturally(blockLocation, polished_diorite);
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    } else {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            if (!isInventoryFull(p, POLISHED_DIORITE, 64)) {
-                                e.setDropItems(false);
-                                p.getInventory().addItem(new ItemStack(POLISHED_DIORITE));
-                            } else {
-                                e.setDropItems(false);
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                p.sendMessage("§7oporznij ekwipunek.");
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                PlayerDropConfig.save();
-                            }
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    }
-                }
-                //GRANITE
-            } else if (b.getType() == GRANITE) {
-                if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            e.setDropItems(false);
-                            p.getLocation().getWorld().dropItemNaturally(blockLocation, granite);
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    } else {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            if (!isInventoryFull(p, GRANITE, 64)) {
-                                e.setDropItems(false);
-                                p.getInventory().addItem(new ItemStack(GRANITE));
-                            } else {
-                                e.setDropItems(false);
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                p.sendMessage("§7oporznij ekwipunek.");
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                PlayerDropConfig.save();
-                            }
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    }
-                }
-                //POLISHED_GRANITE
-            } else if (b.getType() == POLISHED_GRANITE) {
-                if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            e.setDropItems(false);
-                            p.getLocation().getWorld().dropItemNaturally(blockLocation, polished_granite);
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    } else {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            if (!isInventoryFull(p, POLISHED_GRANITE, 64)) {
-                                e.setDropItems(false);
-                                p.getInventory().addItem(new ItemStack(POLISHED_GRANITE));
-                            } else {
-                                e.setDropItems(false);
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                p.sendMessage("§7oporznij ekwipunek.");
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                PlayerDropConfig.save();
-                            }
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    }
-                }
-                //DEEPSLATE
-            } else if (b.getType() == DEEPSLATE) {
-                if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            e.setDropItems(false);
-                            p.getLocation().getWorld().dropItemNaturally(blockLocation, deepslate);
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    } else {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            if (!isInventoryFull(p, DEEPSLATE, 64)) {
-                                e.setDropItems(false);
-                                p.getInventory().addItem(new ItemStack(DEEPSLATE));
-                            } else {
-                                e.setDropItems(false);
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                p.sendMessage("§7oporznij ekwipunek.");
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                PlayerDropConfig.save();
-                            }
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    }
-                }
-                //POLISHED_DEEPSLATE
-            } else if (b.getType() == POLISHED_DEEPSLATE) {
-                if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            e.setDropItems(false);
-                            p.getLocation().getWorld().dropItemNaturally(blockLocation, polished_deepslate);
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    } else {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            if (!isInventoryFull(p, POLISHED_DEEPSLATE, 64)) {
-                                e.setDropItems(false);
-                                p.getInventory().addItem(new ItemStack(POLISHED_DEEPSLATE));
-                            } else {
-                                e.setDropItems(false);
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                p.sendMessage("§7oporznij ekwipunek.");
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                PlayerDropConfig.save();
-                            }
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    }
-                }
-                //TUFF
-            } else if (b.getType() == TUFF) {
-                if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-                    if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            e.setDropItems(false);
-                            p.getLocation().getWorld().dropItemNaturally(blockLocation, tuff);
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    } else {
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                            if (!isInventoryFull(p, TUFF, 64)) {
-                                e.setDropItems(false);
-                                p.getInventory().addItem(new ItemStack(TUFF));
-                            } else {
-                                e.setDropItems(false);
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                p.sendMessage("§7oporznij ekwipunek.");
-                                p.sendMessage(" ");
-                                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                p.sendMessage(" ");
-                                PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                PlayerDropConfig.save();
-                            }
-                        } else {
-                            e.setDropItems(false);
-                        }
-                    }
+        if (p.getGameMode() == GameMode.SURVIVAL) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
+                if (b.getType() == Material.STONE) {
+                    stones_mode(e, p, uuid, blockLocation, cobblestone, COBBLESTONE);
+                } else if (b.getType() == Material.ANDESITE) {
+                    stones_mode(e, p, uuid, blockLocation, andesite, ANDESITE);
+                } else if (b.getType() == POLISHED_ANDESITE) {
+                    stones_mode(e, p, uuid, blockLocation, polished_andesite, POLISHED_ANDESITE);
+                } else if (b.getType() == DIORITE) {
+                    stones_mode(e, p, uuid, blockLocation, diorite, DIORITE);
+                } else if (b.getType() == POLISHED_DIORITE) {
+                    stones_mode(e, p, uuid, blockLocation, polished_diorite, POLISHED_DIORITE);
+                } else if (b.getType() == GRANITE) {
+                    stones_mode(e, p, uuid, blockLocation, granite, GRANITE);
+                } else if (b.getType() == POLISHED_GRANITE) {
+                    stones_mode(e, p, uuid, blockLocation, polished_granite, POLISHED_GRANITE);
+                } else if (b.getType() == DEEPSLATE) {
+                    stones_mode(e, p, uuid, blockLocation, deepslate, DEEPSLATE);
+                } else if (b.getType() == POLISHED_DEEPSLATE) {
+                    stones_mode(e, p, uuid, blockLocation, polished_deepslate, POLISHED_DEEPSLATE);
+                } else if (b.getType() == TUFF) {
+                    stones_mode(e, p, uuid, blockLocation, tuff, TUFF);
                 }
             }
         }
@@ -456,31 +155,7 @@ public class OnBreak implements Listener {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                     //DIAMENTY
                     if (percentChance(0.13)) { //13%
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".diamond"), "true")) {
-                                diamond.setAmount(diamond.getAmount() * itemAmoundRandom(1, 3));
-                                p.getLocation().getWorld().dropItemNaturally(blockLocation, diamond);
-                            }
-                        } else {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".diamond"), "true")) {
-                                if (!isInventoryFull(p, Material.DIAMOND, 64)) {
-                                    p.getInventory().addItem(new ItemStack(Material.DIAMOND, itemAmoundRandom(1, 3)));
-                                } else {
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                    p.sendMessage("§7oporznij ekwipunek.");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                    PlayerDropConfig.save();
-                                }
-                            }
-                        }
-                        //EMERALDY
+                        items_drop_mode(p, uuid, ".diamond",3,1, blockLocation, diamond, DIAMOND);
                     } else if (percentChance(0.11)) { //11%
                         if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
                             if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".emerald"), "true")) {
@@ -923,6 +598,61 @@ public class OnBreak implements Listener {
             }
         }
 
+    }
+
+    private void items_drop_mode(Player p, UUID uuid, String i, int max, int min, Location blockLocation, ItemStack is, Material mat) {
+        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+            if (Objects.equals(PlayerDropConfig.get().getString(uuid + i), "true")) {
+                is.setAmount(is.getAmount() * itemAmoundRandom(min, max));
+                p.getLocation().getWorld().dropItemNaturally(blockLocation, is);
+            }
+        } else {
+            if (Objects.equals(PlayerDropConfig.get().getString(uuid + i), "true")) {
+                if (!isInventoryFull(p, mat, 64)) {
+                    p.getInventory().addItem(new ItemStack(mat, itemAmoundRandom(min, max)));
+                } else {
+                    not_enough_space_mode(p);
+                }
+            }
+        }
+    }
+
+    private void stones_mode(BlockBreakEvent e, Player p, UUID uuid, Location bl, ItemStack is, Material mat) {
+        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
+            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
+                e.setDropItems(false);
+                p.getLocation().getWorld().dropItemNaturally(bl, is);
+            } else {
+                e.setDropItems(false);
+            }
+        } else {
+            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
+                if (!isInventoryFull(p, mat, 64)) {
+                    e.setDropItems(false);
+                    p.getInventory().addItem(new ItemStack(mat));
+                } else {
+                    e.setDropItems(false);
+                    not_enough_space_mode(p);
+                }
+            } else {
+                e.setDropItems(false);
+            }
+        }
+    }
+
+    public void not_enough_space_mode(Player p){
+        UUID uuid = p.getUniqueId();
+        p.sendMessage(" ");
+        p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+        p.sendMessage(" ");
+        p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+        p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+        p.sendMessage("§7oporznij ekwipunek.");
+        p.sendMessage(" ");
+        p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+        p.sendMessage(" ");
+        PlayerDropConfig.get().set(uuid + ".eq", "true");
+        PlayerDropConfig.save();
     }
 
     private boolean isInventoryFull(Player p, Material mat, int MaxV) {
