@@ -30,8 +30,8 @@ public class OnInventoryClickForCobbleXGui implements Listener {
     public void OnInventoryClick(InventoryClickEvent e) {
         FileConfiguration config = plugin.getConfig();
 
-        List<String> mes_za_malo_itemow = config.getStringList("Tworzenie_cobble_x_w_gui.Za_malo_itemow");
-        List<String> moderators = config.getStringList("Tworzenie_cobble_x_w_gui.moderators");
+        List<String> mes_za_malo_itemow = config.getStringList("Tworzenie_cobble_x_w_gui.Za_malo_itemow_do_stworzenia");
+        List<String> mes_stworzyles_cobble_x = config.getStringList("Tworzenie_cobble_x_w_gui.Stowrzyles_cobble_x");
 
         if (!ChatColor.stripColor(e.getView().getTitle()).equalsIgnoreCase("Drop z Cobble X")) return;
         Player p = (Player) e.getWhoClicked();
@@ -45,7 +45,7 @@ public class OnInventoryClickForCobbleXGui implements Listener {
 
         switch(e.getCurrentItem().getType()) {
             case CRAFTING_TABLE -> {
-                if(isPlayerHaveNineStacks(p, 576)){
+                if(isPlayerHaveNineStacks(p)){
                     ItemStack cobble_x = new ItemStack(Material.TRAPPED_CHEST);
                     ItemMeta cobble_x_meta = cobble_x.getItemMeta();
                     cobble_x_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Cobble X");
@@ -56,7 +56,9 @@ public class OnInventoryClickForCobbleXGui implements Listener {
                     cobble_x_lore.add("§ePostaw, aby otworzyc!");
                     cobble_x.setLore(cobble_x_lore);
                     cobble_x.setItemMeta(cobble_x_meta);
-                    p.sendMessage(ChatColor.GREEN + "Zcraftowales cobble X!");
+                    for(int a = 0; a < mes_stworzyles_cobble_x.size(); a++) {
+                        p.sendMessage(mes_stworzyles_cobble_x.get(a).replace("&", "§"));
+                    }
                     ItemStack cob = new ItemStack(Material.COBBLESTONE);
                     cob.setAmount(576);
                     p.getInventory().removeItem(cob);
@@ -87,7 +89,7 @@ public class OnInventoryClickForCobbleXGui implements Listener {
         }
 
     }
-    private boolean isPlayerHaveNineStacks(Player p, int MaxValue) {
+    private boolean isPlayerHaveNineStacks(Player p) {
         boolean isplayerhaveninestacks;
         int i = 0;
         if (p.getInventory().getContents() != null) {
@@ -99,7 +101,7 @@ public class OnInventoryClickForCobbleXGui implements Listener {
                 }
             }
         }
-        if(i >= MaxValue) {
+        if(i >= 576) {
             isplayerhaveninestacks = true;
         }else {
             isplayerhaveninestacks = false;

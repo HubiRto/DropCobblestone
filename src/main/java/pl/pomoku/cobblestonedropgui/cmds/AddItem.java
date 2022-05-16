@@ -5,6 +5,7 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
@@ -98,6 +99,10 @@ public class AddItem implements CommandExecutor {
         throwtnt_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         throwtnt.setItemMeta(throwtnt_meta);
 
+        FileConfiguration config = plugin.getConfig();
+
+        List<String> mes_nie_mozna_wykonac_komendy_z_konsoli = config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli");
+
         if(sender instanceof Player) {
             Player p = (Player) sender;
             if(!(args.length == 0)) {
@@ -131,7 +136,9 @@ public class AddItem implements CommandExecutor {
                 }
             }
         }else {
-            sender.sendMessage("§cNie można wykonać tej komendy z konsoli!");
+            for(int a = 0; a < mes_nie_mozna_wykonac_komendy_z_konsoli.size(); a++) {
+                sender.sendMessage(mes_nie_mozna_wykonac_komendy_z_konsoli.get(a).replace("&", "§"));
+            }
         }
         return true;
     }

@@ -1,4 +1,8 @@
 # Komunikaty bledu
 Tworzenie_cobble_x_w_gui:
-  Za_malo_itemow: "Masz za malo itemow do stworzenia cobble x!"
-  moderators: ["Romario","Pelé","Cafú"]
+  Za_malo_itemow_do_stworzenia: ["&cMasz za malo itemow do stworzenia cobble x!"]
+  Stowrzyles_cobble_x: ["&aStworzyles cobble x!"]
+Komendy:
+  Dodaj:
+    Nie_mozna_wykonac_komendy_z_konsoli: ["&cNie można wykonać tej komendy z konsoli!"]
+
