@@ -154,115 +154,19 @@ public class OnBreak implements Listener {
             if (p.getGameMode() == GameMode.SURVIVAL) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                     if (percentChance(0.13)) { //13%
-                        items_drop_mode(p, uuid, ".diamond", 3, 1, blockLocation, diamond, DIAMOND);
+                        items_drop_mode(p, uuid, ".diamond", 3, 1, 64, blockLocation, diamond, DIAMOND);
                     } else if (percentChance(0.11)) { //11%
-                        items_drop_mode(p, uuid, ".emerald", 2, 1, blockLocation, emerald, EMERALD);
+                        items_drop_mode(p, uuid, ".emerald", 2, 1, 64, blockLocation, emerald, EMERALD);
                     } else if (percentChance(0.18)) { //18%
-                        items_drop_mode(p, uuid, ".iron", 4, 2, blockLocation, iron, IRON_INGOT);
+                        items_drop_mode(p, uuid, ".iron", 4, 2, 64, blockLocation, iron, IRON_INGOT);
                     } else if (percentChance(0.1)) { //10%
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".gold"), "true")) {
-                                gold.setAmount(gold.getAmount() * itemAmoundRandom(2, 3));
-                                p.getLocation().getWorld().dropItemNaturally(blockLocation, gold);
-                            }
-                        } else {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".gold"), "true")) {
-                                if (!isInventoryFull(p, Material.GOLD_INGOT, 64)) {
-                                    p.getInventory().addItem(new ItemStack(Material.GOLD_INGOT, itemAmoundRandom(2, 3)));
-                                } else {
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                    p.sendMessage("§7oporznij ekwipunek.");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                    PlayerDropConfig.save();
-                                }
-                            }
-                        }
-                        //OBSYDIAN
+                        items_drop_mode(p, uuid, ".gold", 3, 2, 64, blockLocation, gold, GOLD_INGOT);
                     } else if (percentChance(0.09)) { //9%
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".obsidian"), "true")) {
-                                obsidian.setAmount(obsidian.getAmount() * itemAmoundRandom(1, 4));
-                                p.getLocation().getWorld().dropItemNaturally(blockLocation, obsidian);
-                            }
-                        } else {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".obsidian"), "true")) {
-                                if (!isInventoryFull(p, Material.OBSIDIAN, 64)) {
-                                    p.getInventory().addItem(new ItemStack(Material.OBSIDIAN, itemAmoundRandom(1, 4)));
-                                } else {
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                    p.sendMessage("§7oporznij ekwipunek.");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                    PlayerDropConfig.save();
-                                }
-                            }
-                        }
-                        //REDSTONE
+                        items_drop_mode(p, uuid, ".obsidian", 4, 1, 64, blockLocation, obsidian, OBSIDIAN);
                     } else if (percentChance(0.11)) { //11%
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".redstone"), "true")) {
-                                redstone.setAmount(redstone.getAmount() * itemAmoundRandom(1, 5));
-                                p.getLocation().getWorld().dropItemNaturally(blockLocation, redstone);
-                            }
-                        } else {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".redstone"), "true")) {
-                                if (!isInventoryFull(p, Material.REDSTONE, 64)) {
-                                    p.getInventory().addItem(new ItemStack(Material.REDSTONE, itemAmoundRandom(1, 5)));
-                                } else {
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                    p.sendMessage("§7oporznij ekwipunek.");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                    PlayerDropConfig.save();
-                                }
-                            }
-                        }
-                        //NETHERITE
+                        items_drop_mode(p, uuid, ".redstone", 5, 1, 64, blockLocation, redstone, REDSTONE);
                     } else if (percentChance(0.001)) { //0.1%
-                        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".netherite"), "true")) {
-                                netherite.setAmount(netherite.getAmount() * itemAmoundRandom(1, 2));
-                                p.getLocation().getWorld().dropItemNaturally(blockLocation, netherite);
-                            }
-                        } else {
-                            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".netherite"), "true")) {
-                                if (!isInventoryFull(p, Material.NETHERITE_INGOT, 64)) {
-                                    p.getInventory().addItem(new ItemStack(Material.NETHERITE_INGOT, itemAmoundRandom(1, 2)));
-                                } else {
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-                                    p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-                                    p.sendMessage("§7oporznij ekwipunek.");
-                                    p.sendMessage(" ");
-                                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                                    p.sendMessage(" ");
-                                    PlayerDropConfig.get().set(uuid + ".eq", "true");
-                                    PlayerDropConfig.save();
-                                }
-                            }
-                        }
-                        //SLIME BALL
+                        items_drop_mode(p, uuid, ".netherite", 2, 1, 64, blockLocation, netherite, NETHERITE_INGOT);
                     } else if (percentChance(0.1)) { //10%
                         if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
                             if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".slimeball"), "true")) {
@@ -550,7 +454,7 @@ public class OnBreak implements Listener {
 
     }
 
-    private void items_drop_mode(Player p, UUID uuid, String i, int max, int min, Location blockLocation, ItemStack is, Material mat) {
+    private void items_drop_mode(Player p, UUID uuid, String i, int max, int min, int MaxV, Location blockLocation, ItemStack is, Material mat) {
         if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
             if (Objects.equals(PlayerDropConfig.get().getString(uuid + i), "true")) {
                 is.setAmount(is.getAmount() * itemAmoundRandom(min, max));
@@ -558,7 +462,7 @@ public class OnBreak implements Listener {
             }
         } else {
             if (Objects.equals(PlayerDropConfig.get().getString(uuid + i), "true")) {
-                if (!isInventoryFull(p, mat, 64)) {
+                if (!isInventoryFull(p, mat, MaxV)) {
                     p.getInventory().addItem(new ItemStack(mat, itemAmoundRandom(min, max)));
                 } else {
                     not_enough_space_mode(p);
