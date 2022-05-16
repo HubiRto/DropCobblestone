@@ -55,8 +55,9 @@ public final class Main extends JavaPlugin {
     }
 
     public void loadConfig(){
-        getConfig().options().copyDefaults(true);
-        saveConfig();
+        //getConfig().options().copyDefaults(true);
+        //saveConfig();
+        saveDefaultConfig();
 
         PlayerDropConfig.setup();
         PlayerDropConfig.get().options().copyDefaults(true);

@@ -2,6 +2,7 @@ package pl.pomoku.cobblestonedropgui.events;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -27,6 +28,11 @@ public class OnInventoryClickForCobbleXGui implements Listener {
 
     @EventHandler
     public void OnInventoryClick(InventoryClickEvent e) {
+        FileConfiguration config = plugin.getConfig();
+
+        List<String> mes_za_malo_itemow = config.getStringList("Tworzenie_cobble_x_w_gui.Za_malo_itemow");
+        List<String> moderators = config.getStringList("Tworzenie_cobble_x_w_gui.moderators");
+
         if (!ChatColor.stripColor(e.getView().getTitle()).equalsIgnoreCase("Drop z Cobble X")) return;
         Player p = (Player) e.getWhoClicked();
 
@@ -58,12 +64,16 @@ public class OnInventoryClickForCobbleXGui implements Listener {
                 }else {
                     if(!this.cooldowns.containsKey(p.getUniqueId())) {
                         this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
-                        p.sendMessage(ChatColor.RED + "Masz za malo itemow do zcraftowania cobble X!");
+                        for(int a = 0; a < mes_za_malo_itemow.size(); a++) {
+                            p.sendMessage(mes_za_malo_itemow.get(a).replace("&", "§"));
+                        }
                     }else {
                         long timeElapsed = System.currentTimeMillis() - cooldowns.get(p.getUniqueId());
                         if(timeElapsed >= 10000) {
                             this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
-                            p.sendMessage(ChatColor.RED + "Masz za malo itemow do zcraftowania cobble X!");
+                            for(int a = 0; a < mes_za_malo_itemow.size(); a++) {
+                                p.sendMessage(mes_za_malo_itemow.get(a).replace("&", "§"));
+                            }
                         }
                     }
                 }

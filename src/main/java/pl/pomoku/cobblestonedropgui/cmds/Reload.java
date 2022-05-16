@@ -19,6 +19,7 @@ public class Reload implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         PlayerDropConfig.reload();
+        plugin.reloadConfig();
         sender.sendMessage(ChatColor.GREEN + "Poprawnie odswierzono plugin!");
         return true;
     }
