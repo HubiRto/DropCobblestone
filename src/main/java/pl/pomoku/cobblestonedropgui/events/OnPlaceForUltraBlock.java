@@ -16,6 +16,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
+import pl.pomoku.cobblestonedropgui.items.Items;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
 import java.util.ArrayList;
@@ -77,42 +78,6 @@ public class OnPlaceForUltraBlock implements Listener {
                 }
             }
         }
-        else if(b.getType() == RED_GLAZED_TERRACOTTA) {
-            if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Auto Fosa")){
-                for(int i = b.getY(); i > -64; i--) {
-                    Location loc = new Location(p.getLocation().getWorld(), b.getX(), i, b.getZ());
-                    if(loc.getBlock().getType().equals(Material.BEDROCK)) {
-                        i = -64;
-                    }else {
-                        loc.getBlock().setType(Material.AIR);
-                    }
-                }
-            }
-        }
-        else if(b.getType() == LIME_GLAZED_TERRACOTTA) {
-            if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Sand Farmer")){
-                for(int i = b.getY(); i > -64; i--) {
-                    Location loc = new Location(p.getLocation().getWorld(), b.getX(), i, b.getZ());
-                    if(loc.getBlock().getType().equals(Material.BEDROCK)) {
-                        i = -64;
-                    }else {
-                        loc.getBlock().setType(Material.SAND);
-                    }
-                }
-            }
-        }
-        else if(b.getType() == PURPLE_GLAZED_TERRACOTTA) {
-            if(p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Boy Farmer")){
-                for(int i = b.getY(); i > -64; i--) {
-                    Location loc = new Location(p.getLocation().getWorld(), b.getX(), i, b.getZ());
-                    if(loc.getBlock().getType().equals(Material.BEDROCK)) {
-                        i = -64;
-                    }else {
-                        loc.getBlock().setType(Material.OBSIDIAN);
-                    }
-                }
-            }
-        }
     }
 
 
@@ -132,6 +97,7 @@ public class OnPlaceForUltraBlock implements Listener {
             items[5] = new ItemStack(NETHERITE_LEGGINGS, 1);
             items[6] = new ItemStack(NETHERITE_CHESTPLATE, 1);
             items[7] = new ItemStack(NETHERITE_HELMET, 1);
+            //items[8] = Items.auto_fosa();
             items[8] = new ItemStack(RED_GLAZED_TERRACOTTA, 64);
             items[9] = new ItemStack(PURPLE_GLAZED_TERRACOTTA, 64);
             items[10] = new ItemStack(LIME_GLAZED_TERRACOTTA, 64);

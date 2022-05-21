@@ -536,7 +536,9 @@ public class OpenDropGui {
 
         ItemStack pickaxe = new ItemStack(Material.DIAMOND_PICKAXE);
         ItemMeta pickaxe_meta = pickaxe.getItemMeta();
-        pickaxe_meta.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Szybkie Craftowanie");
+        pickaxe_meta.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Auto Craftowanie");
+        pickaxe_meta.addEnchant(Enchantment.LUCK, 1, false);
+        pickaxe_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         pickaxe_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         pickaxe.setItemMeta(pickaxe_meta);
 

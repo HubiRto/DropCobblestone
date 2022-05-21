@@ -8,6 +8,7 @@ import pl.pomoku.cobblestonedropgui.cmds.Reload;
 import pl.pomoku.cobblestonedropgui.cmds.tab_compliters.AddItemCompliter;
 import pl.pomoku.cobblestonedropgui.events.*;
 import pl.pomoku.cobblestonedropgui.files.PlayerDropConfig;
+import pl.pomoku.cobblestonedropgui.items.Items;
 import pl.pomoku.cobblestonedropgui.recipes.CustomRecipes;
 import pl.pomoku.cobblestonedropgui.system.TntSystem;
 
@@ -29,12 +30,16 @@ public final class Main extends JavaPlugin {
         new Reload(this);
         new AddItem(this);
 
+        //Items
+        new Items(this);
+
         //Compliter's
         new AddItemCompliter(this);
 
         //OnPlace
         getServer().getPluginManager().registerEvents(new OnPlaceForUltraBlock(this), this);
         getServer().getPluginManager().registerEvents(new OnPlaceForCobbleX(this), this);
+        getServer().getPluginManager().registerEvents(new OnPlaceCustomBlock_A_B_S(this), this);
 
         //System's
         getServer().getPluginManager().registerEvents(new OnBreak(this), this);

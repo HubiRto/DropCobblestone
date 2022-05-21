@@ -7,7 +7,6 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -31,30 +30,6 @@ public class OnBreak implements Listener {
         plugin = m;
         this.cooldowns = new HashMap<>();
     }
-
-/*    public void stones_mode(Event e, Player p){
-        UUID uuid = p.getUniqueId();
-        if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
-            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                e.setDropItems(false);
-                p.getLocation().getWorld().dropItemNaturally(blockLocation, cobblestone);
-            } else {
-                e.setDropItems(false);
-            }
-        } else {
-            if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".cobblestone"), "true")) {
-                if (!isInventoryFull(p, Material.COBBLESTONE, 64)) {
-                    e.setDropItems(false);
-                    p.getInventory().addItem(new ItemStack(Material.COBBLESTONE));
-                } else {
-                    e.setDropItems(false);
-                    not_enough_space_mode(p);
-                }
-            } else {
-                e.setDropItems(false);
-            }
-        }
-    }*/
 
     @EventHandler
     public void OnBreak(BlockBreakEvent e) {
@@ -113,12 +88,12 @@ public class OnBreak implements Listener {
         throwtnt_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         throwtnt.setItemMeta(throwtnt_meta);
 
+        p.giveExp(1); //dodawanie exp'a
+
         //BLOKOWANIE RUD
         if (b.getType().toString().contains("_ORE")) {
-            e.setDropItems(false); //Zablokowanie wypadania itemow z rud
-            //e.getBlock().setType(Material.AIR);
-            //Inna opcja usuwania
-            e.setExpToDrop(0); //Zablokowanie wypadania exp'a
+            e.setDropItems(false);
+            e.setExpToDrop(0);
         }
         if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
             if (p.getGameMode() == GameMode.SURVIVAL) {
@@ -177,9 +152,9 @@ public class OnBreak implements Listener {
                     } else if (percentChance(0.007)) { //0.7%
                         items_drop_mode(p, uuid, ".arrow", 4, 1, 64, blockLocation, arrow, ARROW);
                     } else if (percentChance(0.002)) { //0.2%
-                        items_drop_mode_by_meta(p, uuid, ".throwtnt", 64, blockLocation, throwtnt, "Rzucane TNT");
+                        items_drop_mode_by_meta(p, uuid, ".throwtnt", blockLocation, throwtnt, "Rzucane TNT");
                     } else if (percentChance(0.0001)) { //0.01%
-                        items_drop_mode_by_meta(p, uuid, ".ultra_block", 64, blockLocation, ultra_block, "Ultra Block");
+                        items_drop_mode_by_meta(p, uuid, ".ultra_block", blockLocation, ultra_block, "Ultra Block");
                     }
                 } else {
                     if (!this.cooldowns.containsKey(p.getUniqueId())) {
@@ -209,14 +184,14 @@ public class OnBreak implements Listener {
         }
     }
 
-    private void items_drop_mode_by_meta(Player p, UUID uuid, String i, int MaxV, Location blockLocation, ItemStack is, String s) {
+    private void items_drop_mode_by_meta(Player p, UUID uuid, String i, Location blockLocation, ItemStack is, String s) {
         if (Objects.equals(PlayerDropConfig.get().getString(uuid + ".eq"), "true")) {
             if (Objects.equals(PlayerDropConfig.get().getString(uuid + i), "true")) {
                 p.getLocation().getWorld().dropItemNaturally(blockLocation, is);
             }
         } else {
             if (Objects.equals(PlayerDropConfig.get().getString(uuid + i), "true")) {
-                if (!isInventoryFullByMeta(p, s, MaxV)) {
+                if (!isInventoryFullByMeta(p, s)) {
                     p.getInventory().addItem(is);
                 } else {
                     not_enough_space_mode(p);
@@ -282,36 +257,33 @@ public class OnBreak implements Listener {
 
     private boolean isInventoryFull(Player p, Material mat, int MaxV) {
         boolean inventoryFull = true;
-        if (p.getInventory().getContents() != null) {
-            for (ItemStack is : p.getInventory().getStorageContents()) {
-                if (is != null) {
-                    if (is.getType() == mat) {
-                        if (is.getAmount() < MaxV) {
-                            inventoryFull = false;
-                        }
+        p.getInventory().getContents();
+        for (ItemStack is : p.getInventory().getStorageContents()) {
+            if (is != null) {
+                if (is.getType() == mat) {
+                    if (is.getAmount() < MaxV) {
+                        inventoryFull = false;
                     }
-                } else {
-                    inventoryFull = false;
                 }
-                //System.out.println(is.getType().toString() + " " + is.getAmount() + " "  + inventoryFull);
+            } else {
+                inventoryFull = false;
             }
         }
         return inventoryFull;
     }
 
-    private boolean isInventoryFullByMeta(Player p, String meta, int MaxV) {
+    private boolean isInventoryFullByMeta(Player p, String meta) {
         boolean inventoryFullByMeta = true;
-        if (p.getInventory().getContents() != null) {
-            for (ItemStack is : p.getInventory().getStorageContents()) {
-                if (is != null) {
-                    if (is.getItemMeta().getDisplayName().contains(meta)) {
-                        if (is.getAmount() < MaxV) {
-                            inventoryFullByMeta = false;
-                        }
+        p.getInventory().getContents();
+        for (ItemStack is : p.getInventory().getStorageContents()) {
+            if (is != null) {
+                if (is.getItemMeta().getDisplayName().contains(meta)) {
+                    if (is.getAmount() < 64) {
+                        inventoryFullByMeta = false;
                     }
-                } else {
-                    inventoryFullByMeta = false;
                 }
+            } else {
+                inventoryFullByMeta = false;
             }
         }
         return inventoryFullByMeta;

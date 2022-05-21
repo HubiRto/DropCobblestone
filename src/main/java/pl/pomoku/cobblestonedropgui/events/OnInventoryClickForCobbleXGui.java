@@ -56,8 +56,8 @@ public class OnInventoryClickForCobbleXGui implements Listener {
                     cobble_x_lore.add("§ePostaw, aby otworzyc!");
                     cobble_x.setLore(cobble_x_lore);
                     cobble_x.setItemMeta(cobble_x_meta);
-                    for(int a = 0; a < mes_stworzyles_cobble_x.size(); a++) {
-                        p.sendMessage(mes_stworzyles_cobble_x.get(a).replace("&", "§"));
+                    for (String mesStworzylesCobbleX : mes_stworzyles_cobble_x) {
+                        p.sendMessage(mesStworzylesCobbleX.replace("&", "§"));
                     }
                     ItemStack cob = new ItemStack(Material.COBBLESTONE);
                     cob.setAmount(576);
@@ -66,46 +66,37 @@ public class OnInventoryClickForCobbleXGui implements Listener {
                 }else {
                     if(!this.cooldowns.containsKey(p.getUniqueId())) {
                         this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
-                        for(int a = 0; a < mes_za_malo_itemow.size(); a++) {
-                            p.sendMessage(mes_za_malo_itemow.get(a).replace("&", "§"));
+                        for (String s : mes_za_malo_itemow) {
+                            p.sendMessage(s.replace("&", "§"));
                         }
                     }else {
                         long timeElapsed = System.currentTimeMillis() - cooldowns.get(p.getUniqueId());
                         if(timeElapsed >= 10000) {
                             this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
-                            for(int a = 0; a < mes_za_malo_itemow.size(); a++) {
-                                p.sendMessage(mes_za_malo_itemow.get(a).replace("&", "§"));
+                            for (String s : mes_za_malo_itemow) {
+                                p.sendMessage(s.replace("&", "§"));
                             }
                         }
                     }
                 }
             }
-            case BARRIER -> {
-                OpenDropGui.OpenGui(p);
-            }
-            default -> {
-                p.updateInventory();
-            }
+            case BARRIER -> OpenDropGui.OpenGui(p);
+            default -> p.updateInventory();
         }
 
     }
     private boolean isPlayerHaveNineStacks(Player p) {
         boolean isplayerhaveninestacks;
         int i = 0;
-        if (p.getInventory().getContents() != null) {
-            for (ItemStack is : p.getInventory().getContents()) {
-                if (is != null) {
-                    if (is.getType() == Material.COBBLESTONE) {
-                        i = i + is.getAmount();
-                    }
+        p.getInventory().getContents();
+        for (ItemStack is : p.getInventory().getContents()) {
+            if (is != null) {
+                if (is.getType() == Material.COBBLESTONE) {
+                    i = i + is.getAmount();
                 }
             }
         }
-        if(i >= 576) {
-            isplayerhaveninestacks = true;
-        }else {
-            isplayerhaveninestacks = false;
-        }
+        isplayerhaveninestacks = i >= 576;
         return isplayerhaveninestacks;
     }
 }
