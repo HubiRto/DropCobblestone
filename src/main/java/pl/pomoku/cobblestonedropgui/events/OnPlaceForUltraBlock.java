@@ -97,10 +97,12 @@ public class OnPlaceForUltraBlock implements Listener {
             items[5] = new ItemStack(NETHERITE_LEGGINGS, 1);
             items[6] = new ItemStack(NETHERITE_CHESTPLATE, 1);
             items[7] = new ItemStack(NETHERITE_HELMET, 1);
-            //items[8] = Items.auto_fosa();
-            items[8] = new ItemStack(RED_GLAZED_TERRACOTTA, 64);
-            items[9] = new ItemStack(PURPLE_GLAZED_TERRACOTTA, 64);
-            items[10] = new ItemStack(LIME_GLAZED_TERRACOTTA, 64);
+            items[8] = Items.auto_fosa();
+            items[8].setAmount(64);
+            items[9] = Items.boy_farmer();
+            items[9].setAmount(64);
+            items[10] = Items.sand_farmer();
+            items[10].setAmount(64);
             items[11] = new ItemStack(TNT, 6);
             items[12] = new ItemStack(TRAPPED_CHEST, 6);
             items[13] = new ItemStack(CROSSBOW, 1);
@@ -153,24 +155,6 @@ public class OnPlaceForUltraBlock implements Listener {
                 meta_m.addEnchant(Enchantment.DURABILITY, 4, true);
                 items[m].setItemMeta(meta_m);
             }
-
-            ItemMeta meta8 = items[8].getItemMeta();
-            meta8.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Auto Fosa");
-            meta8.addEnchant(Enchantment.LUCK, 1, true);
-            meta8.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-            items[8].setItemMeta(meta8);
-
-            ItemMeta meta9 = items[9].getItemMeta();
-            meta9.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Boy Farmer");
-            meta9.addEnchant(Enchantment.LUCK, 1, true);
-            meta9.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-            items[9].setItemMeta(meta9);
-
-            ItemMeta meta10 = items[10].getItemMeta();
-            meta10.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Sand Farmer");
-            meta10.addEnchant(Enchantment.LUCK, 1, true);
-            meta10.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-            items[10].setItemMeta(meta10);
 
             ItemMeta meta11 = items[11].getItemMeta();
             meta11.setDisplayName(ChatColor.RED + "Rzucane TNT");
