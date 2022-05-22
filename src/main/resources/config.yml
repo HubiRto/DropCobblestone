@@ -5,4 +5,6 @@ Tworzenie_cobble_x_w_gui:
 Komendy:
   Dodaj:
     Nie_mozna_wykonac_komendy_z_konsoli: ["&cNie można wykonać tej komendy z konsoli!"]
-
+Eventy:
+  Postawienie_Blokow_A_B_S:
+    Nie_mozna_postawic_tego_bloku_na_bedroocku: [" ", "&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]", " ", "&cNie mozesz tego postawic na bedrock'u!", " ", "&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]", " "]

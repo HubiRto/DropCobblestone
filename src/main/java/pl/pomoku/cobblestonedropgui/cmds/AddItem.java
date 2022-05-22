@@ -31,7 +31,6 @@ public class AddItem implements CommandExecutor {
         ItemStack throwtnt = Items.throwtnt();
 
         FileConfiguration config = plugin.getConfig();
-
         List<String> mes_nie_mozna_wykonac_komendy_z_konsoli = config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli");
 
         if (sender instanceof Player) {

@@ -20,6 +20,11 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
         main = this;
 
+
+        new OnInventoryClickForCobbleXGui(this);
+        new AddItem(this);
+        new OnPlaceCustomBlock_A_B_S(this);
+
         //Loading
         startConsoleMes();
         loadConfig();

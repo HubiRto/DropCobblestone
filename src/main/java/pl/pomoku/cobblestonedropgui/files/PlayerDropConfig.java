@@ -13,7 +13,7 @@ public class PlayerDropConfig {
 
     public static void setup() {
         //file = new File(Bukkit.getServer().getPluginManager().getPlugin("Main").getDataFolder(), "player_drop_config.yml");
-        file = new File("plugins\\CobbleStoneDropGUI", "player_drop_config.yml");
+        file = new File("plugins/CobbleStoneDropGUI", "player_drop_config.yml");
         if(!file.exists()) {
             try{
                 file.createNewFile();
