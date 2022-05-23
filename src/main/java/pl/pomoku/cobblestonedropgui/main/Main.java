@@ -59,6 +59,8 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new OnInventoryClickForAutoCraftGui(this), this);
         getServer().getPluginManager().registerEvents(new AutoCraft(this), this);
 
+        getServer().getPluginManager().registerEvents(new BlockAnvilsCustomBlock(this), this);
+
 
 
     }

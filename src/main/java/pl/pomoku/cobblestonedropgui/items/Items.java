@@ -108,6 +108,10 @@ public class Items {
         ItemStack stoniarka = new ItemStack(Material.END_STONE);
         ItemMeta stoniarka_meta = stoniarka.getItemMeta();
         stoniarka_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Stoniarka");
+        List<String> stoniarka_lore = new ArrayList<>();
+        stoniarka_lore.add(ChatColor.GRAY + "Jest to" + ChatColor.AQUA + " nieskonczone" + ChatColor.GRAY + " zrodlo itemow!");
+        stoniarka_lore.add(ChatColor.GRAY + "Stoniarke zniszczysz " + ChatColor.GOLD + "zlotym" + ChatColor.GRAY + " kilofem.");
+        stoniarka_meta.setLore(stoniarka_lore);
         stoniarka.setItemMeta(stoniarka_meta);
         return stoniarka;
     }

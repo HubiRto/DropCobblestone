@@ -14,6 +14,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import pl.pomoku.cobblestonedropgui.files.PlayerDropConfig;
+import pl.pomoku.cobblestonedropgui.items.Items;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
 import java.util.*;
@@ -33,10 +34,11 @@ public class OnBreak implements Listener {
 
     @EventHandler
     public void OnBreak(BlockBreakEvent e) {
+
         Player p = e.getPlayer();
         UUID uuid = p.getUniqueId();
-        Block b = e.getBlock();
 
+        Block b = e.getBlock();
         Location blockLocation = e.getBlock().getLocation();
 
         ItemStack diamond = new ItemStack(Material.DIAMOND);
@@ -54,17 +56,6 @@ public class OnBreak implements Listener {
         ItemStack gold = new ItemStack(Material.GOLD_INGOT);
         ItemStack obsidian = new ItemStack(Material.OBSIDIAN);
         ItemStack emerald = new ItemStack(Material.EMERALD);
-        
-        ItemStack ultra_block = new ItemStack(Material.TRAPPED_CHEST);
-        ItemMeta ultra_block_meta = ultra_block.getItemMeta();
-        ultra_block_meta.setDisplayName("§a§lUltra Block");
-        List<String> ultra_block_lore = new ArrayList<>();
-        ultra_block_lore.add("§7Jest to bardzo rzadka przedmiot z");
-        ultra_block_lore.add("§7ktorego wypadaja bardzo cenne itemki.");
-        ultra_block_lore.add(" ");
-        ultra_block_lore.add("§ePostaw, aby otworzyc!");
-        ultra_block_meta.setLore(ultra_block_lore);
-        ultra_block.setItemMeta(ultra_block_meta);
 
         ItemStack cobblestone = new ItemStack(Material.COBBLESTONE);
         ItemStack andesite = new ItemStack(Material.ANDESITE);
@@ -77,16 +68,8 @@ public class OnBreak implements Listener {
         ItemStack polished_deepslate = new ItemStack(Material.POLISHED_DEEPSLATE);
         ItemStack tuff = new ItemStack(Material.TUFF);
 
-        ItemStack throwtnt = new ItemStack(Material.TNT);
-        ItemMeta throwtnt_meta = throwtnt.getItemMeta();
-        throwtnt_meta.setDisplayName(ChatColor.RED + "Rzucane TNT");
-        List<String> throwtnt_lore = new ArrayList<>();
-        throwtnt_lore.add(ChatColor.YELLOW + "Przytrzymaj PPM, aby rzucic");
-        throwtnt_lore.add(ChatColor.YELLOW + "lub pozostaw na ziemi.");
-        throwtnt_meta.setLore(throwtnt_lore);
-        throwtnt_meta.addEnchant(Enchantment.LUCK, 1, false);
-        throwtnt_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        throwtnt.setItemMeta(throwtnt_meta);
+        ItemStack ultra_block = Items.ultra_block();
+        ItemStack throwtnt = Items.throwtnt();
 
         p.giveExp(1); //dodawanie exp'a
 
@@ -95,8 +78,8 @@ public class OnBreak implements Listener {
             e.setDropItems(false);
             e.setExpToDrop(0);
         }
-        if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
-            if (p.getGameMode() == GameMode.SURVIVAL) {
+        if (p.getGameMode() == GameMode.SURVIVAL) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType().name().toUpperCase().endsWith("_PICKAXE")) {
                 if (b.getType() == Material.STONE) {
                     stones_mode(e, p, uuid, blockLocation, cobblestone, COBBLESTONE);
                 } else if (b.getType() == Material.ANDESITE) {
@@ -118,9 +101,10 @@ public class OnBreak implements Listener {
                 } else if (b.getType() == TUFF) {
                     stones_mode(e, p, uuid, blockLocation, tuff, TUFF);
                 }
-            }
-            if (b.getType() == Material.STONE || b.getType() == Material.ANDESITE || b.getType() == POLISHED_ANDESITE || b.getType() == DIORITE || b.getType() == POLISHED_DIORITE || b.getType() == Material.GRANITE || b.getType() == Material.POLISHED_GRANITE || b.getType() == Material.DEEPSLATE || b.getType() == Material.POLISHED_DEEPSLATE || b.getType() == Material.TUFF) {
-                if (p.getGameMode() == GameMode.SURVIVAL) {
+                if (b.getType() == Material.STONE || b.getType() == Material.ANDESITE || b.getType() == POLISHED_ANDESITE
+                        || b.getType() == DIORITE || b.getType() == POLISHED_DIORITE || b.getType() == Material.GRANITE
+                        || b.getType() == Material.POLISHED_GRANITE || b.getType() == Material.DEEPSLATE
+                        || b.getType() == Material.POLISHED_DEEPSLATE || b.getType() == Material.TUFF) {
                     if (percentChance(0.13)) { //13%
                         items_drop_mode(p, uuid, ".diamond", 3, 1, 64, blockLocation, diamond, DIAMOND);
                     } else if (percentChance(0.11)) { //11%
@@ -156,29 +140,29 @@ public class OnBreak implements Listener {
                     } else if (percentChance(0.0001)) { //0.01%
                         items_drop_mode_by_meta(p, uuid, ".ultra_block", blockLocation, ultra_block, "Ultra Block");
                     }
-                } else {
-                    if (!this.cooldowns.containsKey(p.getUniqueId())) {
-                        this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
-                        p.sendMessage(" ");
-                        p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                        p.sendMessage(" ");
-                        p.sendMessage("§7Drop dziala §bwylacznie§7 na trybie §eSURVIVAL§7.");
-                        p.sendMessage(" ");
-                        p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                        p.sendMessage(" ");
-                    } else {
-                        long timeElapsed = System.currentTimeMillis() - cooldowns.get(p.getUniqueId());
-                        if (timeElapsed >= 10000) {
-                            this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
-                            p.sendMessage(" ");
-                            p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                            p.sendMessage(" ");
-                            p.sendMessage("§7Drop dziala §bwylacznie§7 na trybie §eSURVIVAL§7.");
-                            p.sendMessage(" ");
-                            p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                            p.sendMessage(" ");
-                        }
-                    }
+                }
+            }
+        }else {
+            if (!this.cooldowns.containsKey(p.getUniqueId())) {
+                this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
+                p.sendMessage(" ");
+                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                p.sendMessage(" ");
+                p.sendMessage("§7Drop dziala §bwylacznie§7 na trybie §eSURVIVAL§7.");
+                p.sendMessage(" ");
+                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                p.sendMessage(" ");
+            } else {
+                long timeElapsed = System.currentTimeMillis() - cooldowns.get(p.getUniqueId());
+                if (timeElapsed >= 10000) {
+                    this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
+                    p.sendMessage(" ");
+                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                    p.sendMessage(" ");
+                    p.sendMessage("§7Drop dziala §bwylacznie§7 na trybie §eSURVIVAL§7.");
+                    p.sendMessage(" ");
+                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                    p.sendMessage(" ");
                 }
             }
         }
