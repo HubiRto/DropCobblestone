@@ -29,6 +29,7 @@ public class AddItem implements CommandExecutor {
         ItemStack auto_fosa = Items.auto_fosa();
         ItemStack cobblex = Items.cobblex();
         ItemStack throwtnt = Items.throwtnt();
+        ItemStack stoniarka = Items.stoniarka();
 
         FileConfiguration config = plugin.getConfig();
         List<String> mes_nie_mozna_wykonac_komendy_z_konsoli = config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli");
@@ -62,6 +63,9 @@ public class AddItem implements CommandExecutor {
                         p.getInventory().addItem(throwtnt);
                         p.sendMessage(ChatColor.GREEN + "Dostales Rzucane TnT!");
                         break;
+                    case "Stoniarka":
+                        p.getInventory().addItem(stoniarka);
+                        p.sendMessage(ChatColor.GREEN + "Dostales Stoniarke");
                     default:
                         break;
                 }

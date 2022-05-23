@@ -42,6 +42,7 @@ public final class Main extends JavaPlugin {
         new AddItemCompliter(this);
 
         //OnPlace
+        getServer().getPluginManager().registerEvents(new OnPlaceStoneGen(this), this);
         getServer().getPluginManager().registerEvents(new OnPlaceForUltraBlock(this), this);
         getServer().getPluginManager().registerEvents(new OnPlaceForCobbleX(this), this);
         getServer().getPluginManager().registerEvents(new OnPlaceCustomBlock_A_B_S(this), this);
@@ -57,6 +58,9 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new OnInventoryClickForCobbleXGui(this), this);
         getServer().getPluginManager().registerEvents(new OnInventoryClickForAutoCraftGui(this), this);
         getServer().getPluginManager().registerEvents(new AutoCraft(this), this);
+
+
+
     }
 
     @Override
@@ -81,6 +85,7 @@ public final class Main extends JavaPlugin {
         items.sandFarmer();
         items.cobbleX();
         items.throwTnt();
+        items.stoniarka();
     }
     public void startConsoleMes() {
         getServer().getConsoleSender().sendMessage(" ");

@@ -19,6 +19,8 @@ public class CustomRecipes {
 
     private ItemStack item_throw_tnt = Items.throwtnt();
 
+    private ItemStack item_stoniarka = Items.stoniarka();
+
     public void autoFosa() {
         ShapedRecipe AutoFosa = new ShapedRecipe(NamespacedKey.minecraft("item_auto_fosa"), item_auto_fosa);
         AutoFosa.shape("XXX", "XSX", "XXX");
@@ -62,5 +64,14 @@ public class CustomRecipes {
         ThrowTnt.setIngredient('S', Material.TNT);
 
         Bukkit.addRecipe(ThrowTnt);
+    }
+
+    public void stoniarka() {
+        ShapedRecipe Stoniarka = new ShapedRecipe(NamespacedKey.minecraft("item_stoniarka"), item_stoniarka);
+        Stoniarka.shape("XXX", "XSX", "XXX");
+        Stoniarka.setIngredient('X', Material.COBBLESTONE);
+        Stoniarka.setIngredient('S', Material.DIAMOND);
+
+        Bukkit.addRecipe(Stoniarka);
     }
 }

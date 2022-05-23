@@ -104,5 +104,12 @@ public class Items {
         throwtnt.setItemMeta(throwtnt_meta);
         return throwtnt;
     }
+    public static ItemStack stoniarka(){
+        ItemStack stoniarka = new ItemStack(Material.END_STONE);
+        ItemMeta stoniarka_meta = stoniarka.getItemMeta();
+        stoniarka_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Stoniarka");
+        stoniarka.setItemMeta(stoniarka_meta);
+        return stoniarka;
+    }
 
 }

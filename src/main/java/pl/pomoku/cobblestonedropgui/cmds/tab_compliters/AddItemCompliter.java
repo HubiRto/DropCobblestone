@@ -31,6 +31,7 @@ public class AddItemCompliter implements TabCompleter {
                 arguments.add("SandFarmer");
                 arguments.add("CobbleX");
                 arguments.add("RzucaneTNT");
+                arguments.add("Stoniarka");
                 return arguments;
             }
         }
