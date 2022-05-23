@@ -45,9 +45,9 @@ public class OpenAutoCraftGui {
         ItemMeta item1_meta = items[1].getItemMeta();
         item1_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Blok Zelaza");
         if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".auto_craft_iron_block"), "true")){
-            item1_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 9 sztabek", ChatColor.GRAY + " zelaza to przy kopaniu bedzie je zamieniac na bloki zelaza!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item1_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 9 sztabek zelaza", ChatColor.GRAY + "to przy kopaniu bedzie je", ChatColor.GRAY + "zamieniac na bloki zelaza!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }else {
-            item1_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 9 sztabek", ChatColor.GRAY + "zelaza to przy kopaniu bedzie je zamieniac na bloki zelaza!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item1_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 9 sztabek zelaza", ChatColor.GRAY + "to przy kopaniu bedzie je", ChatColor.GRAY + "zamieniac na bloki zelaza!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }
         item1_meta.addEnchant(Enchantment.LUCK, 1, false);
         item1_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -56,9 +56,9 @@ public class OpenAutoCraftGui {
         ItemMeta item2_meta = items[2].getItemMeta();
         item2_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Blok Zlota");
         if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".auto_craft_gold_block"), "true")){
-            item2_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 9 sztabek", ChatColor.GRAY + " zlota to przy kopaniu bedzie je zamieniac na bloki zlota!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item2_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 9 sztabek zlota", ChatColor.GRAY + "to przy kopaniu bedzie je", ChatColor.GRAY + "zamieniac na bloki zlota!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }else {
-            item2_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 9 sztabek", ChatColor.GRAY + "zlota to przy kopaniu bedzie je zamieniac na bloki zlota!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item2_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 9 sztabek zlota", ChatColor.GRAY + "to przy kopaniu bedzie je", ChatColor.GRAY + "zamieniac na bloki zlota!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }
         item2_meta.addEnchant(Enchantment.LUCK, 1, false);
         item2_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -67,9 +67,9 @@ public class OpenAutoCraftGui {
         ItemMeta item3_meta = items[3].getItemMeta();
         item3_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Blok Szmaragdow");
         if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".auto_craft_emerald_block"), "true")){
-            item3_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 9 emeraldow", ChatColor.GRAY + "to przy kopaniu bedzie je zamieniac na bloki emeraldow!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item3_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 9 szmaragdow to",ChatColor.GRAY + "przy kopaniu bedzie je",ChatColor.GRAY + "zamieniac na bloki szmaragdow!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }else {
-            item3_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 9 emeraldow", ChatColor.GRAY + "to przy kopaniu bedzie je zamieniac na bloki emeraldow!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item3_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 9 szmaragdow to",ChatColor.GRAY + "przy kopaniu bedzie je",ChatColor.GRAY + "zamieniac na bloki szmaragdow!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }
         item3_meta.addEnchant(Enchantment.LUCK, 1, false);
         item3_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -78,9 +78,9 @@ public class OpenAutoCraftGui {
         ItemMeta item4_meta = items[4].getItemMeta();
         item4_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Blok Redstona");
         if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".auto_craft_redstone_block"), "true")){
-            item4_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 9 redstona", ChatColor.GRAY + "to przy kopaniu bedzie je zamieniac na bloki redstona!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item4_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 9 redstone'a to",ChatColor.GRAY + "przy kopaniu bedzie je",ChatColor.GRAY + "zamieniac na bloki redstone'a!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }else {
-            item4_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 9 redstona", ChatColor.GRAY + "to przy kopaniu bedzie je zamieniac na bloki redstona!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item4_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 9 redstone'a to",ChatColor.GRAY + "przy kopaniu bedzie je",ChatColor.GRAY + "zamieniac na bloki redstone'a!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }
         item4_meta.addEnchant(Enchantment.LUCK, 1, false);
         item4_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -89,9 +89,9 @@ public class OpenAutoCraftGui {
         ItemMeta item5_meta = items[5].getItemMeta();
         item5_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Blok Wegla");
         if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".auto_craft_coal_block"), "true")){
-            item5_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 9 wegla", ChatColor.GRAY + "to przy kopaniu bedzie je zamieniac na bloki wegla!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item5_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 9 wegla to",ChatColor.GRAY + "przy kopaniu bedzie je",ChatColor.GRAY + "zamieniac na bloki wegla!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }else {
-            item5_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 9 wegla", ChatColor.GRAY + "to przy kopaniu bedzie je zamieniac na bloki wegla!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item5_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 9 wegla to",ChatColor.GRAY + "przy kopaniu bedzie je",ChatColor.GRAY + "zamieniac na bloki wegla!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }
         item5_meta.addEnchant(Enchantment.LUCK, 1, false);
         item5_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -100,9 +100,9 @@ public class OpenAutoCraftGui {
         ItemMeta item6_meta = items[6].getItemMeta();
         item6_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "AutoFosa");
         if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".auto_craft_auto_fosa"), "true")){
-            item6_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 8 blokow szmaragdow", ChatColor.GRAY + "+ 1 blok diamentow to przy kopaniu bedzie je zamieniac na auto fose!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item6_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 8 blokow szmaragdow", ChatColor.GRAY + "+ 1 blok diamentow to przy kopaniu",ChatColor.GRAY + "bedzie je zamieniac na auto fose!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }else {
-            item6_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 8 blokow szmaragdow", ChatColor.GRAY + "+ 1 blok diamentow to przy kopaniu bedzie je zamieniac na auto fose!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item6_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 8 blokow szmaragdow", ChatColor.GRAY + "+ 1 blok diamentow to przy kopaniu",ChatColor.GRAY + "bedzie je zamieniac na auto fose!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }
         item6_meta.addEnchant(Enchantment.LUCK, 1, false);
         item6_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -111,9 +111,9 @@ public class OpenAutoCraftGui {
         ItemMeta item7_meta = items[7].getItemMeta();
         item7_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Boy Farmer");
         if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".auto_craft_boy_farmer"), "true")){
-            item7_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 8 blokow obsydianu", ChatColor.GRAY + "+ 1 blok emeraldow to przy kopaniu bedzie je zamieniac na boy farmera!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item7_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 8 blokow obsydianu", ChatColor.GRAY + "+ 1 blok szamragdow to przy kopaniu",ChatColor.GRAY + "bedzie je zamieniac na boy farmera!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }else {
-            item7_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 8 blokow obsydianu", ChatColor.GRAY + "+ 1 blok emeraldow to przy kopaniu bedzie je zamieniac na boy farmera!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item7_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 8 blokow obsydianu", ChatColor.GRAY + "+ 1 blok szamragdow to przy kopaniu",ChatColor.GRAY + "bedzie je zamieniac na boy farmera!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }
         item7_meta.addEnchant(Enchantment.LUCK, 1, false);
         item7_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -122,9 +122,9 @@ public class OpenAutoCraftGui {
         ItemMeta item8_meta = items[8].getItemMeta();
         item8_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Sand Farmer");
         if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".auto_craft_sand_farmer"), "true")){
-            item8_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 8 blokow piasku", ChatColor.GRAY + "+ 1 blok emeraldow to przy kopaniu bedzie je zamieniac na sand farmera!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item8_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 8 blokow piasku", ChatColor.GRAY + "+ 1 szmaragdow piasku to przy kopaniu",ChatColor.GRAY + "bedzie je zamieniac na sand farmera!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.GREEN + "" + ChatColor.BOLD + "WLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }else {
-            item8_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co najmniej 8 blokow piasku", ChatColor.GRAY + "+ 1 blok emeraldow to przy kopaniu bedzie je zamieniac na sand farmera!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
+            item8_meta.setLore(List.of(ChatColor.GRAY + "Jesli masz w ekwipunku co", ChatColor.GRAY + "najmniej 8 blokow piasku", ChatColor.GRAY + "+ 1 szmaragdow piasku to przy kopaniu",ChatColor.GRAY + "bedzie je zamieniac na sand farmera!", " ", ChatColor.GRAY + "Craftowanie: " + ChatColor.RED + "" + ChatColor.BOLD + "WYLACZONE", ChatColor.YELLOW + "Kliknij, aby przelaczyc!"));
         }
         item8_meta.addEnchant(Enchantment.LUCK, 1, false);
         item8_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);

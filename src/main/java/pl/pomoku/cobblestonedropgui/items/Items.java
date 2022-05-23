@@ -112,6 +112,8 @@ public class Items {
         stoniarka_lore.add(ChatColor.GRAY + "Jest to" + ChatColor.AQUA + " nieskonczone" + ChatColor.GRAY + " zrodlo itemow!");
         stoniarka_lore.add(ChatColor.GRAY + "Stoniarke zniszczysz " + ChatColor.GOLD + "zlotym" + ChatColor.GRAY + " kilofem.");
         stoniarka_meta.setLore(stoniarka_lore);
+        stoniarka_meta.addEnchant(Enchantment.LUCK, 1, false);
+        stoniarka_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         stoniarka.setItemMeta(stoniarka_meta);
         return stoniarka;
     }
