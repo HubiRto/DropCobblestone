@@ -49,6 +49,7 @@ public class OnPlaceCustomBlock_A_B_S implements Listener {
     }
 
     private void funkcja_dzialania(BlockPlaceEvent e, Player p, Block b, Block ba, List<String> mes_nie_mozna_postawic_tego_bloku_na_bedroocku, String s, Material m) {
+        FileConfiguration config = plugin.getConfig();
         if(ba.getType() != BEDROCK) {
             if (p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains(s)) {
                 for (int i = b.getY(); i > -64; i--) {
@@ -63,19 +64,34 @@ public class OnPlaceCustomBlock_A_B_S implements Listener {
         }else {
             e.setCancelled(true);
             if (!this.cooldowns.containsKey(p.getUniqueId())) {
-                this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
-                for (int a = 0; a < mes_nie_mozna_postawic_tego_bloku_na_bedroocku.size(); a++) {
-                    p.sendMessage(mes_nie_mozna_postawic_tego_bloku_na_bedroocku.get(a).replace("&", "§"));
-                }
+                alert_cooldown(p, mes_nie_mozna_postawic_tego_bloku_na_bedroocku, config);
             } else {
                 long timeElapsed = System.currentTimeMillis() - cooldowns.get(p.getUniqueId());
                 if (timeElapsed >= 10000) {
-                    this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
-                    for (int a = 0; a < mes_nie_mozna_postawic_tego_bloku_na_bedroocku.size(); a++) {
-                        p.sendMessage(mes_nie_mozna_postawic_tego_bloku_na_bedroocku.get(a).replace("&", "§"));
-                    }
+                    alert_cooldown(p, mes_nie_mozna_postawic_tego_bloku_na_bedroocku, config);
                 }
             }
+        }
+    }
+
+    private void alert_cooldown(Player p, List<String> mes_nie_mozna_postawic_tego_bloku_na_bedroocku, FileConfiguration config) {
+        this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
+        if(!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").isEmpty()) {
+            for (String value : mes_nie_mozna_postawic_tego_bloku_na_bedroocku) {
+                p.sendMessage(value.replace("&", "§"));
+            }
+        }else if(!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").contains(null)){
+            for (String value : mes_nie_mozna_postawic_tego_bloku_na_bedroocku) {
+                p.sendMessage(value.replace("&", "§"));
+            }
+        }else {
+            p.sendMessage(" ");
+            p.sendMessage("&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]".replace("&", "§"));
+            p.sendMessage(" ");
+            p.sendMessage("&cNie mozesz tego postawic na bedrock'u!".replace("&", "§"));
+            p.sendMessage(" ");
+            p.sendMessage("&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]".replace("&", "§"));
+            p.sendMessage(" ");
         }
     }
 }

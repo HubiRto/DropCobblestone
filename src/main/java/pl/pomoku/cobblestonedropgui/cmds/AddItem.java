@@ -10,7 +10,9 @@ import org.bukkit.inventory.ItemStack;
 import pl.pomoku.cobblestonedropgui.items.Items;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 public class AddItem implements CommandExecutor {
     Main plugin;
@@ -71,8 +73,16 @@ public class AddItem implements CommandExecutor {
                 }
             }
         } else {
-            for (int a = 0; a < mes_nie_mozna_wykonac_komendy_z_konsoli.size(); a++) {
-                sender.sendMessage(mes_nie_mozna_wykonac_komendy_z_konsoli.get(a).replace("&", "§"));
+            if (!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").isEmpty()) {
+                for (String s : mes_nie_mozna_wykonac_komendy_z_konsoli) {
+                    sender.sendMessage(s.replace("&", "§"));
+                }
+            } else if (!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").contains(null)) {
+                for (String s : mes_nie_mozna_wykonac_komendy_z_konsoli) {
+                    sender.sendMessage(s.replace("&", "§"));
+                }
+            } else {
+                sender.sendMessage("&cNie mozna wykonac tej komendy z konsoli!".replace("&", "§"));
             }
         }
         return true;

@@ -71,8 +71,6 @@ public class OnBreak implements Listener {
         ItemStack ultra_block = Items.ultra_block();
         ItemStack throwtnt = Items.throwtnt();
 
-        p.giveExp(1); //dodawanie exp'a
-
         //BLOKOWANIE RUD
         if (b.getType().toString().contains("_ORE")) {
             e.setDropItems(false);
@@ -105,6 +103,7 @@ public class OnBreak implements Listener {
                         || b.getType() == DIORITE || b.getType() == POLISHED_DIORITE || b.getType() == Material.GRANITE
                         || b.getType() == Material.POLISHED_GRANITE || b.getType() == Material.DEEPSLATE
                         || b.getType() == Material.POLISHED_DEEPSLATE || b.getType() == Material.TUFF) {
+                    p.giveExp(1); //dodawanie exp'a
                     if (percentChance(0.13)) { //13%
                         items_drop_mode(p, uuid, ".diamond", 3, 1, 64, blockLocation, diamond, DIAMOND);
                     } else if (percentChance(0.11)) { //11%
