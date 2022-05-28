@@ -117,6 +117,4 @@ public class Items {
         stoniarka.setItemMeta(stoniarka_meta);
         return stoniarka;
     }
-
-
 }

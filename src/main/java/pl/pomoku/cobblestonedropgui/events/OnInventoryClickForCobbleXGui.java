@@ -10,6 +10,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import pl.pomoku.cobblestonedropgui.gui.OpenDropGui;
+import pl.pomoku.cobblestonedropgui.items.Items;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
 import java.util.ArrayList;
@@ -46,17 +47,6 @@ public class OnInventoryClickForCobbleXGui implements Listener {
         switch(e.getCurrentItem().getType()) {
             case CRAFTING_TABLE -> {
                 if(isPlayerHaveNineStacks(p)){
-                    ItemStack cobble_x = new ItemStack(Material.TRAPPED_CHEST);
-                    ItemMeta cobble_x_meta = cobble_x.getItemMeta();
-                    cobble_x_meta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Cobble X");
-                    List<String> cobble_x_lore = new ArrayList<>();
-                    cobble_x_lore.add("§7Jest to skrzynia z ktorej");
-                    cobble_x_lore.add("§7wypadaja bardzo cenne itemki.");
-                    cobble_x_lore.add(" ");
-                    cobble_x_lore.add("§ePostaw, aby otworzyc!");
-                    cobble_x.setLore(cobble_x_lore);
-                    cobble_x.setItemMeta(cobble_x_meta);
-
                     if (!config.getStringList("Tworzenie_cobble_x_w_gui.Stowrzyles_cobble_x").isEmpty()) {
                         for (String mesStworzylesCobbleX : mes_stworzyles_cobble_x) {
                             p.sendMessage(mesStworzylesCobbleX.replace("&", "§"));
@@ -72,7 +62,7 @@ public class OnInventoryClickForCobbleXGui implements Listener {
                     ItemStack cob = new ItemStack(Material.COBBLESTONE);
                     cob.setAmount(576);
                     p.getInventory().removeItem(cob);
-                    p.getInventory().addItem(cobble_x);
+                    p.getInventory().addItem(Items.cobblex());
                 }else {
                     if(!this.cooldowns.containsKey(p.getUniqueId())) {
                         this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
