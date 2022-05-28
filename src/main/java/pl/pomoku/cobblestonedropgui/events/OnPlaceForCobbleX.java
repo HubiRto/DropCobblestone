@@ -18,17 +18,17 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static org.bukkit.Material.*;
 
 public class OnPlaceForCobbleX implements Listener {
     Main plugin;
+    private final HashMap<UUID, Long> cooldowns;
     public OnPlaceForCobbleX(Main m) {
         plugin = m;
+        this.cooldowns = new HashMap<>();
     }
 
     public boolean isOpen = false;
@@ -62,14 +62,30 @@ public class OnPlaceForCobbleX implements Listener {
                     isOpen = true;
                 } else {
                     e.setCancelled(true);
-                    p.sendMessage(" ");
-                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                    p.sendMessage(" ");
-                    p.sendMessage("§cPoczekaj az zostanie zakonczone");
-                    p.sendMessage("§costatnie loswoanie!");
-                    p.sendMessage(" ");
-                    p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                    p.sendMessage(" ");
+                    if(!this.cooldowns.containsKey(p.getUniqueId())) {
+                        this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
+                        p.sendMessage(" ");
+                        p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                        p.sendMessage(" ");
+                        p.sendMessage("§cPoczekaj az zostanie zakonczone");
+                        p.sendMessage("§costatnie loswoanie!");
+                        p.sendMessage(" ");
+                        p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                        p.sendMessage(" ");
+                    }else {
+                        long timeElapsed = System.currentTimeMillis() - cooldowns.get(p.getUniqueId());
+                        if(timeElapsed >= 10000) {
+                            this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
+                            p.sendMessage(" ");
+                            p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                            p.sendMessage(" ");
+                            p.sendMessage("§cPoczekaj az zostanie zakonczone");
+                            p.sendMessage("§costatnie loswoanie!");
+                            p.sendMessage(" ");
+                            p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                            p.sendMessage(" ");
+                        }
+                    }
                 }
             }
         }
