@@ -8,9 +8,12 @@ import pl.pomoku.cobblestonedropgui.cmds.Reload;
 import pl.pomoku.cobblestonedropgui.cmds.tab_compliters.AddItemCompliter;
 import pl.pomoku.cobblestonedropgui.events.*;
 import pl.pomoku.cobblestonedropgui.files.PlayerDropConfig;
+import pl.pomoku.cobblestonedropgui.gui.OpenAutoCraftGui;
 import pl.pomoku.cobblestonedropgui.items.Items;
 import pl.pomoku.cobblestonedropgui.recipes.CustomRecipes;
 import pl.pomoku.cobblestonedropgui.system.TntSystem;
+
+import java.io.File;
 
 public final class Main extends JavaPlugin {
 
@@ -24,6 +27,7 @@ public final class Main extends JavaPlugin {
         new OnInventoryClickForCobbleXGui(this);
         new AddItem(this);
         new OnPlaceCustomBlock_A_B_S(this);
+        new OpenAutoCraftGui(this);
 
         //Loading
         startConsoleMes();
@@ -73,7 +77,14 @@ public final class Main extends JavaPlugin {
     public void loadConfig(){
         //getConfig().options().copyDefaults(true);
         //saveConfig();
-        saveDefaultConfig();
+        File file = new File("plugins/CobbleStoneDropGUI", "config.yml");
+        if(file.exists()) {
+            getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Plik config.yml sie wczytal!");
+        }else {
+            saveDefaultConfig();
+            getServer().getConsoleSender().sendMessage(ChatColor.YELLOW + "Plik config.yml zostal utworzony!");
+        }
+
 
         PlayerDropConfig.setup();
         PlayerDropConfig.get().options().copyDefaults(true);

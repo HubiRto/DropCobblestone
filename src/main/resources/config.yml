@@ -8,3 +8,40 @@ Komendy:
 Eventy:
   Postawienie_Blokow_A_B_S:
     Nie_mozna_postawic_tego_bloku_na_bedroocku: [" ", "&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]", " ", "&cNie mozesz tego postawic na bedrock'u!", " ", "&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]", " "]
+GUI:
+  AutoCraft:
+    Open:
+      Items:
+        #Nazwy blokow w gui Auto Craftowanie
+        Diamond_block: "&a&lBlock Diamentu"
+        Iron_block: "&a&lBlok Zelaza"
+        Gold_block: "&a&lBlok Zlota"
+        Emerald_block: "&a&lBlok Szmaragdow"
+        Redstone_block: "&a&lBlok Redstona"
+        Coal_block: "&a&lBlok Wegla"
+        Auto_fosa_block: "&a&lAuto Fosa"
+        Boy_farmer_block: "&a&lBoy Farmer"
+        Sand_farmer_block: "&a&lSand Farmer"
+        #Opis blokow w gui Auto Craftowanie
+        Opis:
+          Wlacz:
+            Diamond_block_lore_on: ["&7Jesli masz w ekwipunku co", "&7najmniej 9 diamentow to", "&7przy kopaniu bedzie je", "&7zamieniac na bloki diamentu!", " ", "&7Craftowanie: &a&lWLACZONE", "&eKliknij, aby przelaczyc!"]
+            Iron_block_lore_on: ["&7Jesli masz w ekwipunku co", "&7najmniej 9 sztabek zelaza", "&7to przy kopaniu bedzie je", "&7zamieniac na bloki zelaza!", " ", "&7Craftowanie: &a&lWLACZONE", "&eKliknij, aby przelaczyc!"]
+            Gold_block_lore_on: ["&7Jesli masz w ekwipunku co", "&7najmniej 9 sztabek zlota", "&7to przy kopaniu bedzie je", "&7zamieniac na bloki zlota!", " ", "&7Craftowanie: &a&lWLACZONE", "&eKliknij, aby przelaczyc!"]
+            Emerald_block_lore_on: ["&7Jesli masz w ekwipunku co", "&7najmniej 9 szmaragdow to", "&7przy kopaniu bedzie je", "&7zamieniac na bloki szmaragdow!", " ", "&7Craftowanie: &a&lWLACZONE", "&eKliknij, aby przelaczyc!"]
+            Redstone_block_lore_on: ["&7Jesli masz w ekwipunku co", "&7najmniej 9 redstone'a to", "&7przy kopaniu bedzie je", "&7zamieniac na bloki redstone'a!", " ", "&7Craftowanie: &a&lWLACZONE", "&eKliknij, aby przelaczyc!"]
+            Coal_block_lore_on: ["&7Jesli masz w ekwipunku co", "&7najmniej 9 wegla to", "&7przy kopaniu bedzie je", "&7zamieniac na bloki wegla!", " ", "&7Craftowanie: &a&lWLACZONE", "&eKliknij, aby przelaczyc!"]
+            Auto_fosa_block_lore_on: ["&7Jesli masz w ekwipunku co", "&7najmniej 8 blokow szmaragdow", "&7+ 1 blok diamentow to przy kopaniu", "&7bedzie je zamieniac na auto fose!", " ", "&7Craftowanie: &a&lWLACZONE", "&eKliknij, aby przelaczyc!"]
+            Boy_farmer_block_lore_on: ["&7Jesli masz w ekwipunku co", "&7najmniej 8 blokow obsydianu", "&7+ 1 blok szmaragdow to przy kopaniu", "&7bedzie je zamieniac na boy farmera!", " ", "&7Craftowanie: &a&lWLACZONE", "&eKliknij, aby przelaczyc!"]
+            Sand_farmer_block_lore_on: ["&7Jesli masz w ekwipunku co", "&7najmniej 8 blokow piasku", "&7+ 1 blok szmaragdow to przy kopaniu", "&7bedzie je zamieniac na sand farmera!", " ", "&7Craftowanie: &a&lWLACZONE", "&eKliknij, aby przelaczyc!"]
+          Wylacz:
+            Diamond_block_lore_off: ["&7Jesli masz w ekwipunku co", "&7najmniej 9 diamentow to", "&7przy kopaniu bedzie je", "&7zamieniac na bloki diamentu!", " ", "&7Craftowanie: &c&lWYLACZONE", "&eKliknij, aby przelaczyc!"]
+            Iron_block_lore_off: ["&7Jesli masz w ekwipunku co", "&7najmniej 9 sztabek zelaza", "&7to przy kopaniu bedzie je", "&7zamieniac na bloki zelaza!", " ", "&7Craftowanie: &c&lWYLACZONE", "&eKliknij, aby przelaczyc!"]
+            Gold_block_lore_off: [ "&7Jesli masz w ekwipunku co", "&7najmniej 9 sztabek zlota", "&7to przy kopaniu bedzie je", "&7zamieniac na bloki zlota!", " ", "&7Craftowanie: &c&lWYLACZONE", "&eKliknij, aby przelaczyc!" ]
+            Emerald_block_lore_off: [ "&7Jesli masz w ekwipunku co", "&7najmniej 9 szmaragdow to", "&7przy kopaniu bedzie je", "&7zamieniac na bloki szmaragdow!", " ", "&7Craftowanie: &c&lWYLACZONE", "&eKliknij, aby przelaczyc!" ]
+            Redstone_block_lore_off: [ "&7Jesli masz w ekwipunku co", "&7najmniej 9 redstone'a to", "&7przy kopaniu bedzie je", "&7zamieniac na bloki redstone'a!", " ", "&7Craftowanie: &c&lWYLACZONE", "&eKliknij, aby przelaczyc!" ]
+            Coal_block_lore_off: [ "&7Jesli masz w ekwipunku co", "&7najmniej 9 wegla to", "&7przy kopaniu bedzie je", "&7zamieniac na bloki wegla!", " ", "&7Craftowanie: &a&lWYLACZONE", "&cKliknij, aby przelaczyc!" ]
+            Auto_fosa_block_lore_off: [ "&7Jesli masz w ekwipunku co", "&7najmniej 8 blokow szmaragdow", "&7+ 1 blok diamentow to przy kopaniu", "&7bedzie je zamieniac na auto fose!", " ", "&7Craftowanie: &c&lWYLACZONE", "&eKliknij, aby przelaczyc!" ]
+            Boy_farmer_block_lore_off: [ "&7Jesli masz w ekwipunku co", "&7najmniej 8 blokow obsydianu", "&7+ 1 blok szmaragdow to przy kopaniu", "&7bedzie je zamieniac na boy farmera!", " ", "&7Craftowanie: &c&lWYLACZONE", "&eKliknij, aby przelaczyc!" ]
+            Sand_farmer_block_lore_off: [ "&7Jesli masz w ekwipunku co", "&7najmniej 8 blokow piasku", "&7+ 1 blok szmaragdow to przy kopaniu", "&7bedzie je zamieniac na sand farmera!", " ", "&7Craftowanie: &c&lWYLACZONE", "&eKliknij, aby przelaczyc!" ]
+
