@@ -56,9 +56,19 @@ public class OnInventoryClickForCobbleXGui implements Listener {
                     cobble_x_lore.add("§ePostaw, aby otworzyc!");
                     cobble_x.setLore(cobble_x_lore);
                     cobble_x.setItemMeta(cobble_x_meta);
-                    for (String mesStworzylesCobbleX : mes_stworzyles_cobble_x) {
-                        p.sendMessage(mesStworzylesCobbleX.replace("&", "§"));
+
+                    if (!config.getStringList("Tworzenie_cobble_x_w_gui.Stowrzyles_cobble_x").isEmpty()) {
+                        for (String mesStworzylesCobbleX : mes_stworzyles_cobble_x) {
+                            p.sendMessage(mesStworzylesCobbleX.replace("&", "§"));
+                        }
+                    }else if(!config.getStringList("Tworzenie_cobble_x_w_gui.Stowrzyles_cobble_x").contains(null)){
+                        for (String mesStworzylesCobbleX : mes_stworzyles_cobble_x) {
+                            p.sendMessage(mesStworzylesCobbleX.replace("&", "§"));
+                        }
+                    }else{
+                        p.sendMessage("&aStworzyles cobble x!".replace("&", "§"));
                     }
+
                     ItemStack cob = new ItemStack(Material.COBBLESTONE);
                     cob.setAmount(576);
                     p.getInventory().removeItem(cob);
@@ -66,15 +76,33 @@ public class OnInventoryClickForCobbleXGui implements Listener {
                 }else {
                     if(!this.cooldowns.containsKey(p.getUniqueId())) {
                         this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
-                        for (String s : mes_za_malo_itemow) {
-                            p.sendMessage(s.replace("&", "§"));
+                        if (!config.getStringList("Tworzenie_cobble_x_w_gui.Za_malo_itemow_do_stworzenia").isEmpty()) {
+                            for (String s : mes_za_malo_itemow) {
+                                p.sendMessage(s.replace("&", "§"));
+                            }
+                        }else if(!config.getStringList("Tworzenie_cobble_x_w_gui.Za_malo_itemow_do_stworzenia").contains(null)){
+                            for (String s : mes_za_malo_itemow) {
+                                p.sendMessage(s.replace("&", "§"));
+                            }
+                        }
+                        else{
+                            p.sendMessage("&cMasz za malo itemow do stworzenia cobble x!".replace("&", "§"));
                         }
                     }else {
                         long timeElapsed = System.currentTimeMillis() - cooldowns.get(p.getUniqueId());
                         if(timeElapsed >= 10000) {
                             this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
-                            for (String s : mes_za_malo_itemow) {
-                                p.sendMessage(s.replace("&", "§"));
+                            if (!config.getStringList("Tworzenie_cobble_x_w_gui.Za_malo_itemow_do_stworzenia").isEmpty()) {
+                                for (String s : mes_za_malo_itemow) {
+                                    p.sendMessage(s.replace("&", "§"));
+                                }
+                            }else if(!config.getStringList("Tworzenie_cobble_x_w_gui.Za_malo_itemow_do_stworzenia").contains(null)){
+                                for (String s : mes_za_malo_itemow) {
+                                    p.sendMessage(s.replace("&", "§"));
+                                }
+                            }
+                            else{
+                                p.sendMessage("&cMasz za malo itemow do stworzenia cobble x!".replace("&", "§"));
                             }
                         }
                     }

@@ -11,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -21,6 +22,8 @@ public class OnPlaceCustomBlock_A_B_S implements Listener {
 
     Main plugin;
     private final HashMap<UUID, Long> cooldowns;
+
+    private File file = new File("plugins/CobbleStoneDropGUI", "config.yml");
 
     public OnPlaceCustomBlock_A_B_S(Main m) {
         plugin = m;
@@ -76,13 +79,23 @@ public class OnPlaceCustomBlock_A_B_S implements Listener {
 
     private void alert_cooldown(Player p, List<String> mes_nie_mozna_postawic_tego_bloku_na_bedroocku, FileConfiguration config) {
         this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
-        if(!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").isEmpty()) {
-            for (String value : mes_nie_mozna_postawic_tego_bloku_na_bedroocku) {
-                p.sendMessage(value.replace("&", "§"));
-            }
-        }else if(!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").contains(null)){
-            for (String value : mes_nie_mozna_postawic_tego_bloku_na_bedroocku) {
-                p.sendMessage(value.replace("&", "§"));
+        if(file.exists()) {
+            if (!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").isEmpty()) {
+                for (String value : mes_nie_mozna_postawic_tego_bloku_na_bedroocku) {
+                    p.sendMessage(value.replace("&", "§"));
+                }
+            } else if (!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").contains(null)) {
+                for (String value : mes_nie_mozna_postawic_tego_bloku_na_bedroocku) {
+                    p.sendMessage(value.replace("&", "§"));
+                }
+            } else {
+                p.sendMessage(" ");
+                p.sendMessage("&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]".replace("&", "§"));
+                p.sendMessage(" ");
+                p.sendMessage("&cNie mozesz tego postawic na bedrock'u!".replace("&", "§"));
+                p.sendMessage(" ");
+                p.sendMessage("&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]".replace("&", "§"));
+                p.sendMessage(" ");
             }
         }else {
             p.sendMessage(" ");

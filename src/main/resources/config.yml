@@ -6,6 +6,9 @@ Komendy:
   Dodaj:
     Nie_mozna_wykonac_komendy_z_konsoli: ["&cNie można wykonać tej komendy z konsoli!"]
 Eventy:
+  OnBreakStone:
+    Drop_dziala_na_trybie_survival: [" ", "&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]", " ", "&7Drop dziala &bwylacznie&7 na trybie &eSURVIVAL&7.", " ", "&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]"]
+    Nie_masz_miejsca_w_eq: [" ","&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]"," ","&bNie masz miejsca w EQ! &7Drop do EQ zostal","&cwylaczony&7, jezeli chcesz go wlaczyc","&7oporznij ekwipunek."," ","&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]"," "]
   Postawienie_Blokow_A_B_S:
     Nie_mozna_postawic_tego_bloku_na_bedroocku: [" ", "&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]", " ", "&cNie mozesz tego postawic na bedrock'u!", " ", "&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]", " "]
 GUI:

@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import pl.pomoku.cobblestonedropgui.items.Items;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -33,6 +34,7 @@ public class AddItem implements CommandExecutor {
         ItemStack throwtnt = Items.throwtnt();
         ItemStack stoniarka = Items.stoniarka();
 
+        File file = new File("plugins/CobbleStoneDropGUI", "config.yml");
         FileConfiguration config = plugin.getConfig();
         List<String> mes_nie_mozna_wykonac_komendy_z_konsoli = config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli");
 
@@ -73,15 +75,19 @@ public class AddItem implements CommandExecutor {
                 }
             }
         } else {
-            if (!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").isEmpty()) {
-                for (String s : mes_nie_mozna_wykonac_komendy_z_konsoli) {
-                    sender.sendMessage(s.replace("&", "§"));
+            if(file.exists()) {
+                if (!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").isEmpty()) {
+                    for (String s : mes_nie_mozna_wykonac_komendy_z_konsoli) {
+                        sender.sendMessage(s.replace("&", "§"));
+                    }
+                } else if (!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").contains(null)) {
+                    for (String s : mes_nie_mozna_wykonac_komendy_z_konsoli) {
+                        sender.sendMessage(s.replace("&", "§"));
+                    }
+                } else {
+                    sender.sendMessage("&cNie mozna wykonac tej komendy z konsoli!".replace("&", "§"));
                 }
-            } else if (!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").contains(null)) {
-                for (String s : mes_nie_mozna_wykonac_komendy_z_konsoli) {
-                    sender.sendMessage(s.replace("&", "§"));
-                }
-            } else {
+            }else{
                 sender.sendMessage("&cNie mozna wykonac tej komendy z konsoli!".replace("&", "§"));
             }
         }

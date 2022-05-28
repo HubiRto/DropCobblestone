@@ -5,6 +5,7 @@ import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,6 +18,7 @@ import pl.pomoku.cobblestonedropgui.files.PlayerDropConfig;
 import pl.pomoku.cobblestonedropgui.items.Items;
 import pl.pomoku.cobblestonedropgui.main.Main;
 
+import java.io.File;
 import java.util.*;
 
 import static org.bukkit.Material.*;
@@ -40,6 +42,9 @@ public class OnBreak implements Listener {
 
         Block b = e.getBlock();
         Location blockLocation = e.getBlock().getLocation();
+
+        FileConfiguration config = plugin.getConfig();
+        List<String> mes_drop_dziala_na_trybie_sur = config.getStringList("Eventy.OnBreakStone.Drop_dziala_na_trybie_survival");
 
         ItemStack diamond = new ItemStack(Material.DIAMOND);
         ItemStack redstone = new ItemStack(Material.REDSTONE);
@@ -67,9 +72,6 @@ public class OnBreak implements Listener {
         ItemStack deepslate = new ItemStack(Material.DEEPSLATE);
         ItemStack polished_deepslate = new ItemStack(Material.POLISHED_DEEPSLATE);
         ItemStack tuff = new ItemStack(Material.TUFF);
-
-        ItemStack ultra_block = Items.ultra_block();
-        ItemStack throwtnt = Items.throwtnt();
 
         //BLOKOWANIE RUD
         if (b.getType().toString().contains("_ORE")) {
@@ -135,26 +137,24 @@ public class OnBreak implements Listener {
                     } else if (percentChance(0.007)) { //0.7%
                         items_drop_mode(p, uuid, ".arrow", 4, 1, 64, blockLocation, arrow, ARROW);
                     } else if (percentChance(0.002)) { //0.2%
-                        items_drop_mode_by_meta(p, uuid, ".throwtnt", blockLocation, throwtnt, "Rzucane TNT");
+                        items_drop_mode_by_meta(p, uuid, ".throwtnt", blockLocation, Items.throwtnt(), "Rzucane TNT");
                     } else if (percentChance(0.0001)) { //0.01%
-                        items_drop_mode_by_meta(p, uuid, ".ultra_block", blockLocation, ultra_block, "Ultra Block");
+                        items_drop_mode_by_meta(p, uuid, ".ultra_block", blockLocation, Items.ultra_block(), "Ultra Block");
                     }
                 }
             }
         }else {
             if (!this.cooldowns.containsKey(p.getUniqueId())) {
                 this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
-                p.sendMessage(" ");
-                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                p.sendMessage(" ");
-                p.sendMessage("§7Drop dziala §bwylacznie§7 na trybie §eSURVIVAL§7.");
-                p.sendMessage(" ");
-                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-                p.sendMessage(" ");
-            } else {
-                long timeElapsed = System.currentTimeMillis() - cooldowns.get(p.getUniqueId());
-                if (timeElapsed >= 10000) {
-                    this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
+                if(!config.getStringList("Eventy.OnBreakStone.Drop_dziala_na_trybie_survival").isEmpty()) {
+                    for (String s : mes_drop_dziala_na_trybie_sur) {
+                        p.sendMessage(s.replace("&", "§"));
+                    }
+                }else if(!config.getStringList("Eventy.OnBreakStone.Drop_dziala_na_trybie_survival").contains(null)){
+                    for (String s : mes_drop_dziala_na_trybie_sur) {
+                        p.sendMessage(s.replace("&", "§"));
+                    }
+                }else {
                     p.sendMessage(" ");
                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                     p.sendMessage(" ");
@@ -162,6 +162,28 @@ public class OnBreak implements Listener {
                     p.sendMessage(" ");
                     p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
                     p.sendMessage(" ");
+                }
+            } else {
+                long timeElapsed = System.currentTimeMillis() - cooldowns.get(p.getUniqueId());
+                if (timeElapsed >= 10000) {
+                    this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
+                    if(!config.getStringList("Eventy.OnBreakStone.Drop_dziala_na_trybie_survival").isEmpty()) {
+                        for (String s : mes_drop_dziala_na_trybie_sur) {
+                            p.sendMessage(s.replace("&", "§"));
+                        }
+                    }else if(!config.getStringList("Eventy.OnBreakStone.Drop_dziala_na_trybie_survival").contains(null)){
+                        for (String s : mes_drop_dziala_na_trybie_sur) {
+                            p.sendMessage(s.replace("&", "§"));
+                        }
+                    }else {
+                        p.sendMessage(" ");
+                        p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                        p.sendMessage(" ");
+                        p.sendMessage("§7Drop dziala §bwylacznie§7 na trybie §eSURVIVAL§7.");
+                        p.sendMessage(" ");
+                        p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                        p.sendMessage(" ");
+                    }
                 }
             }
         }
@@ -224,16 +246,42 @@ public class OnBreak implements Listener {
     }
 
     public void not_enough_space_mode(Player p){
+        File file = new File("plugins/CobbleStoneDropGUI", "config.yml");
+        FileConfiguration config = plugin.getConfig();
+        List<String> mes_nie_mozna_postawic_tego_bloku_na_bedroocku = config.getStringList("Eventy.OnBreakStone.Nie_masz_miejsca_w_eq");
+
         UUID uuid = p.getUniqueId();
-        p.sendMessage(" ");
-        p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-        p.sendMessage(" ");
-        p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
-        p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
-        p.sendMessage("§7oporznij ekwipunek.");
-        p.sendMessage(" ");
-        p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
-        p.sendMessage(" ");
+        if(file.exists()) {
+            if (!config.getStringList("Eventy.OnBreakStone.Nie_masz_miejsca_w_eq").isEmpty()) {
+                for (String s : mes_nie_mozna_postawic_tego_bloku_na_bedroocku) {
+                    p.sendMessage(s.replace("&", "§"));
+                }
+            } else if (!config.getStringList("Eventy.OnBreakStone.Nie_masz_miejsca_w_eq").contains(null)) {
+                for (String s : mes_nie_mozna_postawic_tego_bloku_na_bedroocku) {
+                    p.sendMessage(s.replace("&", "§"));
+                }
+            } else {
+                p.sendMessage(" ");
+                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                p.sendMessage(" ");
+                p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+                p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+                p.sendMessage("§7oporznij ekwipunek.");
+                p.sendMessage(" ");
+                p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+                p.sendMessage(" ");
+            }
+        }else {
+            p.sendMessage(" ");
+            p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+            p.sendMessage(" ");
+            p.sendMessage("§bNie masz miejsca w EQ! §7Drop do EQ zostal");
+            p.sendMessage("§cwylaczony§7, jezeli chcesz go wlaczyc");
+            p.sendMessage("§7oporznij ekwipunek.");
+            p.sendMessage(" ");
+            p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
+            p.sendMessage(" ");
+        }
         PlayerDropConfig.get().set(uuid + ".eq", "true");
         PlayerDropConfig.save();
     }
