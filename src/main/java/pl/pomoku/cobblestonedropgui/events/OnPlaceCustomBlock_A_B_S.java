@@ -80,11 +80,7 @@ public class OnPlaceCustomBlock_A_B_S implements Listener {
     private void alert_cooldown(Player p, List<String> mes_nie_mozna_postawic_tego_bloku_na_bedroocku, FileConfiguration config) {
         this.cooldowns.put(p.getUniqueId(), System.currentTimeMillis());
         if(file.exists()) {
-            if (!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").isEmpty()) {
-                for (String value : mes_nie_mozna_postawic_tego_bloku_na_bedroocku) {
-                    p.sendMessage(value.replace("&", "§"));
-                }
-            } else if (!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").contains(null)) {
+            if (!config.getStringList("Eventy.Postawienie_Blokow_A_B_S.Nie_mozna_postawic_tego_bloku_na_bedroocku").isEmpty()) {
                 for (String value : mes_nie_mozna_postawic_tego_bloku_na_bedroocku) {
                     p.sendMessage(value.replace("&", "§"));
                 }

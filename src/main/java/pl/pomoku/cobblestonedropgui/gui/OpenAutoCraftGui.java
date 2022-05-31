@@ -91,27 +91,17 @@ public class OpenAutoCraftGui {
                         item0_lore.add(s.replace("&", "§"));
                     }
                     item0_meta.setLore(item0_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wlacz.Diamond_block_lore_on").contains(null)) {
-                    List<String> item0_lore = new ArrayList<>();
-                    for (String s : lore_diamond_block_on) {
-                        item0_lore.add(s.replace("&", "§"));
-                    }
-                    item0_meta.setLore(item0_lore);
                 } else {
                     item0_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 diamentow to".replace("&", "§"), "&7przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki diamentu!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
                 }
             }else {
                 item0_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 diamentow to".replace("&", "§"), "&7przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki diamentu!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
+            item0_meta.addEnchant(Enchantment.LUCK, 1, false);
+            item0_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         } else {
             if(file.exists()) {
                 if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Diamond_block_lore_off").isEmpty()) {
-                    List<String> item0_lore = new ArrayList<>();
-                    for (String s : lore_diamond_block_off) {
-                        item0_lore.add(s.replace("&", "§"));
-                    }
-                    item0_meta.setLore(item0_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Diamond_block_lore_off").contains(null)) {
                     List<String> item0_lore = new ArrayList<>();
                     for (String s : lore_diamond_block_off) {
                         item0_lore.add(s.replace("&", "§"));
@@ -124,8 +114,6 @@ public class OpenAutoCraftGui {
                 item0_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 diamentow to".replace("&", "§"), "&7przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki diamentu!".replace("&", "§"), " ", "&7Craftowanie: &c&lWYLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
         }
-        item0_meta.addEnchant(Enchantment.LUCK, 1, false);
-        item0_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         items[0].setItemMeta(item0_meta);
 
         ItemMeta item1_meta = items[1].getItemMeta();
@@ -138,18 +126,14 @@ public class OpenAutoCraftGui {
                         item1_lore.add(s.replace("&", "§"));
                     }
                     item1_meta.setLore(item1_lore);
-                }else if(!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wlacz.Iron_block_lore_on").contains(null)){
-                    List<String> item1_lore = new ArrayList<>();
-                    for (String s : lore_iron_block_on) {
-                        item1_lore.add(s.replace("&", "§"));
-                    }
-                    item1_meta.setLore(item1_lore);
-                } else {
+                }else {
                     item1_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 sztabek zelaza".replace("&", "§"), "&7to przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki zelaza!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
                 }
             }else {
                 item1_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 sztabek zelaza".replace("&", "§"), "&7to przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki zelaza!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
+            item1_meta.addEnchant(Enchantment.LUCK, 1, false);
+            item1_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         } else {
             if(file.exists()) {
                 if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Iron_block_lore_off").isEmpty()) {
@@ -158,21 +142,13 @@ public class OpenAutoCraftGui {
                         item1_lore.add(s.replace("&", "§"));
                     }
                     item1_meta.setLore(item1_lore);
-                }else if(!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Iron_block_lore_off").contains(null)){
-                    List<String> item1_lore = new ArrayList<>();
-                    for (String s : lore_iron_block_off) {
-                        item1_lore.add(s.replace("&", "§"));
-                    }
-                    item1_meta.setLore(item1_lore);
-                } else {
+                }else {
                     item1_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 sztabek zelaza".replace("&", "§"), "&7to przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki zelaza!".replace("&", "§"), " ", "&7Craftowanie: &c&lWYLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
                 }
             }else {
                 item1_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 sztabek zelaza".replace("&", "§"), "&7to przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki zelaza!".replace("&", "§"), " ", "&7Craftowanie: &c&lWYLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
         }
-        item1_meta.addEnchant(Enchantment.LUCK, 1, false);
-        item1_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         items[1].setItemMeta(item1_meta);
 
         ItemMeta item2_meta = items[2].getItemMeta();
@@ -185,12 +161,6 @@ public class OpenAutoCraftGui {
                         item2_lore.add(s.replace("&", "§"));
                     }
                     item2_meta.setLore(item2_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wlacz.Gold_block_lore_on").contains(null)) {
-                    List<String> item2_lore = new ArrayList<>();
-                    for (String s : lore_gold_block_on) {
-                        item2_lore.add(s.replace("&", "§"));
-                    }
-                    item2_meta.setLore(item2_lore);
                 } else {
                     //item0_meta.setLore(List.of("".replace("&", "§"),"".replace("&", "§"),"".replace("&", "§"),"".replace("&", "§"),"".replace("&", "§"),"".replace("&", "§")));
                     item2_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 sztabek zlota".replace("&", "§"), "&7to przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki zlota!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
@@ -198,15 +168,11 @@ public class OpenAutoCraftGui {
             }else {
                 item2_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 sztabek zlota".replace("&", "§"), "&7to przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki zlota!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
+            item2_meta.addEnchant(Enchantment.LUCK, 1, false);
+            item2_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             if(file.exists()) {
                 if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Gold_block_lore_off").isEmpty()) {
-                    List<String> item2_lore = new ArrayList<>();
-                    for (String s : lore_gold_block_off) {
-                        item2_lore.add(s.replace("&", "§"));
-                    }
-                    item2_meta.setLore(item2_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Gold_block_lore_off").contains(null)) {
                     List<String> item2_lore = new ArrayList<>();
                     for (String s : lore_gold_block_off) {
                         item2_lore.add(s.replace("&", "§"));
@@ -219,8 +185,6 @@ public class OpenAutoCraftGui {
                 item2_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 sztabek zlota".replace("&", "§"), "&7to przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki zlota!".replace("&", "§"), " ", "&7Craftowanie: &c&lWYLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
         }
-        item2_meta.addEnchant(Enchantment.LUCK, 1, false);
-        item2_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         items[2].setItemMeta(item2_meta);
 
         ItemMeta item3_meta = items[3].getItemMeta();
@@ -233,27 +197,17 @@ public class OpenAutoCraftGui {
                         item3_lore.add(s.replace("&", "§"));
                     }
                     item3_meta.setLore(item3_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wlacz.Emerald_block_lore_on").contains(null)) {
-                    List<String> item3_lore = new ArrayList<>();
-                    for (String s : lore_emerald_block_on) {
-                        item3_lore.add(s.replace("&", "§"));
-                    }
-                    item3_meta.setLore(item3_lore);
                 } else {
                     item3_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 szmaragdow to".replace("&", "§"), "&7przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki szmaragdow!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
                 }
             }else {
                 item3_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 szmaragdow to".replace("&", "§"), "&7przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki szmaragdow!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
+            item3_meta.addEnchant(Enchantment.LUCK, 1, false);
+            item3_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             if(file.exists()) {
                 if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Emerald_block_lore_off").isEmpty()) {
-                    List<String> item3_lore = new ArrayList<>();
-                    for (String s : lore_emerald_block_off) {
-                        item3_lore.add(s.replace("&", "§"));
-                    }
-                    item3_meta.setLore(item3_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Emerald_block_lore_off").contains(null)) {
                     List<String> item3_lore = new ArrayList<>();
                     for (String s : lore_emerald_block_off) {
                         item3_lore.add(s.replace("&", "§"));
@@ -266,21 +220,13 @@ public class OpenAutoCraftGui {
                 item3_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 szmaragdow to".replace("&", "§"), "&7przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki szmaragdow!".replace("&", "§"), " ", "&7Craftowanie: &c&lWYLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
         }
-        item3_meta.addEnchant(Enchantment.LUCK, 1, false);
-        item3_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         items[3].setItemMeta(item3_meta);
 
         ItemMeta item4_meta = items[4].getItemMeta();
         item4_meta.setDisplayName(Objects.requireNonNullElse(name_redstone_block, "&a&lBlok Redstona").replace("&", "§"));
         if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".auto_craft_redstone_block"), "true")){
             if(file.exists()) {
-                if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wlacz.Redstone_block_lore_onn").isEmpty()) {
-                    List<String> item4_lore = new ArrayList<>();
-                    for (String s : lore_redstone_block_on) {
-                        item4_lore.add(s.replace("&", "§"));
-                    }
-                    item4_meta.setLore(item4_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wlacz.Redstone_block_lore_onn").contains(null)) {
+                if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wlacz.Redstone_block_lore_on").isEmpty()) {
                     List<String> item4_lore = new ArrayList<>();
                     for (String s : lore_redstone_block_on) {
                         item4_lore.add(s.replace("&", "§"));
@@ -292,6 +238,8 @@ public class OpenAutoCraftGui {
             }else {
                 item4_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 redstone'a to".replace("&", "§"), "&7przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki redstone'a!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
+            item4_meta.addEnchant(Enchantment.LUCK, 1, false);
+            item4_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             if(file.exists()) {
                 if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Redstone_block_lore_off").isEmpty()) {
@@ -300,32 +248,20 @@ public class OpenAutoCraftGui {
                         item4_lore.add(s.replace("&", "§"));
                     }
                     item4_meta.setLore(item4_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Redstone_block_lore_off").contains(null)) {
-                    List<String> item4_lore = new ArrayList<>();
-                    for (String s : lore_redstone_block_off) {
-                        item4_lore.add(s.replace("&", "§"));
-                    }
-                    item4_meta.setLore(item4_lore);
                 } else {
                     item4_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 redstone'a to".replace("&", "§"), "&7przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki redstone'a!".replace("&", "§"), " ", "&7Craftowanie: &c&lWYLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
                 }
+            }else {
+                item4_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 redstone'a to".replace("&", "§"), "&7przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki redstone'a!".replace("&", "§"), " ", "&7Craftowanie: &c&lWYLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
         }
-        item4_meta.addEnchant(Enchantment.LUCK, 1, false);
-        item4_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         items[4].setItemMeta(item4_meta);
 
         ItemMeta item5_meta = items[5].getItemMeta();
         item5_meta.setDisplayName(Objects.requireNonNullElse(name_coal_block, "&a&lBlok Wegla").replace("&", "§"));
         if(Objects.equals(PlayerDropConfig.get().getString(uuid + ".auto_craft_coal_block"), "true")){
             if(file.exists()) {
-                if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wlacz.Cole_block_lore_on").isEmpty()) {
-                    List<String> item5_lore = new ArrayList<>();
-                    for (String s : lore_coal_block_on) {
-                        item5_lore.add(s.replace("&", "§"));
-                    }
-                    item5_meta.setLore(item5_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wlacz.Cole_block_lore_on").contains(null)) {
+                if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wlacz.Coal_block_lore_on").isEmpty()) {
                     List<String> item5_lore = new ArrayList<>();
                     for (String s : lore_coal_block_on) {
                         item5_lore.add(s.replace("&", "§"));
@@ -337,15 +273,11 @@ public class OpenAutoCraftGui {
             }else {
                 item5_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 wegla to".replace("&", "§"), "&7przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki wegla!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
+            item5_meta.addEnchant(Enchantment.LUCK, 1, false);
+            item5_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             if(file.exists()) {
-                if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Cole_block_lore_off").isEmpty()) {
-                    List<String> item5_lore = new ArrayList<>();
-                    for (String s : lore_coal_block_off) {
-                        item5_lore.add(s.replace("&", "§"));
-                    }
-                    item5_meta.setLore(item5_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Cole_block_lore_off").contains(null)) {
+                if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Coal_block_lore_off").isEmpty()) {
                     List<String> item5_lore = new ArrayList<>();
                     for (String s : lore_coal_block_off) {
                         item5_lore.add(s.replace("&", "§"));
@@ -358,8 +290,6 @@ public class OpenAutoCraftGui {
                 item5_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 9 wegla to".replace("&", "§"), "&7przy kopaniu bedzie je".replace("&", "§"), "&7zamieniac na bloki wegla!".replace("&", "§"), " ", "&7Craftowanie: &c&lWYLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
         }
-        item5_meta.addEnchant(Enchantment.LUCK, 1, false);
-        item5_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         items[5].setItemMeta(item5_meta);
 
         ItemMeta item6_meta = items[6].getItemMeta();
@@ -372,27 +302,17 @@ public class OpenAutoCraftGui {
                         item6_lore.add(s.replace("&", "§"));
                     }
                     item6_meta.setLore(item6_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wlacz.Auto_fosa_block_lore_on").contains(null)) {
-                    List<String> item6_lore = new ArrayList<>();
-                    for (String s : lore_auto_fosa_block_on) {
-                        item6_lore.add(s.replace("&", "§"));
-                    }
-                    item6_meta.setLore(item6_lore);
                 } else {
                     item6_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 8 blokow szmaragdow".replace("&", "§"), "&7+ 1 blok diamentow to przy kopaniu".replace("&", "§"), "&7bedzie je zamieniac na auto fose!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
                 }
             }else {
                 item6_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 8 blokow szmaragdow".replace("&", "§"), "&7+ 1 blok diamentow to przy kopaniu".replace("&", "§"), "&7bedzie je zamieniac na auto fose!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
+            item6_meta.addEnchant(Enchantment.LUCK, 1, false);
+            item6_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             if(file.exists()) {
                 if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Auto_fosa_block_lore_off").isEmpty()) {
-                    List<String> item6_lore = new ArrayList<>();
-                    for (String s : lore_auto_fosa_block_off) {
-                        item6_lore.add(s.replace("&", "§"));
-                    }
-                    item6_meta.setLore(item6_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Auto_fosa_block_lore_off").contains(null)) {
                     List<String> item6_lore = new ArrayList<>();
                     for (String s : lore_auto_fosa_block_off) {
                         item6_lore.add(s.replace("&", "§"));
@@ -405,8 +325,6 @@ public class OpenAutoCraftGui {
                 item6_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 8 blokow szmaragdow".replace("&", "§"), "&7+ 1 blok diamentow to przy kopaniu".replace("&", "§"), "&7bedzie je zamieniac na auto fose!".replace("&", "§"), " ", "&7Craftowanie: &c&lWYLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
         }
-        item6_meta.addEnchant(Enchantment.LUCK, 1, false);
-        item6_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         items[6].setItemMeta(item6_meta);
 
         ItemMeta item7_meta = items[7].getItemMeta();
@@ -419,27 +337,17 @@ public class OpenAutoCraftGui {
                         item7_lore.add(s.replace("&", "§"));
                     }
                     item7_meta.setLore(item7_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wlacz.Boy_farmer_block_lore_on").contains(null)) {
-                    List<String> item7_lore = new ArrayList<>();
-                    for (String s : lore_boy_farmer_block_on) {
-                        item7_lore.add(s.replace("&", "§"));
-                    }
-                    item7_meta.setLore(item7_lore);
                 } else {
                     item7_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 8 blokow obsydianu".replace("&", "§"), "&7+ 1 blok szmaragdow to przy kopaniu".replace("&", "§"), "&7bedzie je zamieniac na boy farmera!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
                 }
             }else {
                 item7_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 8 blokow obsydianu".replace("&", "§"), "&7+ 1 blok szmaragdow to przy kopaniu".replace("&", "§"), "&7bedzie je zamieniac na boy farmera!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
+            item7_meta.addEnchant(Enchantment.LUCK, 1, false);
+            item7_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             if(file.exists()) {
                 if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Boy_farmer_block_lore_off").isEmpty()) {
-                    List<String> item7_lore = new ArrayList<>();
-                    for (String s : lore_boy_farmer_block_off) {
-                        item7_lore.add(s.replace("&", "§"));
-                    }
-                    item7_meta.setLore(item7_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Boy_farmer_block_lore_off").contains(null)) {
                     List<String> item7_lore = new ArrayList<>();
                     for (String s : lore_boy_farmer_block_off) {
                         item7_lore.add(s.replace("&", "§"));
@@ -452,8 +360,6 @@ public class OpenAutoCraftGui {
                 item7_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 8 blokow obsydianu".replace("&", "§"), "&7+ 1 blok szmaragdow to przy kopaniu".replace("&", "§"), "&7bedzie je zamieniac na boy farmera!".replace("&", "§"), " ", "&7Craftowanie: &c&lWYLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
         }
-        item7_meta.addEnchant(Enchantment.LUCK, 1, false);
-        item7_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         items[7].setItemMeta(item7_meta);
 
         ItemMeta item8_meta = items[8].getItemMeta();
@@ -466,27 +372,17 @@ public class OpenAutoCraftGui {
                         item8_lore.add(s.replace("&", "§"));
                     }
                     item8_meta.setLore(item8_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wlacz.Sand_farmer_block_lore_on").contains(null)) {
-                    List<String> item8_lore = new ArrayList<>();
-                    for (String s : lore_sand_farmer_block_on) {
-                        item8_lore.add(s.replace("&", "§"));
-                    }
-                    item8_meta.setLore(item8_lore);
                 } else {
                     item8_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 8 blokow piasku".replace("&", "§"), "&7+ 1 blok szmaragdow to przy kopaniu".replace("&", "§"), "&7bedzie je zamieniac na sand farmera!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
                 }
             }else {
                 item8_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 8 blokow piasku".replace("&", "§"), "&7+ 1 blok szmaragdow to przy kopaniu".replace("&", "§"), "&7bedzie je zamieniac na sand farmera!".replace("&", "§"), " ", "&7Craftowanie: &a&lWLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
+            item8_meta.addEnchant(Enchantment.LUCK, 1, false);
+            item8_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }else {
             if(file.exists()) {
                 if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Sand_farmer_block_lore_off").isEmpty()) {
-                    List<String> item8_lore = new ArrayList<>();
-                    for (String s : lore_sand_farmer_block_off) {
-                        item8_lore.add(s.replace("&", "§"));
-                    }
-                    item8_meta.setLore(item8_lore);
-                } else if (!config.getStringList("GUI.AutoCraft.Open.Items.Opis.Wylacz.Sand_farmer_block_lore_off").contains(null)) {
                     List<String> item8_lore = new ArrayList<>();
                     for (String s : lore_sand_farmer_block_off) {
                         item8_lore.add(s.replace("&", "§"));
@@ -499,8 +395,6 @@ public class OpenAutoCraftGui {
                 item8_meta.setLore(List.of("&7Jesli masz w ekwipunku co".replace("&", "§"), "&7najmniej 8 blokow piasku".replace("&", "§"), "&7+ 1 blok szmaragdow to przy kopaniu".replace("&", "§"), "&7bedzie je zamieniac na sand farmera!".replace("&", "§"), " ", "&7Craftowanie: &c&lWYLACZONE".replace("&", "§"), "&eKliknij, aby przelaczyc!".replace("&", "§")));
             }
         }
-        item8_meta.addEnchant(Enchantment.LUCK, 1, false);
-        item8_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         items[8].setItemMeta(item8_meta);
 
         for(int i = 0; i < 9; i++) {

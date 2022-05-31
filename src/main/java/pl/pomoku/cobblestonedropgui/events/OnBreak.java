@@ -171,10 +171,6 @@ public class OnBreak implements Listener {
                         for (String s : mes_drop_dziala_na_trybie_sur) {
                             p.sendMessage(s.replace("&", "§"));
                         }
-                    }else if(!config.getStringList("Eventy.OnBreakStone.Drop_dziala_na_trybie_survival").contains(null)){
-                        for (String s : mes_drop_dziala_na_trybie_sur) {
-                            p.sendMessage(s.replace("&", "§"));
-                        }
                     }else {
                         p.sendMessage(" ");
                         p.sendMessage("§8[§c+§8]§m------------§r§8[ §cALERT §8]§m------------§r§8[§c+§8]");
@@ -253,10 +249,6 @@ public class OnBreak implements Listener {
         UUID uuid = p.getUniqueId();
         if(file.exists()) {
             if (!config.getStringList("Eventy.OnBreakStone.Nie_masz_miejsca_w_eq").isEmpty()) {
-                for (String s : mes_nie_mozna_postawic_tego_bloku_na_bedroocku) {
-                    p.sendMessage(s.replace("&", "§"));
-                }
-            } else if (!config.getStringList("Eventy.OnBreakStone.Nie_masz_miejsca_w_eq").contains(null)) {
                 for (String s : mes_nie_mozna_postawic_tego_bloku_na_bedroocku) {
                     p.sendMessage(s.replace("&", "§"));
                 }

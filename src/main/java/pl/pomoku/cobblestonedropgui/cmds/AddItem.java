@@ -80,11 +80,7 @@ public class AddItem implements CommandExecutor {
                     for (String s : mes_nie_mozna_wykonac_komendy_z_konsoli) {
                         sender.sendMessage(s.replace("&", "§"));
                     }
-                } else if (!config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli").contains(null)) {
-                    for (String s : mes_nie_mozna_wykonac_komendy_z_konsoli) {
-                        sender.sendMessage(s.replace("&", "§"));
-                    }
-                } else {
+                }else {
                     sender.sendMessage("&cNie mozna wykonac tej komendy z konsoli!".replace("&", "§"));
                 }
             }else{

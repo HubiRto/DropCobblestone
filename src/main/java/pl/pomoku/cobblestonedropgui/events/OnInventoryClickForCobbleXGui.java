@@ -51,10 +51,6 @@ public class OnInventoryClickForCobbleXGui implements Listener {
                         for (String mesStworzylesCobbleX : mes_stworzyles_cobble_x) {
                             p.sendMessage(mesStworzylesCobbleX.replace("&", "§"));
                         }
-                    }else if(!config.getStringList("Tworzenie_cobble_x_w_gui.Stowrzyles_cobble_x").contains(null)){
-                        for (String mesStworzylesCobbleX : mes_stworzyles_cobble_x) {
-                            p.sendMessage(mesStworzylesCobbleX.replace("&", "§"));
-                        }
                     }else{
                         p.sendMessage("&aStworzyles cobble x!".replace("&", "§"));
                     }
@@ -70,12 +66,7 @@ public class OnInventoryClickForCobbleXGui implements Listener {
                             for (String s : mes_za_malo_itemow) {
                                 p.sendMessage(s.replace("&", "§"));
                             }
-                        }else if(!config.getStringList("Tworzenie_cobble_x_w_gui.Za_malo_itemow_do_stworzenia").contains(null)){
-                            for (String s : mes_za_malo_itemow) {
-                                p.sendMessage(s.replace("&", "§"));
-                            }
-                        }
-                        else{
+                        }else{
                             p.sendMessage("&cMasz za malo itemow do stworzenia cobble x!".replace("&", "§"));
                         }
                     }else {
@@ -86,12 +77,7 @@ public class OnInventoryClickForCobbleXGui implements Listener {
                                 for (String s : mes_za_malo_itemow) {
                                     p.sendMessage(s.replace("&", "§"));
                                 }
-                            }else if(!config.getStringList("Tworzenie_cobble_x_w_gui.Za_malo_itemow_do_stworzenia").contains(null)){
-                                for (String s : mes_za_malo_itemow) {
-                                    p.sendMessage(s.replace("&", "§"));
-                                }
-                            }
-                            else{
+                            }else{
                                 p.sendMessage("&cMasz za malo itemow do stworzenia cobble x!".replace("&", "§"));
                             }
                         }
