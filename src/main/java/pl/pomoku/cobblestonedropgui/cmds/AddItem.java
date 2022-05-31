@@ -37,6 +37,14 @@ public class AddItem implements CommandExecutor {
         File file = new File("plugins/CobbleStoneDropGUI", "config.yml");
         FileConfiguration config = plugin.getConfig();
         List<String> mes_nie_mozna_wykonac_komendy_z_konsoli = config.getStringList("Komendy.Dodaj.Nie_mozna_wykonac_komendy_z_konsoli");
+        List<String> dos_ultra_block = config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.Ultra_block");
+        List<String> dos_sand_farmer = config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.Sand_farmer");
+        List<String> dos_boy_farmer = config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.Boy_farmer");
+        List<String> dos_auto_fosa = config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.Auto_fosa");
+        List<String> dos_cobblex = config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.CobbleX");
+        List<String> dos_rzucane_tnt = config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.RzucaneTNT");
+        List<String> dos_stoniarka = config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.Stoniarka");
+
 
         if (sender instanceof Player) {
             Player p = (Player) sender;
@@ -45,31 +53,101 @@ public class AddItem implements CommandExecutor {
                 switch (args[0]) {
                     case "UltraBlock":
                         p.getInventory().addItem(ultra_block);
-                        p.sendMessage(ChatColor.GREEN + "Dostales ultra block!");
+                        if(file.exists()) {
+                            if (!config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.Ultra_block").isEmpty()) {
+                                for (String s : dos_ultra_block) {
+                                    p.sendMessage(s.replace("&", "§"));
+                                }
+                            }else {
+                                p.sendMessage(ChatColor.GREEN + "Dostales Ultra Block!");
+                            }
+                        }else {
+                            p.sendMessage(ChatColor.GREEN + "Dostales Ultra Block!");
+                        }
                         break;
                     case "SandFarmer":
                         p.getInventory().addItem(sand_farmer);
-                        p.sendMessage(ChatColor.GREEN + "Dostales Sand Farmera!");
+                        if(file.exists()) {
+                            if (!config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.Sand_farmer").isEmpty()) {
+                                for (String s : dos_sand_farmer) {
+                                    p.sendMessage(s.replace("&", "§"));
+                                }
+                            }else {
+                                p.sendMessage(ChatColor.GREEN + "Dostales Sand Farmera!");
+                            }
+                        }else {
+                            p.sendMessage(ChatColor.GREEN + "Dostales Sand Farmera!");
+                        }
                         break;
                     case "BoyFarmer":
                         p.getInventory().addItem(boy_farmer);
-                        p.sendMessage(ChatColor.GREEN + "Dostales Boy Farmera!");
+                        if(file.exists()) {
+                            if (!config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.Boy_farmer").isEmpty()) {
+                                for (String s : dos_boy_farmer) {
+                                    p.sendMessage(s.replace("&", "§"));
+                                }
+                            }else {
+                                p.sendMessage(ChatColor.GREEN + "Dostales Boy Farmera!");
+                            }
+                        }else {
+                            p.sendMessage(ChatColor.GREEN + "Dostales Boy Farmera!");
+                        }
                         break;
                     case "AutoFosa":
                         p.getInventory().addItem(auto_fosa);
-                        p.sendMessage(ChatColor.GREEN + "Dostales Auto Fose!");
+                        if(file.exists()) {
+                            if (!config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.Auto_fosa").isEmpty()) {
+                                for (String s : dos_auto_fosa) {
+                                    p.sendMessage(s.replace("&", "§"));
+                                }
+                            }else {
+                                p.sendMessage(ChatColor.GREEN + "Dostales Auto Fose!");
+                            }
+                        }else {
+                            p.sendMessage(ChatColor.GREEN + "Dostales Auto Fose!");
+                        }
                         break;
                     case "CobbleX":
                         p.getInventory().addItem(cobblex);
-                        p.sendMessage(ChatColor.GREEN + "Dostales Cobble X!");
+                        if(file.exists()) {
+                            if (!config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.CobbleX").isEmpty()) {
+                                for (String s : dos_cobblex) {
+                                    p.sendMessage(s.replace("&", "§"));
+                                }
+                            }else {
+                                p.sendMessage(ChatColor.GREEN + "Dostales Cobble X!");
+                            }
+                        }else {
+                            p.sendMessage(ChatColor.GREEN + "Dostales Cobble X!");
+                        }
                         break;
                     case "RzucaneTNT":
                         p.getInventory().addItem(throwtnt);
-                        p.sendMessage(ChatColor.GREEN + "Dostales Rzucane TnT!");
+                        if(file.exists()) {
+                            if (!config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.RzucaneTNT").isEmpty()) {
+                                for (String s : dos_rzucane_tnt) {
+                                    p.sendMessage(s.replace("&", "§"));
+                                }
+                            }else {
+                                p.sendMessage(ChatColor.GREEN + "Dostales Rzucane TnT!");
+                            }
+                        }else {
+                            p.sendMessage(ChatColor.GREEN + "Dostales Rzucane TnT!");
+                        }
                         break;
                     case "Stoniarka":
                         p.getInventory().addItem(stoniarka);
-                        p.sendMessage(ChatColor.GREEN + "Dostales Stoniarke");
+                        if(file.exists()) {
+                            if (!config.getStringList("Komendy.Dodaj.Dostawanie_przedmiotu.Stoniarka").isEmpty()) {
+                                for (String s : dos_stoniarka) {
+                                    p.sendMessage(s.replace("&", "§"));
+                                }
+                            }else {
+                                p.sendMessage(ChatColor.GREEN + "Dostales Stoniarke!");
+                            }
+                        }else {
+                            p.sendMessage(ChatColor.GREEN + "Dostales Stoniarke!");
+                        }
                     default:
                         break;
                 }

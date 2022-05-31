@@ -5,6 +5,14 @@ Tworzenie_cobble_x_w_gui:
 Komendy:
   Dodaj:
     Nie_mozna_wykonac_komendy_z_konsoli: ["&cNie można wykonać tej komendy z konsoli!"]
+    Dostawanie_przedmiotu:
+      Ultra_block: ["&aDostales Ultra Block!"]
+      Sand_farmer: ["&aDostales Sand Farmera!"]
+      Boy_farmer: ["&aDostales Boy Farmera!"]
+      Auto_fosa: ["&aDostales Auto Fose!"]
+      CobbleX: ["&aDostales CobbleX!"]
+      RzucaneTNT: ["&aDostales Rzucane TNT!"]
+      Stoniarka: ["&aDostales Stoniarke!"]
 Eventy:
   OnBreakStone:
     Drop_dziala_na_trybie_survival: [" ", "&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]", " ", "&7Drop dziala &bwylacznie&7 na trybie &eSURVIVAL&7.", " ", "&8[&c+&8]&m------------&r&8[ &cALERT &8]&m------------&r&8[&c+&8]"]
